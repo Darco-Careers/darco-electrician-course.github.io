@@ -255,7 +255,8 @@ footer a { color: var(--yellow); text-decoration: none; }
 
 <nav class="nav-bar">
   <div class="nav-inner">
-    <button class="nav-tab active" onclick="showTab('path',this)">🗺 Your Path</button>
+    <button class="nav-tab active" onclick="showTab('starthere',this)">🚀 Start Here</button>
+    <button class="nav-tab" onclick="showTab('path',this)">🗺 Your Path</button>
     <button class="nav-tab" onclick="showTab('timeline',this)">📅 Timeline</button>
     <button class="nav-tab" onclick="showTab('getjob',this)">💼 Getting Hired</button>
     <button class="nav-tab" onclick="showTab('videos',this)">▶ Videos</button>
@@ -269,8 +270,107 @@ footer a { color: var(--yellow); text-decoration: none; }
 
 <main class="main">
 
+<!-- ════ START HERE ════ -->
+<section id="starthere" class="section active">
+  <h2 class="section-heading">Start here — your first 3 steps</h2>
+  <p class="section-sub">Don't overthink it. Before you do anything else, complete these three things in order. That's it. Everything else in this guide comes after.</p>
+
+  <div class="callout important">
+    <span class="callout-icon">👋</span>
+    <span><strong>Welcome to the Darco Career Training Program.</strong> You don't need any experience, any tools, or any background in electrical work to begin. All you need is a phone or computer and a few hours a week. Let's go.</span>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="card" style="border-left: 4px solid #3B82F6; margin-bottom: 16px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+      <div style="width:40px;height:40px;border-radius:50%;background:#DBEAFE;color:#1E40AF;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;font-weight:700;flex-shrink:0;">1</div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;color:var(--navy);margin-bottom:2px;">Watch these Khan Academy videos — in this exact order</h4>
+        <p style="font-size:12px;color:var(--slate);margin:0;">Free · No signup needed · Watch on your phone · Takes about 3–4 hours total</p>
+      </div>
+    </div>
+    <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;">
+      <p style="font-size:13px;color:#1A3F6A;margin-bottom:10px;font-weight:600;">Go to: <a href="https://www.khanacademy.org/science/electrical-engineering/ee-circuit-analysis-topic" target="_blank" style="color:#1A6FBF;">khanacademy.org → Electrical Engineering → Circuit Analysis ↗</a></p>
+      <p style="font-size:12px;color:#1A3F6A;margin-bottom:8px;">Watch these units in order — pause and replay anything that's unclear:</p>
+      <ol style="padding-left:1.2rem;">
+        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Introduction to circuits and Ohm's Law</strong> — this is the foundation of everything</li>
+        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Resistors in series</strong> — how current flows through a chain</li>
+        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Resistors in parallel</strong> — how current splits between branches</li>
+        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Voltage dividers</strong> — used constantly in real electrical work</li>
+        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Kirchhoff's Current Law (KCL)</strong> — current in = current out</li>
+        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;"><strong>Kirchhoff's Voltage Law (KVL)</strong> — voltage around a loop always sums to zero</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-bottom:0;">
+      <span class="callout-icon">💡</span>
+      <span>Don't try to memorize everything perfectly. Watch each video once, take a few notes, and move on. You'll understand it better once you start seeing it in real life on the job.</span>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="card" style="border-left: 4px solid var(--green); margin-bottom: 16px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--green-light);color:#065F46;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;font-weight:700;flex-shrink:0;">2</div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;color:var(--navy);margin-bottom:2px;">Get your OSHA 10 card</h4>
+        <p style="font-size:12px;color:var(--slate);margin:0;">~$30–50 · 10 hours online · Do this in your first 2 weeks · You'll need it to get hired</p>
+      </div>
+    </div>
+    <div style="background:var(--green-light);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;">
+      <p style="font-size:13px;color:#0C4D34;margin-bottom:8px;">The OSHA 10 is a safety certification that almost every electrical employer asks for. Without it, many contractors won't even call you back. It covers electrical hazards, lockout/tagout procedures, and job site safety.</p>
+      <p style="font-size:13px;color:#0C4D34;margin-bottom:8px;font-weight:600;">How to get it:</p>
+      <ol style="padding-left:1.2rem;">
+        <li style="font-size:13px;color:#0C4D34;line-height:1.8;margin-bottom:4px;">Go to <a href="https://www.osha.gov/oshtraining/outreach/construction" target="_blank" style="color:#065F46;font-weight:600;">osha.gov/oshtraining ↗</a> and find an authorized online provider</li>
+        <li style="font-size:13px;color:#0C4D34;line-height:1.8;margin-bottom:4px;">Complete the 10-hour course at your own pace — spread it over a few evenings</li>
+        <li style="font-size:13px;color:#0C4D34;line-height:1.8;">Your OSHA 10 card arrives by mail — add it to your resume immediately</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-bottom:0;">
+      <span class="callout-icon">🦺</span>
+      <span>This single card is worth more than any other credential at this stage. Employers see it and know you take safety seriously — which is the #1 thing they care about in a new hire.</span>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="card" style="border-left: 4px solid var(--amber); margin-bottom: 16px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--amber-light);color:#92400E;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;font-weight:700;flex-shrink:0;">3</div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;color:var(--navy);margin-bottom:2px;">Complete the free Alison electrical certificate</h4>
+        <p style="font-size:12px;color:var(--slate);margin:0;">Free · Self-paced · Takes a few days · Gives you a real credential for your resume</p>
+      </div>
+    </div>
+    <div style="background:var(--amber-light);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;">
+      <p style="font-size:13px;color:#7A3D0D;margin-bottom:8px;">Alison is a free online learning platform. Their electrical course covers the basics of how electrical systems work in homes and buildings. When you finish, you get a free digital certificate you can add to your resume right away.</p>
+      <p style="font-size:13px;color:#7A3D0D;margin-bottom:8px;font-weight:600;">How to do it:</p>
+      <ol style="padding-left:1.2rem;">
+        <li style="font-size:13px;color:#7A3D0D;line-height:1.8;margin-bottom:4px;">Go to <a href="https://alison.com/courses/principles-of-electricity" target="_blank" style="color:#92400E;font-weight:600;">alison.com → Principles of Electricity ↗</a></li>
+        <li style="font-size:13px;color:#7A3D0D;line-height:1.8;margin-bottom:4px;">Create a free account and start the course</li>
+        <li style="font-size:13px;color:#7A3D0D;line-height:1.8;margin-bottom:4px;">Complete all the modules and pass the assessment</li>
+        <li style="font-size:13px;color:#7A3D0D;line-height:1.8;">Download your free digital certificate and save it</li>
+      </ol>
+    </div>
+    <div class="callout tip" style="margin-bottom:0;">
+      <span class="callout-icon">📄</span>
+      <span>When you apply for helper jobs with zero work experience, any certificate on your resume shows initiative. This one is free and takes just a few days — there's no reason not to do it.</span>
+    </div>
+  </div>
+
+  <!-- WHAT NEXT -->
+  <div class="card" style="background:var(--navy);border:none;margin-top:8px;">
+    <h4 style="color:var(--yellow);font-size:14px;margin-bottom:10px;">✅ Once you've done all three — what's next?</h4>
+    <ul style="padding-left:1.2rem;">
+      <li style="font-size:13.5px;color:var(--slate-light);line-height:1.75;margin-bottom:4px;">Click the <strong style="color:var(--white);">📅 Timeline tab</strong> to see your full study plan week by week</li>
+      <li style="font-size:13.5px;color:var(--slate-light);line-height:1.75;margin-bottom:4px;">Click the <strong style="color:var(--white);">💼 Getting Hired tab</strong> to learn exactly how and where to apply for your first job</li>
+      <li style="font-size:13.5px;color:var(--slate-light);line-height:1.75;margin-bottom:4px;">Start listening to the <a href="https://podcasts.apple.com/us/podcast/electrician-u/id1583270265" target="_blank" style="color:var(--yellow);">Electrician U Podcast ↗</a> on your commute every day</li>
+      <li style="font-size:13.5px;color:var(--slate-light);line-height:1.75;">Use the <strong style="color:var(--white);">✅ Tracker tab</strong> to check off your progress as you go</li>
+    </ul>
+  </div>
+
+</section>
+
 <!-- ════ YOUR PATH ════ -->
-<section id="path" class="section active">
+<section id="path" class="section">
   <h2 class="section-heading">Understanding your path</h2>
   <p class="section-sub">There are two main routes into the electrical trade. You're taking the direct-hire route. Here's what that means, how it compares, and why it works.</p>
 
