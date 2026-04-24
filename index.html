@@ -3,1141 +3,1353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Darco Career Training Guide — NY Electrician Program</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Darco Electrical Career Course — From Zero to Employed</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --yellow: #F5C842;
-  --yellow-dark: #C9A000;
-  --yellow-light: #FEF3C0;
-  --navy: #0F1B2D;
-  --navy-mid: #1E3048;
-  --navy-light: #2A4060;
-  --slate: #4A6282;
-  --slate-light: #8BA3BC;
-  --cream: #FAF8F3;
-  --cream-dark: #F0EDE4;
+  --black: #0A0A0A;
+  --off-black: #111318;
+  --dark: #1A1E26;
+  --mid: #2C3140;
+  --yellow: #F7C948;
+  --yellow-dim: #C9A02A;
+  --yellow-pale: #FEF5D4;
+  --cream: #FAF6EE;
+  --cream-dark: #F0EAD8;
   --white: #FFFFFF;
-  --green: #1A9E6E;
-  --green-light: #D4F5EA;
-  --amber: #E07B2C;
-  --amber-light: #FDE8D0;
-  --red: #C0392B;
-  --red-light: #FDECEA;
-  --blue-light: #E8F3FF;
-  --blue: #2E7FD4;
-  --border: rgba(15,27,45,0.1);
-  --shadow-sm: 0 1px 4px rgba(15,27,45,0.08);
-  --shadow-md: 0 4px 16px rgba(15,27,45,0.11);
-  --radius: 12px;
-  --radius-sm: 8px;
+  --green: #1F9C6E;
+  --green-light: #D1F5E8;
+  --amber: #D97C2B;
+  --amber-light: #FDE8CC;
+  --red: #C13030;
+  --red-light: #FDDCDC;
+  --blue: #2A6FBF;
+  --blue-light: #DCEbF8;
+  --text: #1A1E26;
+  --text-mid: #4A5268;
+  --text-muted: #8A93A8;
+  --border: rgba(26,30,38,0.1);
+  --border-light: rgba(26,30,38,0.06);
+  --shadow: 0 2px 12px rgba(10,10,10,0.08);
+  --shadow-lg: 0 8px 40px rgba(10,10,10,0.14);
+  --r: 10px;
+  --r-sm: 6px;
 }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Source Sans 3', sans-serif; background: var(--cream); color: var(--text); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
 
-/* DARCO TOP BAR */
-.darco-bar { background: var(--yellow); padding: 7px 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
-.darco-bar-inner { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
-.darco-wordmark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.darco-logo-box { width: 34px; height: 34px; background: var(--navy); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--yellow); font-weight: 700; letter-spacing: -0.03em; flex-shrink: 0; }
-.darco-name { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--navy); font-weight: 700; letter-spacing: 0.01em; }
-.darco-tagline { font-size: 11px; color: var(--navy); opacity: 0.65; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
-.darco-program-label { font-size: 11px; font-weight: 700; color: var(--navy); background: rgba(15,27,45,0.12); border-radius: 20px; padding: 3px 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+/* ── DARCO BAR ── */
+.darco-bar { background: var(--yellow); padding: 8px 1.5rem; }
+.darco-bar-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.darco-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.darco-d { width: 32px; height: 32px; background: var(--black); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 17px; color: var(--yellow); font-weight: 700; flex-shrink: 0; }
+.darco-name { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--black); font-weight: 700; }
+.darco-pill { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; background: rgba(10,10,10,0.12); color: var(--black); padding: 3px 11px; border-radius: 20px; }
 
-/* HEADER */
-.site-header { background: var(--navy); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-.header-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 58px; }
-.logo { display: flex; align-items: center; gap: 10px; font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--white); text-decoration: none; }
-.logo-bolt { width: 30px; height: 30px; background: var(--yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
-.header-badge { font-size: 11px; background: rgba(245,200,66,0.15); color: var(--yellow); border: 1px solid rgba(245,200,66,0.3); padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+/* ── SITE HEADER ── */
+.site-header { background: var(--off-black); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+.header-inner { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+.header-logo { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.header-bolt { font-size: 18px; }
+.header-badge { font-size: 11px; color: var(--yellow); border: 1px solid rgba(247,201,72,0.3); background: rgba(247,201,72,0.1); padding: 3px 10px; border-radius: 20px; font-weight: 500; letter-spacing: 0.03em; }
 
-/* HERO */
-.hero { background: var(--navy); color: var(--white); padding: 4.5rem 1.5rem 3.5rem; position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(245,200,66,0.10) 0%, transparent 70%); pointer-events: none; }
-.hero::after { content: ''; position: absolute; bottom: -60px; left: 10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(26,158,110,0.07) 0%, transparent 70%); pointer-events: none; }
-.hero-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
-.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.25rem; }
-.hero-eyebrow::before { content: ''; width: 24px; height: 1.5px; background: var(--yellow); }
-.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin-bottom: 1.25rem; color: var(--white); }
+/* ── HERO ── */
+.hero { background: var(--off-black); color: var(--white); padding: 5rem 1.5rem 4.5rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 20%, rgba(247,201,72,0.08) 0%, transparent 60%), radial-gradient(ellipse at 10% 80%, rgba(31,156,110,0.06) 0%, transparent 50%); pointer-events: none; }
+.hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-label { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.5rem; }
+.hero-label::before { content: ''; width: 28px; height: 1.5px; background: var(--yellow); }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 3.6rem); line-height: 1.12; margin-bottom: 1.5rem; color: var(--white); font-weight: 700; }
 .hero h1 em { font-style: italic; color: var(--yellow); }
-.hero-desc { font-size: 16px; color: var(--slate-light); max-width: 580px; margin-bottom: 1.75rem; line-height: 1.7; }
-.hero-path-note { background: rgba(245,200,66,0.12); border: 1px solid rgba(245,200,66,0.25); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 13.5px; color: #FEF3C0; margin-bottom: 1.75rem; line-height: 1.6; max-width: 580px; }
-.hero-path-note strong { color: var(--yellow); }
+.hero-intro { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 580px; margin-bottom: 2rem; line-height: 1.75; }
+.hero-note { background: rgba(247,201,72,0.1); border: 1px solid rgba(247,201,72,0.2); border-radius: var(--r-sm); padding: 14px 18px; font-size: 14px; color: rgba(255,255,255,0.8); max-width: 580px; margin-bottom: 2rem; line-height: 1.65; }
+.hero-note strong { color: var(--yellow); }
 .hero-stats { display: flex; flex-wrap: wrap; gap: 10px; }
-.stat-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 40px; padding: 6px 14px; font-size: 13px; color: var(--slate-light); }
-.stat-pill strong { color: var(--white); font-weight: 600; }
+.stat-chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 7px 15px; font-size: 13px; color: rgba(255,255,255,0.6); }
+.stat-chip strong { color: var(--white); }
 
-/* NAV */
-.nav-bar { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 58px; z-index: 90; box-shadow: var(--shadow-sm); }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
-.nav-inner::-webkit-scrollbar { display: none; }
-.nav-tab { background: none; border: none; padding: 13px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--slate); cursor: pointer; white-space: nowrap; border-bottom: 2.5px solid transparent; transition: all 0.18s; }
-.nav-tab:hover { color: var(--navy); }
-.nav-tab.active { color: var(--navy); border-bottom-color: var(--yellow-dark); }
+/* ── CHAPTER NAV ── */
+.chapter-nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 56px; z-index: 90; box-shadow: var(--shadow); }
+.chapter-nav-inner { max-width: 1080px; margin: 0 auto; display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 1rem; }
+.chapter-nav-inner::-webkit-scrollbar { display: none; }
+.ch-btn { background: none; border: none; border-bottom: 2.5px solid transparent; padding: 14px 14px; font-family: 'Source Sans 3', sans-serif; font-size: 12.5px; font-weight: 500; color: var(--text-muted); cursor: pointer; white-space: nowrap; transition: all 0.15s; letter-spacing: 0.01em; }
+.ch-btn:hover { color: var(--text); }
+.ch-btn.active { color: var(--text); border-bottom-color: var(--yellow-dim); font-weight: 600; }
 
-/* MAIN */
-.main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
-.section { display: none; }
-.section.active { display: block; animation: fadeUp 0.28s ease; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-.section-heading { font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: var(--navy); margin-bottom: 0.35rem; }
-.section-sub { font-size: 14px; color: var(--slate); margin-bottom: 2rem; max-width: 620px; line-height: 1.65; }
+/* ── MAIN ── */
+.main { max-width: 1080px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+.chapter { display: none; }
+.chapter.active { display: block; animation: fadeUp 0.3s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-/* CALLOUTS */
-.callout { display: flex; gap: 12px; padding: 13px 16px; border-radius: var(--radius-sm); margin-bottom: 1.25rem; font-size: 13.5px; line-height: 1.65; }
-.callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-.callout.info { background: var(--blue-light); border-left: 3px solid var(--blue); color: #1A3F6A; }
-.callout.tip { background: var(--green-light); border-left: 3px solid var(--green); color: #0C4D34; }
-.callout.warn { background: var(--amber-light); border-left: 3px solid var(--amber); color: #7A3D0D; }
-.callout.important { background: #FFF8E6; border-left: 3px solid var(--yellow-dark); color: #5C4200; }
+/* ── CHAPTER HEADER ── */
+.ch-header { margin-bottom: 2.5rem; }
+.ch-number { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.ch-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--text); line-height: 1.2; margin-bottom: 10px; }
+.ch-header h2 em { font-style: italic; color: var(--yellow-dim); }
+.ch-header p { font-size: 16px; color: var(--text-mid); max-width: 640px; line-height: 1.75; }
+.ch-divider { height: 2px; background: linear-gradient(90deg, var(--yellow) 0%, transparent 60%); margin: 1.5rem 0 2rem; width: 80px; }
 
-/* TIMELINE */
+/* ── PROSE ── */
+.prose { max-width: 720px; }
+.prose p { font-size: 16px; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.25rem; }
+.prose p strong { color: var(--text); font-weight: 600; }
+.prose h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text); margin: 2rem 0 0.75rem; }
+.prose blockquote { border-left: 3px solid var(--yellow); padding: 10px 18px; background: var(--yellow-pale); border-radius: 0 var(--r-sm) var(--r-sm) 0; font-style: italic; color: var(--text-mid); font-size: 15px; margin: 1.25rem 0; line-height: 1.7; }
+
+/* ── CALLOUTS ── */
+.callout { display: flex; gap: 13px; padding: 14px 18px; border-radius: var(--r-sm); margin: 1.25rem 0; font-size: 14.5px; line-height: 1.7; }
+.callout-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+.callout.info { background: var(--blue-light); border-left: 3px solid var(--blue); color: #163D6B; }
+.callout.tip { background: var(--green-light); border-left: 3px solid var(--green); color: #0B4D33; }
+.callout.warn { background: var(--amber-light); border-left: 3px solid var(--amber); color: #6B3610; }
+.callout.important { background: var(--yellow-pale); border-left: 3px solid var(--yellow-dim); color: #5C3D00; }
+.callout.danger { background: var(--red-light); border-left: 3px solid var(--red); color: #5A1010; }
+
+/* ── CONTENT CARDS ── */
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 1.4rem; margin-bottom: 12px; box-shadow: var(--shadow); }
+.card h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 10px; }
+.card ul { padding-left: 1.2rem; }
+.card li { font-size: 14.5px; color: var(--text-mid); line-height: 1.75; margin-bottom: 3px; }
+.card li strong { color: var(--text); }
+.card a { color: var(--blue); text-decoration: none; font-size: 13px; font-weight: 500; }
+.card a:hover { text-decoration: underline; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ── VIDEO CARDS ── */
+.video-card { background: var(--off-black); border-radius: var(--r); padding: 1.4rem 1.6rem; margin-bottom: 14px; display: flex; gap: 16px; align-items: flex-start; }
+.video-thumb { width: 48px; height: 48px; background: var(--yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.video-body h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.video-body p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+.video-body .instructor { font-size: 12px; color: var(--yellow); font-weight: 500; margin-top: 6px; }
+.video-link { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 500; color: var(--yellow); text-decoration: none; background: rgba(247,201,72,0.12); border: 1px solid rgba(247,201,72,0.25); padding: 4px 12px; border-radius: 20px; transition: all 0.15s; }
+.video-link:hover { background: rgba(247,201,72,0.2); }
+.video-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.vtag { font-size: 11px; padding: 2px 8px; border-radius: 20px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+
+/* ── CERTIFICATION CARDS ── */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 14px; margin: 1.25rem 0; }
+.cert-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 1.3rem; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+.cert-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+.cert-card.c-priority::before { background: var(--yellow-dim); }
+.cert-card.c-mid::before { background: var(--blue); }
+.cert-card.c-long::before { background: var(--green); }
+.cert-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; margin-bottom: 10px; }
+.cert-badge.b-priority { background: var(--yellow-pale); color: var(--yellow-dim); }
+.cert-badge.b-mid { background: var(--blue-light); color: var(--blue); }
+.cert-badge.b-long { background: var(--green-light); color: var(--green); }
+.cert-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.cert-card p { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 10px; }
+.cert-meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.cert-tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; }
+.ct-cost { background: #FEF5D4; color: #7A5200; }
+.ct-time { background: var(--blue-light); color: #163D6B; }
+.ct-renew { background: #EEF2FF; color: #3730A3; }
+.cert-link { display: block; margin-top: 8px; font-size: 12px; font-weight: 500; color: var(--blue); text-decoration: none; }
+.cert-link:hover { text-decoration: underline; }
+
+/* ── TIMELINE ── */
 .timeline { display: flex; flex-direction: column; }
 .tl-item { display: flex; gap: 20px; }
 .tl-spine { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
-.tl-badge { width: 50px; height: 50px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; flex-shrink: 0; line-height: 1.2; text-align: center; }
-.ph1 { background: #DBEAFE; color: #1E40AF; border: 2px solid #3B82F6; }
-.ph2 { background: var(--green-light); color: #065F46; border: 2px solid var(--green); }
-.ph3 { background: var(--amber-light); color: #92400E; border: 2px solid var(--amber); }
-.ph4 { background: #EDE9FE; color: #4C1D95; border: 2px solid #7C3AED; }
-.ph5 { background: var(--red-light); color: #7F1D1D; border: 2px solid var(--red); }
-.tl-connector { width: 2px; flex: 1; min-height: 24px; background: var(--border); margin: 4px 0; }
+.tl-node { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+.tn1 { background: #DBEAFE; color: #1D4ED8; border: 2px solid #3B82F6; }
+.tn2 { background: var(--green-light); color: #065F46; border: 2px solid var(--green); }
+.tn3 { background: var(--amber-light); color: #7C2D12; border: 2px solid var(--amber); }
+.tn4 { background: #EDE9FE; color: #4C1D95; border: 2px solid #7C3AED; }
+.tn5 { background: var(--red-light); color: #7F1D1D; border: 2px solid var(--red); }
+.tl-line { width: 2px; flex: 1; min-height: 20px; background: var(--border); margin: 4px 0; }
 .tl-content { flex: 1; padding-bottom: 2.5rem; }
-.tl-header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; margin-top: 8px; }
-.tl-header h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--navy); }
-.tl-dur { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: var(--navy); color: var(--yellow); text-transform: uppercase; letter-spacing: 0.05em; }
-.tl-goal { font-size: 13px; color: var(--slate); font-style: italic; margin-bottom: 14px; }
+.tl-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; margin-top: 8px; }
+.tl-head h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text); }
+.tl-dur { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: var(--off-black); color: var(--yellow); text-transform: uppercase; letter-spacing: 0.05em; }
+.tl-goal { font-size: 13.5px; color: var(--text-muted); font-style: italic; margin-bottom: 14px; }
 
-/* CARDS */
-.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.3rem; margin-bottom: 10px; box-shadow: var(--shadow-sm); }
-.card h4 { font-size: 12px; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
-.card ul { padding-left: 1.2rem; }
-.card li { font-size: 13.5px; color: var(--slate); line-height: 1.7; margin-bottom: 3px; }
-.card li strong { color: var(--navy); }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+/* ── TOOLS GRID ── */
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 10px; }
+.tool-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 1rem; box-shadow: var(--shadow); }
+.tool-icon { font-size: 22px; margin-bottom: 6px; }
+.tool-card h4 { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.tool-card p { font-size: 12px; color: var(--text-mid); line-height: 1.55; }
+.tool-cat { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border-light); }
 
-/* RESOURCE CARDS */
-.res-list { display: flex; flex-direction: column; gap: 12px; }
-.res-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.4rem; display: flex; gap: 16px; box-shadow: var(--shadow-sm); transition: box-shadow 0.18s, transform 0.18s; }
-.res-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
-.res-card.featured { border: 2px solid var(--yellow-dark); }
-.res-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
-.av-yt { background: var(--red-light); color: var(--red); }
-.av-pod { background: #EDE9FE; color: #5B21B6; }
-.av-course { background: var(--green-light); color: #065F46; }
-.av-book { background: var(--amber-light); color: #92400E; }
-.res-body { flex: 1; min-width: 0; }
-.res-body h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-.res-body p { font-size: 13px; color: var(--slate); line-height: 1.65; }
-.res-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
-.tag { font-size: 11px; font-weight: 500; padding: 2px 9px; border-radius: 20px; }
-.tag-free { background: var(--green-light); color: #065F46; }
-.tag-paid { background: var(--amber-light); color: #92400E; }
-.tag-beg { background: var(--blue-light); color: #1E40AF; }
-.tag-adv { background: #EDE9FE; color: #4C1D95; }
-.tag-critical { background: #FFF0C0; color: #7A5000; }
-.res-link { display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 500; color: #1A6FBF; text-decoration: none; }
-.res-link:hover { text-decoration: underline; }
-.res-note { font-size: 12px; color: #8BA3BC; margin-top: 6px; font-style: italic; }
+/* ── WIRE TYPES ── */
+.wire-table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--white); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); }
+.wire-table th { text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); padding: 10px 14px; background: var(--cream-dark); }
+.wire-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-light); color: var(--text-mid); vertical-align: top; }
+.wire-table tr:last-child td { border-bottom: none; }
+.wire-table td:first-child { font-weight: 600; color: var(--text); }
+.color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: middle; border: 1px solid rgba(0,0,0,0.15); }
 
-/* JOB SEARCH SECTION */
-.job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 10px; margin-bottom: 1.5rem; }
-.job-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem 1.1rem; box-shadow: var(--shadow-sm); }
-.job-card .job-type { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate-light); margin-bottom: 6px; }
-.job-card h4 { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
-.job-card p { font-size: 12px; color: var(--slate); line-height: 1.55; }
-.job-card .pay { font-size: 12px; font-weight: 600; color: var(--green); margin-top: 6px; }
+/* ── OHMS LAW ── */
+.ohm-box { background: var(--off-black); border-radius: var(--r); padding: 2rem; margin: 1.5rem 0; text-align: center; }
+.ohm-box h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--yellow); margin-bottom: 1.5rem; }
+.ohm-triangle { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+.ohm-circle { width: 90px; height: 90px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 8px; }
+.oc-v { background: rgba(247,201,72,0.15); border: 2px solid var(--yellow); }
+.oc-i { background: rgba(31,156,110,0.15); border: 2px solid var(--green); }
+.oc-r { background: rgba(41,111,191,0.15); border: 2px solid var(--blue); }
+.oc-letter { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--white); line-height: 1; }
+.oc-label { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; margin-top: 2px; }
+.ohm-formula { font-size: 14px; color: rgba(255,255,255,0.7); }
+.ohm-formula span { color: var(--yellow); font-weight: 600; font-size: 16px; }
 
-/* SCHEDULE */
-.week-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px,1fr)); gap: 10px; margin-bottom: 2rem; }
-.day-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; box-shadow: var(--shadow-sm); }
-.day-card.rest { background: var(--cream-dark); }
-.day-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-light); margin-bottom: 6px; }
-.day-card h4 { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
-.day-card p { font-size: 12px; color: var(--slate); line-height: 1.55; }
-.milestone-list { display: flex; flex-direction: column; gap: 8px; }
-.milestone { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; display: flex; gap: 12px; align-items: flex-start; box-shadow: var(--shadow-sm); }
-.m-dot { width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: var(--yellow); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
-.m-body h4 { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
-.m-body p { font-size: 12px; color: var(--slate); line-height: 1.55; }
+/* ── JOB SECTION ── */
+.job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap: 10px; }
+.job-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 1.1rem; box-shadow: var(--shadow); }
+.job-card .jtype { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 6px; }
+.job-card h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.job-card p { font-size: 12.5px; color: var(--text-mid); line-height: 1.55; }
 
-/* CHECKLIST */
-.progress-wrap { background: var(--cream-dark); border-radius: 20px; height: 10px; margin-bottom: 6px; overflow: hidden; }
-.progress-fill { height: 10px; background: linear-gradient(90deg, var(--green), #2DC98A); border-radius: 20px; transition: width 0.4s ease; }
-.progress-meta { font-size: 12px; color: var(--slate); margin-bottom: 1.75rem; }
-.check-group { margin-bottom: 1.75rem; }
-.check-group h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate); padding-bottom: 8px; border-bottom: 1px solid var(--border); margin-bottom: 10px; }
-.check-item { display: flex; gap: 12px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--cream-dark); }
-.check-item:last-child { border-bottom: none; }
-.check-box { width: 20px; height: 20px; border-radius: 5px; border: 1.5px solid #B0C0D0; background: var(--white); flex-shrink: 0; cursor: pointer; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
-.check-box.done { background: var(--green); border-color: var(--green); }
-.check-box.done::after { content: '✓'; color: white; font-size: 12px; font-weight: 700; }
-.check-text { font-size: 13.5px; color: var(--slate); line-height: 1.6; }
-.check-text.done { text-decoration: line-through; color: #B0C0D0; }
-
-/* TIPS */
-.tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px,1fr)); gap: 12px; }
-.tip-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow-sm); transition: box-shadow 0.18s; }
-.tip-card:hover { box-shadow: var(--shadow-md); }
-.tip-num { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--yellow-dark); line-height: 1; margin-bottom: 8px; }
-.tip-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-.tip-card p { font-size: 13px; color: var(--slate); line-height: 1.65; }
-
-.card li a, .check-text a { color: #1A6FBF; text-decoration: none; font-weight: 500; }
-.card li a:hover, .check-text a:hover { text-decoration: underline; }
-
-/* FOOTER */
-footer { background: var(--navy); color: var(--slate-light); text-align: center; padding: 2.5rem 1.5rem; font-size: 13px; margin-top: 4rem; }
-footer strong { color: var(--yellow); }
+/* ── FOOTER ── */
+footer { background: var(--off-black); color: rgba(255,255,255,0.55); text-align: center; padding: 3rem 1.5rem; font-size: 13px; }
+footer .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 14px; }
+footer .f-d { width: 38px; height: 38px; background: var(--yellow); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 18px; color: var(--black); font-weight: 700; }
+footer strong { color: var(--white); }
 footer a { color: var(--yellow); text-decoration: none; }
-
-/* PATH COMPARISON */
-.path-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
-.path-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow-sm); }
-.path-box.this-path { border: 2px solid var(--green); }
-.path-box .path-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-.path-box.this-path .path-label { color: var(--green); }
-.path-box.other-path .path-label { color: var(--slate-light); }
-.path-box h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-.path-box ul { padding-left: 1.1rem; }
-.path-box li { font-size: 13px; color: var(--slate); line-height: 1.65; margin-bottom: 3px; }
+footer .contact { margin-top: 12px; font-size: 14px; color: rgba(255,255,255,0.7); }
+footer .contact a { color: var(--yellow); font-weight: 600; }
 
 @media (max-width: 640px) {
-  .two-col, .path-compare { grid-template-columns: 1fr; }
-  .tl-badge { width: 42px; height: 42px; font-size: 9px; }
-  .res-card { flex-direction: column; gap: 10px; }
+  .two-col { grid-template-columns: 1fr; }
+  .tl-node { width: 36px; height: 36px; font-size: 13px; }
+  .video-card { flex-direction: column; gap: 10px; }
   .hero h1 { font-size: 2rem; }
+  .ohm-circle { width: 70px; height: 70px; }
+  .oc-letter { font-size: 20px; }
 }
 </style>
 </head>
 <body>
 
-<!-- DARCO TOP BAR -->
+<!-- DARCO BAR -->
 <div class="darco-bar">
   <div class="darco-bar-inner">
-    <a class="darco-wordmark" href="#">
-      <div class="darco-logo-box">D</div>
-      <div>
-        <div class="darco-name">Darco Inc</div>
-      </div>
+    <a class="darco-logo" href="#">
+      <div class="darco-d">D</div>
+      <span class="darco-name">Darco Inc</span>
     </a>
-    <span class="darco-program-label">Career Training Program</span>
+    <span class="darco-pill">Electrical Career Program</span>
   </div>
 </div>
 
+<!-- SITE HEADER -->
 <header class="site-header">
   <div class="header-inner">
-    <a class="logo" href="#">
-      <div class="logo-bolt">⚡</div>
-      Darco Career Training Guide
+    <a class="header-logo" href="#">
+      <span class="header-bolt">⚡</span>
+      Darco Electrical Career Course
     </a>
-    <span class="header-badge">NY Electrician Program · 2025–26</span>
+    <span class="header-badge">USA · Beginner to Employed · 2025–26</span>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Darco Inc · Career Training Guide</div>
-    <h1>Get hired as a helper.<br><em>Grow into the trade.</em></h1>
-    <p class="hero-desc">Darco Inc is proud to present this free career training guide for aspiring electricians in New York — a complete beginner's roadmap built for the direct-hire path.</p>
-    <div class="hero-path-note">
-      <strong>This program is designed for the direct-hire path</strong> — no union apprenticeship waitlist, no formal enrollment. You study, you get hired, you learn on the job, you grow. This is a legitimate, well-traveled path to becoming a skilled electrician in New York.
+    <div class="hero-label">Complete foundational course</div>
+    <h1>From <em>knowing nothing</em><br>to getting hired.</h1>
+    <p class="hero-intro">Darco Inc presents a complete, beginner-to-employed electrical training course. No experience required. No jargon. Just clear, honest, practical knowledge — built to make you the most hireable person in the room.</p>
+    <div class="hero-note">
+      <strong>This is a direct-hire career course.</strong> No union waitlist. No formal enrollment. You study at home, earn your first credentials, get hired as an electrician's helper, and grow from there. Every hour you work counts toward your future license.
     </div>
     <div class="hero-stats">
-      <div class="stat-pill"><strong>2–3 months</strong> to first job (helper)</div>
-      <div class="stat-pill"><strong>$17–$25/hr</strong> starting as a helper</div>
-      <div class="stat-pill"><strong>NY / NYC</strong> focused</div>
-      <div class="stat-pill"><strong>No union waitlist</strong> required</div>
+      <div class="stat-chip"><strong>11 chapters</strong> of real knowledge</div>
+      <div class="stat-chip"><strong>2–3 months</strong> to job-ready</div>
+      <div class="stat-chip"><strong>$17–$25/hr</strong> starting helper pay</div>
+      <div class="stat-chip"><strong>USA-focused</strong> NEC & codes</div>
     </div>
   </div>
 </section>
 
-<nav class="nav-bar">
-  <div class="nav-inner">
-    <button class="nav-tab active" onclick="showTab('starthere',this)">🚀 Start Here</button>
-    <button class="nav-tab" onclick="showTab('path',this)">🗺 Your Path</button>
-    <button class="nav-tab" onclick="showTab('timeline',this)">📅 Timeline</button>
-    <button class="nav-tab" onclick="showTab('getjob',this)">💼 Getting Hired</button>
-    <button class="nav-tab" onclick="showTab('videos',this)">▶ Videos</button>
-    <button class="nav-tab" onclick="showTab('podcasts',this)">🎙 Podcasts</button>
-    <button class="nav-tab" onclick="showTab('online',this)">💻 Online Courses</button>
-    <button class="nav-tab" onclick="showTab('schedule',this)">📆 Weekly Plan</button>
-    <button class="nav-tab" onclick="showTab('checklist',this)">✅ Tracker</button>
-    <button class="nav-tab" onclick="showTab('tips',this)">💡 Pro Tips</button>
+<!-- CHAPTER NAV -->
+<nav class="chapter-nav">
+  <div class="chapter-nav-inner">
+    <button class="ch-btn active" onclick="goTo('ch0',this)">0 · Welcome</button>
+    <button class="ch-btn" onclick="goTo('ch1',this)">1 · The Trade</button>
+    <button class="ch-btn" onclick="goTo('ch2',this)">2 · Safety</button>
+    <button class="ch-btn" onclick="goTo('ch3',this)">3 · Certifications</button>
+    <button class="ch-btn" onclick="goTo('ch4',this)">4 · Tools</button>
+    <button class="ch-btn" onclick="goTo('ch5',this)">5 · How Electricity Works</button>
+    <button class="ch-btn" onclick="goTo('ch6',this)">6 · Wire & Cable</button>
+    <button class="ch-btn" onclick="goTo('ch7',this)">7 · Conduit & Raceways</button>
+    <button class="ch-btn" onclick="goTo('ch8',this)">8 · Boxes, Switches & Outlets</button>
+    <button class="ch-btn" onclick="goTo('ch9',this)">9 · Lighting & Panels</button>
+    <button class="ch-btn" onclick="goTo('ch10',this)">10 · Reading Plans & Codes</button>
+    <button class="ch-btn" onclick="goTo('ch11',this)">11 · Getting Hired</button>
   </div>
 </nav>
 
 <main class="main">
 
-<!-- ════ START HERE ════ -->
-<section id="starthere" class="section active">
-  <h2 class="section-heading">Start here — your first 3 steps</h2>
-  <p class="section-sub">Don't overthink it. Before you do anything else, complete these three things in order. That's it. Everything else in this guide comes after.</p>
+<!-- ══ CHAPTER 0 ══ -->
+<section id="ch0" class="chapter active">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 0 · Orientation</div>
+    <h2>Before we begin — <em>a question for you.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Before we teach you anything about electricity, we want to ask you one thing. Take a moment. Be honest with yourself.</p>
+  </div>
+
+  <div class="prose">
+    <blockquote>What do you think an electrician actually does all day?</blockquote>
+
+    <p>Write it down, say it out loud, or just think about it. By the time you finish this course, your answer will be completely different — and that's exactly the point.</p>
+
+    <h3>So what <em>is</em> this trade, really?</h3>
+    <p>Most people picture an electrician as someone who fixes a blown fuse or replaces an outlet. That's like saying a surgeon is someone who puts on band-aids. It's not wrong — it's just a tiny sliver of a much bigger world.</p>
+
+    <p>Electricians are the people who make buildings come alive. Before a single wall goes up, before a floor is poured, before the furniture arrives — electricians are already there, laying the invisible infrastructure that will power everything inside for the next 50 years. They read blueprints, bend conduit through walls and ceilings, pull hundreds of feet of wire through tight spaces, install panels that distribute power throughout entire buildings, and test every circuit to make sure it's safe.</p>
+
+    <p>They work in homes, hospitals, schools, factories, skyscrapers, and data centers. They install solar panels and EV charging stations. They wire emergency systems that keep hospitals running when the grid fails. They are, in every meaningful sense, the people who keep the modern world running.</p>
+
+    <blockquote>"The electrician who shows up early, asks questions, and keeps learning — that person will never be out of work." — Common trade wisdom</blockquote>
+
+    <h3>Why this course exists</h3>
+    <p>Darco Inc created this course because the path into the electrical trade is unnecessarily confusing for beginners. The information exists — it's scattered across textbooks, YouTube channels, and forums written for people who already know what they're doing.</p>
+
+    <p>This course is different. It starts from absolute zero. It uses plain language. It tells you not just <strong>what</strong> to do but <strong>why</strong> — because understanding the why is what separates someone who can follow instructions from someone who can actually think on the job. And it's the second kind of person that employers keep, promote, and pay more.</p>
+
+    <h3>What you'll know by the end</h3>
+  </div>
+
+  <div class="two-col" style="margin:1.5rem 0">
+    <div class="card">
+      <h4>Knowledge you'll build</h4>
+      <ul>
+        <li>How electricity works — fundamentals that make everything else make sense</li>
+        <li>Every tool an electrician carries and what each one does</li>
+        <li>Wire types, cable systems, and conduit — the backbone of every installation</li>
+        <li>How to read a basic electrical blueprint</li>
+        <li>The National Electrical Code — what it is and why it governs everything</li>
+        <li>How panels, circuits, breakers, and grounding work together</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Credentials you'll earn</h4>
+      <ul>
+        <li>OSHA 10 Construction Safety card</li>
+        <li>Alison electrical certificate (free)</li>
+        <li>SkillCat credential (IACET accredited)</li>
+        <li>The ability to speak intelligently in any electrician job interview</li>
+        <li>A resume that stands out from every other no-experience applicant</li>
+        <li>Confidence to show up on day one ready to learn</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="callout important">
-    <span class="callout-icon">👋</span>
-    <span><strong>Welcome to the Darco Career Training Program.</strong> You don't need any experience, any tools, or any background in electrical work to begin. All you need is a phone or computer and a few hours a week. Let's go.</span>
+    <span class="callout-icon">📌</span>
+    <span><strong>How to use this course:</strong> Work through the chapters in order — each one builds on the last. Watch the recommended videos. Don't rush. The goal isn't to finish fast. The goal is to actually understand, because understanding is what gets you hired and keeps you employed.</span>
   </div>
 
-  <!-- STEP 1 -->
-  <div class="card" style="border-left: 4px solid #3B82F6; margin-bottom: 16px;">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-      <div style="width:40px;height:40px;border-radius:50%;background:#DBEAFE;color:#1E40AF;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;font-weight:700;flex-shrink:0;">1</div>
-      <div>
-        <h4 style="font-size:16px;font-weight:600;color:var(--navy);margin-bottom:2px;">Watch these Khan Academy videos — in this exact order</h4>
-        <p style="font-size:12px;color:var(--slate);margin:0;">Free · No signup needed · Watch on your phone · Takes about 3–4 hours total</p>
-      </div>
-    </div>
-    <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;">
-      <p style="font-size:13px;color:#1A3F6A;margin-bottom:10px;font-weight:600;">Go to: <a href="https://www.khanacademy.org/science/electrical-engineering/ee-circuit-analysis-topic" target="_blank" style="color:#1A6FBF;">khanacademy.org → Electrical Engineering → Circuit Analysis ↗</a></p>
-      <p style="font-size:12px;color:#1A3F6A;margin-bottom:8px;">Watch these units in order — pause and replay anything that's unclear:</p>
-      <ol style="padding-left:1.2rem;">
-        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Introduction to circuits and Ohm's Law</strong> — this is the foundation of everything</li>
-        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Resistors in series</strong> — how current flows through a chain</li>
-        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Resistors in parallel</strong> — how current splits between branches</li>
-        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Voltage dividers</strong> — used constantly in real electrical work</li>
-        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;margin-bottom:4px;"><strong>Kirchhoff's Current Law (KCL)</strong> — current in = current out</li>
-        <li style="font-size:13px;color:#1A3F6A;line-height:1.8;"><strong>Kirchhoff's Voltage Law (KVL)</strong> — voltage around a loop always sums to zero</li>
-      </ol>
-    </div>
-    <div class="callout tip" style="margin-bottom:0;">
-      <span class="callout-icon">💡</span>
-      <span>Don't try to memorize everything perfectly. Watch each video once, take a few notes, and move on. You'll understand it better once you start seeing it in real life on the job.</span>
-    </div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <button onclick="goTo('ch1',document.querySelectorAll('.ch-btn')[1])" style="background:var(--off-black);color:var(--yellow);border:none;padding:14px 32px;border-radius:30px;font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:600;cursor:pointer;letter-spacing:0.02em;">Begin Chapter 1 — The Trade →</button>
   </div>
-
-  <!-- STEP 2 -->
-  <div class="card" style="border-left: 4px solid var(--green); margin-bottom: 16px;">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--green-light);color:#065F46;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;font-weight:700;flex-shrink:0;">2</div>
-      <div>
-        <h4 style="font-size:16px;font-weight:600;color:var(--navy);margin-bottom:2px;">Get your OSHA 10 card</h4>
-        <p style="font-size:12px;color:var(--slate);margin:0;">~$30–50 · 10 hours online · Do this in your first 2 weeks · You'll need it to get hired</p>
-      </div>
-    </div>
-    <div style="background:var(--green-light);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;">
-      <p style="font-size:13px;color:#0C4D34;margin-bottom:8px;">The OSHA 10 is a safety certification that almost every electrical employer asks for. Without it, many contractors won't even call you back. It covers electrical hazards, lockout/tagout procedures, and job site safety.</p>
-      <p style="font-size:13px;color:#0C4D34;margin-bottom:8px;font-weight:600;">How to get it:</p>
-      <ol style="padding-left:1.2rem;">
-        <li style="font-size:13px;color:#0C4D34;line-height:1.8;margin-bottom:4px;">Go to <a href="https://www.osha.gov/oshtraining/outreach/construction" target="_blank" style="color:#065F46;font-weight:600;">osha.gov/oshtraining ↗</a> and find an authorized online provider</li>
-        <li style="font-size:13px;color:#0C4D34;line-height:1.8;margin-bottom:4px;">Complete the 10-hour course at your own pace — spread it over a few evenings</li>
-        <li style="font-size:13px;color:#0C4D34;line-height:1.8;">Your OSHA 10 card arrives by mail — add it to your resume immediately</li>
-      </ol>
-    </div>
-    <div class="callout tip" style="margin-bottom:0;">
-      <span class="callout-icon">🦺</span>
-      <span>This single card is worth more than any other credential at this stage. Employers see it and know you take safety seriously — which is the #1 thing they care about in a new hire.</span>
-    </div>
-  </div>
-
-  <!-- STEP 3 -->
-  <div class="card" style="border-left: 4px solid var(--amber); margin-bottom: 16px;">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-      <div style="width:40px;height:40px;border-radius:50%;background:var(--amber-light);color:#92400E;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;font-weight:700;flex-shrink:0;">3</div>
-      <div>
-        <h4 style="font-size:16px;font-weight:600;color:var(--navy);margin-bottom:2px;">Complete the free Alison electrical certificate</h4>
-        <p style="font-size:12px;color:var(--slate);margin:0;">Free · Self-paced · Takes a few days · Gives you a real credential for your resume</p>
-      </div>
-    </div>
-    <div style="background:var(--amber-light);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;">
-      <p style="font-size:13px;color:#7A3D0D;margin-bottom:8px;">Alison is a free online learning platform. Their electrical course covers the basics of how electrical systems work in homes and buildings. When you finish, you get a free digital certificate you can add to your resume right away.</p>
-      <p style="font-size:13px;color:#7A3D0D;margin-bottom:8px;font-weight:600;">How to do it:</p>
-      <ol style="padding-left:1.2rem;">
-        <li style="font-size:13px;color:#7A3D0D;line-height:1.8;margin-bottom:4px;">Go to <a href="https://alison.com/courses/principles-of-electricity" target="_blank" style="color:#92400E;font-weight:600;">alison.com → Principles of Electricity ↗</a></li>
-        <li style="font-size:13px;color:#7A3D0D;line-height:1.8;margin-bottom:4px;">Create a free account and start the course</li>
-        <li style="font-size:13px;color:#7A3D0D;line-height:1.8;margin-bottom:4px;">Complete all the modules and pass the assessment</li>
-        <li style="font-size:13px;color:#7A3D0D;line-height:1.8;">Download your free digital certificate and save it</li>
-      </ol>
-    </div>
-    <div class="callout tip" style="margin-bottom:0;">
-      <span class="callout-icon">📄</span>
-      <span>When you apply for helper jobs with zero work experience, any certificate on your resume shows initiative. This one is free and takes just a few days — there's no reason not to do it.</span>
-    </div>
-  </div>
-
-  <!-- WHAT NEXT -->
-  <div class="card" style="background:var(--navy);border:none;margin-top:8px;">
-    <h4 style="color:var(--yellow);font-size:14px;margin-bottom:10px;">✅ Once you've done all three — what's next?</h4>
-    <ul style="padding-left:1.2rem;">
-      <li style="font-size:13.5px;color:var(--slate-light);line-height:1.75;margin-bottom:4px;">Click the <strong style="color:var(--white);">📅 Timeline tab</strong> to see your full study plan week by week</li>
-      <li style="font-size:13.5px;color:var(--slate-light);line-height:1.75;margin-bottom:4px;">Click the <strong style="color:var(--white);">💼 Getting Hired tab</strong> to learn exactly how and where to apply for your first job</li>
-      <li style="font-size:13.5px;color:var(--slate-light);line-height:1.75;margin-bottom:4px;">Start listening to the <a href="https://podcasts.apple.com/us/podcast/electrician-u/id1583270265" target="_blank" style="color:var(--yellow);">Electrician U Podcast ↗</a> on your commute every day</li>
-      <li style="font-size:13.5px;color:var(--slate-light);line-height:1.75;">Use the <strong style="color:var(--white);">✅ Tracker tab</strong> to check off your progress as you go</li>
-    </ul>
-  </div>
-
 </section>
 
-<!-- ════ YOUR PATH ════ -->
-<section id="path" class="section">
-  <h2 class="section-heading">Understanding your path</h2>
-  <p class="section-sub">There are two main routes into the electrical trade. You're taking the direct-hire route. Here's what that means, how it compares, and why it works.</p>
+<!-- ══ CHAPTER 1 ══ -->
+<section id="ch1" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 1 · The Trade</div>
+    <h2>The world you're <em>about to enter.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Before you study a single wire, you need to understand what you're actually walking into — and why it's one of the best career decisions you can make in 2025.</p>
+  </div>
 
-  <div class="path-compare">
-    <div class="path-box this-path">
-      <div class="path-label">✅ Your path — direct hire</div>
-      <h4>Get hired, grow on the job</h4>
-      <ul>
-        <li>Study fundamentals for 2–3 months at home</li>
-        <li>Apply to non-union contractors as an electrician's helper or assistant</li>
-        <li>Get hired — no waitlist, no formal enrollment</li>
-        <li>Learn every day under licensed electricians who will mentor you</li>
-        <li>Build your 7-year experience clock from day one of employment</li>
-        <li>Advance in pay and responsibility as your skills grow</li>
-        <li>Eventually sit for your NYC Master license — same destination, different road</li>
-      </ul>
+  <div class="prose">
+    <h3>The numbers don't lie</h3>
+    <p>The U.S. Bureau of Labor Statistics projects <strong>11% growth in electrician employment</strong> through 2030 — more than double the average for all occupations. That's roughly 81,000 job openings every single year. The median annual wage for electricians in 2024 was <strong>$62,350</strong>, with the top 10% earning over $106,000. Master electricians who own their own businesses frequently earn $150,000–$200,000 per year.</p>
+
+    <p>And here's the thing most people don't know: <strong>you don't need a four-year degree.</strong> No student debt. No years of classroom study before you earn your first dollar. The electrical trade is one of the few remaining careers in America where you can start earning real money within weeks of your first day of study.</p>
+
+    <h3>What electricians actually do</h3>
+    <p>The work breaks down into three main areas, and over a career you'll likely touch all three:</p>
+  </div>
+
+  <div class="tools-grid" style="margin:1.5rem 0">
+    <div class="tool-card">
+      <div class="tool-icon">🏠</div>
+      <h4>Residential</h4>
+      <p>Wiring homes and apartments — panels, outlets, switches, lighting, appliances. The most accessible starting point for beginners.</p>
     </div>
-    <div class="path-box other-path">
-      <div class="path-label">Alternative — union apprenticeship (IBEW)</div>
-      <h4>Formal apprenticeship program</h4>
-      <ul>
-        <li>Apply to IBEW Local 3 during open enrollment windows</li>
-        <li>Competitive application — waitlists can be months or years long</li>
-        <li>5-year structured program with classroom training 2 nights/week</li>
-        <li>Better starting pay and full union benefits from day one</li>
-        <li>Less flexibility — more structured schedule</li>
-        <li>Strong for commercial work; does less residential</li>
-        <li>Same end goal: master license</li>
-      </ul>
+    <div class="tool-card">
+      <div class="tool-icon">🏢</div>
+      <h4>Commercial</h4>
+      <p>Offices, retail, schools, hospitals. Larger scale, conduit-heavy, more complex blueprints. Higher pay and longer projects.</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🏭</div>
+      <h4>Industrial</h4>
+      <p>Factories, plants, heavy machinery. High-voltage systems, motor controls, specialized skills. Top earning tier of the trade.</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">☀️</div>
+      <h4>Green energy</h4>
+      <p>Solar, EV charging, battery storage. The fastest-growing segment in the USA due to clean energy mandates. Learn this and you'll never lack work.</p>
     </div>
   </div>
 
-  <div class="callout important">
-    <span class="callout-icon">⭐</span>
-    <span><strong>Important to know:</strong> The direct-hire path counts toward your NYC master electrician license just as much as the union path does — as long as you work under a licensed master electrician. NYC requires 7.5 years of experience (10,500+ hours) under a licensed master, and <em>every hour you work as a non-union helper counts</em>. The destination is exactly the same.</span>
+  <div class="prose">
+    <h3>Your career arc — what to expect</h3>
+    <p>The electrical trade has a clear, well-defined progression. Here's where you're headed:</p>
   </div>
 
-  <div class="card">
-    <h4>What does an electrician's helper actually do?</h4>
-    <ul>
-      <li>Assist licensed electricians — pulling wire, mounting conduit, organizing materials</li>
-      <li>Running wire through walls, ceilings, and conduit under supervision</li>
-      <li>Helping with panel work, fixture installation, and outlet rough-in</li>
-      <li>Cleaning work areas, staging tools and materials, keeping the job site organized</li>
-      <li>Observing and absorbing everything — your education happens in real time on the job</li>
-      <li>Over time: taking on more complex tasks as trust and skill increases</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h4>How fast can you advance?</h4>
-    <ul>
-      <li><strong>Month 1–3 of employment:</strong> Helper — learning the basics, assisting, observing</li>
-      <li><strong>Month 3–12:</strong> Trusted helper — running wire independently, doing basic installations under supervision</li>
-      <li><strong>Year 1–2:</strong> Apprentice-level employee — handling more complex tasks with less supervision</li>
-      <li><strong>Year 2–4:</strong> Working electrician — skilled, reliable, handling most jobs independently</li>
-      <li><strong>Year 5–7+:</strong> Senior electrician / preparing for master license exam</li>
-      <li>Pay increases at every stage — most non-union contractors review wages annually based on skill and reliability</li>
-    </ul>
+  <div class="timeline" style="margin:1.5rem 0">
+    <div class="tl-item">
+      <div class="tl-spine"><div class="tl-node tn1">H</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-head"><h3>Helper / Electrician's assistant</h3><span class="tl-dur">Months 1–12</span></div>
+        <p class="tl-goal">This is where you start. No license needed. No experience required.</p>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.7;">You pull wire, mount conduit, stage materials, and watch everything. Your job is to be reliable, safe, and hungry to learn. Pay: $17–$22/hr in most US markets. This is also day one of your experience clock — every hour counts toward your future license.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-spine"><div class="tl-node tn2">A</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-head"><h3>Apprentice-level employee</h3><span class="tl-dur">Years 1–3</span></div>
+        <p class="tl-goal">You're trusted with real work. You ask fewer questions because you know more answers.</p>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.7;">You handle installations under supervision, read blueprints, bend conduit, wire outlets and switches. Your value to the employer grows every month. Annual raises are expected — ask for them. Pay: $22–$35/hr.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-spine"><div class="tl-node tn3">J</div><div class="tl-line"></div></div>
+      <div class="tl-content">
+        <div class="tl-head"><h3>Working electrician / Journeyman-level</h3><span class="tl-dur">Years 3–6</span></div>
+        <p class="tl-goal">You work independently. You supervise newer helpers. You've seen most situations before.</p>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.7;">You're the backbone of any crew. Experienced, reliable, capable of running a job from rough-in to finish. Pay: $35–$55/hr in most markets, higher in major cities.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-spine"><div class="tl-node tn4">M</div></div>
+      <div class="tl-content">
+        <div class="tl-head"><h3>Master electrician / License holder</h3><span class="tl-dur">Years 6–10+</span></div>
+        <p class="tl-goal">The license changes everything. You can pull permits, run projects, start a business.</p>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.7;">Licensing requirements vary by state and city (more on this later). But the destination is the same: full independence, the ability to bid contracts, and run your own operation if you choose. Pay: $60–$100+/hr, or $100K–$200K/yr running your own company.</p>
+      </div>
+    </div>
   </div>
 
   <div class="callout tip">
     <span class="callout-icon">💡</span>
-    <span><strong>The secret advantage of this path:</strong> Non-union contractors often prefer hiring motivated self-starters over waiting for union dispatch. If you show up prepared — knowing basic theory, holding an OSHA 10 card, and demonstrating genuine enthusiasm — you stand out immediately. Most of your competition walks in with nothing.</span>
+    <span><strong>The secret most beginners don't know:</strong> Non-union electrical experience counts toward your license just as much as union experience — as long as you're working under a licensed master electrician. The direct-hire path and the union path lead to the exact same license. You just get there faster.</span>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: What are Volts, Amps, Ohms and Watts?</h3>
+      <p>Dustin Stelzer (Electrician U) walks through the foundational concepts of electrical theory — the language of the entire trade. This is your first video. Watch it twice.</p>
+      <div class="instructor">Electrician U · Dustin Stelzer, Master Electrician</div>
+      <div class="video-tags"><span class="vtag">Theory</span><span class="vtag">Beginner</span><span class="vtag">~15 min</span></div>
+      <a class="video-link" href="https://www.youtube.com/watch?v=bb_BiksCiMw" target="_blank">Watch on YouTube ↗</a>
+    </div>
   </div>
 </section>
 
-<!-- ════ TIMELINE ════ -->
-<section id="timeline" class="section">
-  <h2 class="section-heading">Full career timeline</h2>
-  <p class="section-sub">From zero knowledge to licensed master electrician — the complete journey on the direct-hire path, with what to study and when.</p>
-
-  <div class="callout info">
-    <span class="callout-icon">ℹ️</span>
-    <span>Unlike the union path, your timeline to <em>first paycheck</em> is much shorter on this path — as little as 6–10 weeks of focused self-study before you're competitive for helper positions. The overall timeline to master license is the same (7+ years of paid experience), but you start earning much faster.</span>
+<!-- ══ CHAPTER 2 ══ -->
+<section id="ch2" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 2 · Safety</div>
+    <h2>Safety isn't a rule.<br><em>It's a culture.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Every experienced electrician will tell you the same thing: the most important skill in this trade isn't knowing how to wire a panel or bend conduit. It's knowing how to come home alive every day.</p>
   </div>
 
-  <div class="timeline">
+  <div class="prose">
+    <h3>Why this chapter comes before everything else</h3>
+    <p>Electricity is invisible. You can't see it, smell it, or hear it in most cases. And the amount flowing through a standard household circuit — 120 volts — can stop your heart. Sources estimate there are about <strong>45,000 electrical fires each year</strong> in the United States, causing 440 deaths, 1,250 injuries, and over a billion dollars in property damage. Almost all of them are preventable.</p>
 
-    <!-- PHASE 1 -->
-    <div class="tl-item">
-      <div class="tl-spine"><div class="tl-badge ph1">Phase<br>1</div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-header"><h3>Foundations — weeks 1–4</h3><span class="tl-dur">Weeks 1–4</span></div>
-        <p class="tl-goal">Goal: Learn enough electrical theory to hold a basic conversation with an electrician. Get your OSHA 10 card. Look like someone worth hiring.</p>
-        <div class="two-col">
-          <div class="card">
-            <h4>What to study</h4>
-            <ul>
-              <li>Ohm's Law — V = IR (learn this cold)</li>
-              <li>Voltage, current, resistance — what each means</li>
-              <li>Series vs. parallel circuits</li>
-              <li>AC vs. DC — the basics</li>
-              <li>Basic electrical safety — what gets people hurt</li>
-              <li>Common hand tools and what they're for</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Resources</h4>
-            <ul>
-              <li>▶ <a href="https://www.khanacademy.org/science/electrical-engineering" target="_blank">Khan Academy</a> — Electrical Engineering unit (free)</li>
-              <li>▶ <a href="https://www.youtube.com/@CraigMichaudElectrical" target="_blank">Craig Michaud YouTube</a> — beginner foundations</li>
-              <li>▶ <a href="https://www.youtube.com/@ElectricianU" target="_blank">Electrician U</a> — "Electrical Theory" playlist</li>
-              <li>💻 <a href="https://alison.com/courses/principles-of-electricity" target="_blank">Alison.com</a> — "Principles of Electricity" (free + certificate)</li>
-              <li>💻 <a href="https://skillcat.io" target="_blank">SkillCat app</a> — Electrical Theory module (free)</li>
-              <li>📖 <a href="https://www.amazon.com/s?k=ugly%27s+electrical+references" target="_blank"><em>Ugly's Electrical References</em></a> — get this now</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout tip">
-          <span class="callout-icon">🦺</span>
-          <span><strong>Priority action in Week 2: Get your OSHA 10 card.</strong> This is the #1 thing that separates you from other no-experience applicants. It takes 10 hours online and costs $30–50. Employers notice it immediately on a resume.</span>
-        </div>
-      </div>
+    <p>This isn't meant to scare you. It's meant to wire something permanent into your brain before you ever touch a wire: <strong>electricity deserves respect, every single time, without exception.</strong> The experienced electrician who got hurt wasn't a careless person. They were someone who got comfortable — and comfort is the most dangerous state in this trade.</p>
+
+    <h3>The four rules that protect you every day</h3>
+  </div>
+
+  <div class="two-col" style="margin:1.5rem 0">
+    <div class="card" style="border-top:3px solid var(--red);">
+      <h4>Rule 1 — Always de-energize</h4>
+      <ul>
+        <li>Turn off the circuit breaker before any work</li>
+        <li>Lock it out and tag it — Lockout/Tagout (LOTO)</li>
+        <li>Test with a non-contact voltage tester before touching anything</li>
+        <li>Never assume a circuit is off because someone told you it was</li>
+        <li><strong>Test. Every. Time.</strong></li>
+      </ul>
     </div>
-
-    <!-- PHASE 2 -->
-    <div class="tl-item">
-      <div class="tl-spine"><div class="tl-badge ph2">Phase<br>2</div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-header"><h3>Job-ready skills — weeks 5–10</h3><span class="tl-dur">Weeks 5–10</span></div>
-        <p class="tl-goal">Goal: Build the specific knowledge that makes you useful on day one. Start applying for helper jobs. Aim to be hired by end of this phase.</p>
-        <div class="two-col">
-          <div class="card">
-            <h4>What to study</h4>
-            <ul>
-              <li>Residential wiring — how a house is wired, panel basics</li>
-              <li>Wire types and sizes (AWG gauge — know 12 and 14 AWG cold)</li>
-              <li>Conduit types: EMT, PVC, rigid — when each is used</li>
-              <li>How to use a multimeter and voltage tester</li>
-              <li>Basic tool identification — fish tape, conduit bender, knockout punch</li>
-              <li>NEC Article 100 (definitions) — learn the vocabulary</li>
-              <li>Intro to blueprint symbols — basic electrical legend</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Resources</h4>
-            <ul>
-              <li>▶ <a href="https://www.youtube.com/@ElectricianU" target="_blank">Electrician U</a> — residential wiring playlist</li>
-              <li>▶ <a href="https://www.youtube.com/@StarvingElectrician" target="_blank">Starving Electrician</a> — real job walkthrough videos</li>
-              <li>▶ <a href="https://www.youtube.com/@S33Electrical" target="_blank">S33 Electrical</a> — tool usage and installation demos</li>
-              <li>💻 <a href="https://cursa.app/free-courses-electrician-online" target="_blank">Cursa.app</a> — Home Electrical 101 (free)</li>
-              <li>💻 <a href="https://www.bmcc.cuny.edu/ce/online-courses/online-electrician-training/" target="_blank">BMCC/CUNY Online Electrician Training</a> (NY-specific)</li>
-              <li>📖 <a href="https://www.amazon.com/s?k=electrical+wiring+residential+mullin+simmons" target="_blank"><em>Electrical Wiring Residential</em></a> — Mullin & Simmons</li>
-              <li>🎙 <a href="https://podcasts.apple.com/us/podcast/electrician-u/id1583270265" target="_blank">Electrician U Podcast</a> — start listening daily</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout tip">
-          <span class="callout-icon">📋</span>
-          <span><strong>Start applying in week 6 — don't wait until you feel "ready."</strong> Helper roles require very little knowledge. Employers are hiring for attitude, reliability, and willingness to learn far more than technical skill. Apply while you're still studying.</span>
-        </div>
-      </div>
+    <div class="card" style="border-top:3px solid var(--amber);">
+      <h4>Rule 2 — Use your PPE</h4>
+      <ul>
+        <li>Safety glasses — always when working overhead or drilling</li>
+        <li>Insulated gloves — when working near live components</li>
+        <li>Flame-resistant (FR) clothing — required in arc flash environments</li>
+        <li>Hard-soled, non-conductive boots</li>
+        <li>Hard hat on active construction sites</li>
+      </ul>
     </div>
-
-    <!-- PHASE 3 -->
-    <div class="tl-item">
-      <div class="tl-spine"><div class="tl-badge ph3">Phase<br>3</div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-header"><h3>First job — helper / assistant</h3><span class="tl-dur">Months 2–12</span></div>
-        <p class="tl-goal">Goal: Get hired, get on a job site, and start accumulating paid hours. Your real education begins here. Every day on the job is worth more than any video.</p>
-        <div class="two-col">
-          <div class="card">
-            <h4>What you'll be doing on the job</h4>
-            <ul>
-              <li>Pulling wire, running conduit, mounting boxes under direction</li>
-              <li>Staging materials and keeping the job site organized</li>
-              <li>Learning by watching — absorb everything the journeymen do</li>
-              <li>Asking questions constantly — this is expected and respected</li>
-              <li>Learning the pace, culture, and unwritten rules of the trade</li>
-              <li>Building relationships — your crew is your best career asset</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Keep studying outside of work</h4>
-            <ul>
-              <li>▶ <a href="https://www.youtube.com/@ElectricianU" target="_blank">Electrician U YouTube</a> — topics that match what you saw that day</li>
-              <li>▶ <a href="https://www.youtube.com/@StarvingElectrician" target="_blank">Starving Electrician</a> — commercial and residential walkthroughs</li>
-              <li>🎙 Podcasts on every commute — <a href="https://podcasts.apple.com/us/podcast/electrician-u/id1583270265" target="_blank">Electrician U</a>, <a href="https://podcasts.apple.com/us/podcast/the-young-electrician-podcast/id1583270265" target="_blank">Young Electrician</a></li>
-              <li>📖 Read NEC Articles 100, 110, 200, 300 — <a href="https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-installations/70" target="_blank">NFPA 70 (NEC)</a></li>
-              <li>Keep a daily job diary — log every task you perform</li>
-              <li>Take photos of installations (with permission) for review</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout tip">
-          <span class="callout-icon">📓</span>
-          <span><strong>Start your job diary on Day 1.</strong> Log the date, job site, and every type of work you observed or performed. This becomes your legal proof of experience when you apply for your NYC master license years from now. Without documentation, hours may not count.</span>
-        </div>
-      </div>
+    <div class="card" style="border-top:3px solid var(--blue);">
+      <h4>Rule 3 — Respect arc flash</h4>
+      <ul>
+        <li>Arc flash is an explosive release of electrical energy — it can reach 35,000°F</li>
+        <li>It happens in milliseconds — faster than you can react</li>
+        <li>Never work on energized panels without proper PPE and training</li>
+        <li>As a helper, you should never be near energized equipment without supervision</li>
+      </ul>
     </div>
-
-    <!-- PHASE 4 -->
-    <div class="tl-item">
-      <div class="tl-spine"><div class="tl-badge ph4">Phase<br>4</div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-header"><h3>Working electrician — growing in the trade</h3><span class="tl-dur">Years 1–5</span></div>
-        <p class="tl-goal">Goal: Become genuinely skilled and trusted on the job site. Build your reputation. Increase your pay. Study the NEC seriously.</p>
-        <div class="two-col">
-          <div class="card">
-            <h4>Skills to build on the job</h4>
-            <ul>
-              <li>Conduit bending — hand, mechanical, and hydraulic</li>
-              <li>Panel installation and breaker work</li>
-              <li>Load calculations — understanding circuit sizing in real situations</li>
-              <li>Blueprint and plan reading on actual job drawings</li>
-              <li>Troubleshooting — tracing faults with meters and logic</li>
-              <li>Commercial rough-in work, service entrance, motor controls</li>
-              <li>Building relationships with inspectors — understanding what they check</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Study resources for this phase</h4>
-            <ul>
-              <li>▶ <a href="https://electricianu.com" target="_blank">Electrician U paid platform</a> — structured continuing education</li>
-              <li>▶ <a href="https://www.youtube.com/@MikeHoltEnterprises" target="_blank">Mike Holt YouTube</a> — NEC deep-dives</li>
-              <li>🎙 <a href="https://podcasts.apple.com/us/podcast/master-the-nec/id1474770803" target="_blank">"Master the NEC"</a> — Paul Abernathy's podcast (900+ eps)</li>
-              <li>🎙 <a href="https://www.the360electrician.com/podcasts" target="_blank">"360 Electrician"</a> — career growth and trade stories</li>
-              <li>📖 <a href="https://www.amazon.com/s?k=mike+holt+nec+study+guide+2020" target="_blank"><em>Mike Holt's NEC Study Guide</em></a> — 2020 edition</li>
-              <li>📖 <a href="https://www.amazon.com/s?k=american+electricians+handbook" target="_blank"><em>American Electricians' Handbook</em></a></li>
-              <li>💻 <a href="https://mikeholt.com" target="_blank">Mike Holt free theory videos</a> at mikeholt.com</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout warn">
-          <span class="callout-icon">⚠️</span>
-          <span><strong>Pay negotiation tip:</strong> Non-union pay is individually negotiated. Every 6–12 months, review your skills growth and ask for a raise. Document what you've learned and what you now do independently. Employers expect this conversation — don't wait to be offered more.</span>
-        </div>
-      </div>
+    <div class="card" style="border-top:3px solid var(--green);">
+      <h4>Rule 4 — Avoid moisture always</h4>
+      <ul>
+        <li>Water and electricity are a lethal combination</li>
+        <li>Never work with wet hands or in wet environments</li>
+        <li>GFCI protection is required near water sources — understand why</li>
+        <li>If a work area is wet, stop and address it before continuing</li>
+      </ul>
     </div>
+  </div>
 
-    <!-- PHASE 5 -->
-    <div class="tl-item">
-      <div class="tl-spine"><div class="tl-badge ph5">Phase<br>5</div></div>
-      <div class="tl-content">
-        <div class="tl-header"><h3>NYC Master Electrician license</h3><span class="tl-dur">Years 6–8+</span></div>
-        <p class="tl-goal">Goal: Complete your 7.5-year experience requirement and sit for the NYC Master Electrician exam. Unlock full independent licensing — and the ability to run your own business.</p>
-        <div class="two-col">
-          <div class="card">
-            <h4>NYC Master Electrician — requirements</h4>
-            <ul>
-              <li>7.5 years / 10,500+ hours under a licensed master (union or non-union)</li>
-              <li>Minimum 2 years of that experience must be in NYC specifically</li>
-              <li>Must be at least 21 years old at time of application</li>
-              <li>Apply through DOB NOW: Licensing portal (required since Feb 2026)</li>
-              <li>Pass written exam + practical exam (NYC Dept. of Buildings)</li>
-              <li>Obtain $1M general liability + workers' comp insurance</li>
-              <li>Annual renewal with 8 hours continuing education</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>Exam prep resources</h4>
-            <ul>
-              <li>💻 <a href="https://mikeholt.com/product-category/exam-preparation/" target="_blank">Mike Holt full NEC exam prep course</a> (paid — worth every dollar)</li>
-              <li>💻 <a href="https://www.cuny.edu/academics/workforce-development/" target="_blank">CUNY review classes</a> — NYC-specific exam prep</li>
-              <li>▶ <a href="https://www.youtube.com/@MikeHoltEnterprises" target="_blank">Mike Holt YouTube</a> — free NEC walkthrough clips</li>
-              <li>🎙 <a href="https://podcasts.apple.com/us/podcast/master-the-nec/id1474770803" target="_blank">"Master the NEC" podcast</a> — code mastery</li>
-              <li>📖 <a href="https://www.amazon.com/s?k=understanding+the+nec+mike+holt" target="_blank"><em>Understanding the NEC</em> Vols. 1 & 2</a> — Mike Holt</li>
-              <li>📖 <a href="https://www.amazon.com/s?k=mike+holt+journeyman+practice+exam" target="_blank">Journeyman Practice Exam Workbook</a> — Mike Holt</li>
-            </ul>
-          </div>
-        </div>
-        <div class="callout tip">
-          <span class="callout-icon">🎯</span>
-          <span><strong>The license changes everything.</strong> A master license lets you pull permits, run your own contracting business, advertise services, and bid on public projects. Many non-union electricians who get licensed end up starting their own small companies — this is one of the most common outcomes of this exact path.</span>
-        </div>
-      </div>
+  <div class="prose">
+    <h3>Lockout/Tagout (LOTO) — your most important procedure</h3>
+    <p>LOTO is the procedure that prevents equipment from being accidentally energized while someone is working on it. As a new helper, you need to understand this from day one. Here's the basic sequence:</p>
+  </div>
+
+  <div class="card" style="margin:1rem 0">
+    <h4>LOTO procedure — basic steps</h4>
+    <ul>
+      <li><strong>1. Notify</strong> — tell everyone in the area that the circuit is being de-energized</li>
+      <li><strong>2. Identify</strong> — locate the correct breaker or disconnect switch</li>
+      <li><strong>3. Turn off</strong> — switch the breaker to OFF position</li>
+      <li><strong>4. Lock it</strong> — place a physical lock through the breaker so no one can switch it back on</li>
+      <li><strong>5. Tag it</strong> — attach a tag with your name, date, and reason for lockout</li>
+      <li><strong>6. Test it</strong> — use a non-contact voltage tester to confirm the circuit is dead</li>
+      <li><strong>7. Work safely</strong> — only now do you begin your work</li>
+    </ul>
+  </div>
+
+  <div class="callout danger">
+    <span class="callout-icon">⚠️</span>
+    <span><strong>The most dangerous words in the trade: "It should be off."</strong> Should be is not good enough. Test every time, without exception. The majority of electrical injuries happen when someone assumed a circuit was de-energized without verifying it.</span>
+  </div>
+
+  <div class="prose">
+    <h3>Common hazards on the job site</h3>
+  </div>
+
+  <div class="tools-grid" style="margin:1rem 0">
+    <div class="tool-card"><div class="tool-icon">⚡</div><h4>Electrical shock</h4><p>Current passing through the body. Even low voltages can be fatal depending on the path through the body and the duration.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔥</div><h4>Arc flash & blast</h4><p>Explosive electrical discharge. Can cause severe burns, blindness, and fatal injuries. Requires specialized PPE to work near energized equipment.</p></div>
+    <div class="tool-card"><div class="tool-icon">🪜</div><h4>Falls</h4><p>The #1 cause of construction fatalities. Always use ladders correctly — three points of contact, never overreach, inspect before using.</p></div>
+    <div class="tool-card"><div class="tool-icon">🌊</div><h4>Water/moisture</h4><p>Dramatically reduces resistance and increases shock risk. GFCI protection is legally required in wet areas specifically because of this hazard.</p></div>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: Essential Electrician Tools & Safety Warnings 2025</h3>
+      <p>Dustin Stelzer covers the essential safety equipment, tool safety, and on-site hazard awareness every beginning electrician needs to understand before their first day on the job.</p>
+      <div class="instructor">Electrician U · Dustin Stelzer, Master Electrician</div>
+      <div class="video-tags"><span class="vtag">Safety</span><span class="vtag">Tools</span><span class="vtag">Beginner</span></div>
+      <a class="video-link" href="https://www.youtube.com/watch?v=bE37Pm6WVgU" target="_blank">Watch on YouTube ↗</a>
     </div>
-
   </div>
 </section>
 
-<!-- ════ GETTING HIRED ════ -->
-<section id="getjob" class="section">
-  <h2 class="section-heading">Getting your first job</h2>
-  <p class="section-sub">This is the most important section. Here's exactly what employers are looking for, where to find jobs, and how to stand out as a zero-experience applicant.</p>
+<!-- ══ CHAPTER 3 ══ -->
+<section id="ch3" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 3 · Certifications</div>
+    <h2>The credentials that <em>get you hired.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Most beginners apply for jobs with a blank resume. Here's how to make sure you're not one of them — with certifications you can earn before you ever set foot on a job site.</p>
+  </div>
+
+  <div class="prose">
+    <p>Certifications do two things. First, they give you real knowledge — every course below will teach you something genuinely useful on the job. Second, they signal to employers that you're serious. Anyone can say they want to be an electrician. The person who shows up with an OSHA 10 card and two online certificates already looks like a professional before they've done a single day of work.</p>
+  </div>
 
   <div class="callout important">
     <span class="callout-icon">⭐</span>
-    <span><strong>The honest truth:</strong> Most electrician helpers are hired based on attitude, reliability, and a few basic credentials — not technical knowledge. A great attitude + OSHA 10 card + basic theory knowledge puts you ahead of most applicants. The bar to get hired is lower than you think.</span>
+    <span><strong>The priority order matters.</strong> Get your OSHA 10 first — it's the most asked-for credential at the helper level. Then Alison and SkillCat while you're still studying. The others come after you're employed and building your career.</span>
   </div>
 
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:12px;">What employers are actually looking for</h3>
-  <div class="job-grid" style="margin-bottom:1.5rem;">
-    <div class="job-card">
-      <div class="job-type">Must have</div>
-      <h4>OSHA 10 Card</h4>
-      <p>Most employers require or strongly prefer this. Get it before applying — it takes 10 hours and costs ~$30–50 online.</p>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin:1.5rem 0 1rem;">Get these <em>before</em> you apply for your first job</h3>
+  <div class="cert-grid">
+
+    <div class="cert-card c-priority">
+      <span class="cert-badge b-priority">⭐ Do First</span>
+      <h3>OSHA 10 — Construction Safety</h3>
+      <p>The most recognized safety credential in the US construction industry. Covers electrical hazards, lockout/tagout, fall protection, arc flash, and PPE. Most employers ask for this before they'll hire a helper. A physical card is mailed to you on completion.</p>
+      <div class="cert-meta">
+        <span class="cert-tag ct-cost">~$30–50</span>
+        <span class="cert-tag ct-time">10 hours online</span>
+        <span class="cert-tag ct-renew">No renewal required</span>
+      </div>
+      <a class="cert-link" href="https://www.osha.gov/oshtraining/outreach/construction" target="_blank">osha.gov — find authorized providers ↗</a>
     </div>
-    <div class="job-card">
-      <div class="job-type">Must have</div>
-      <h4>Reliable transportation</h4>
-      <p>Job sites move. You need to get there. A valid driver's license is frequently required for electrician helper roles.</p>
+
+    <div class="cert-card c-priority">
+      <span class="cert-badge b-priority">⭐ Do First</span>
+      <h3>Alison — Electrical Studies Certificate</h3>
+      <p>Free online course covering electrical safety, wiring basics, and equipment fundamentals. CPD accredited — that's a real credential. The digital certificate is completely free. Takes 2–4 weeks at a casual pace. List it on your resume immediately on completion.</p>
+      <div class="cert-meta">
+        <span class="cert-tag ct-cost">Free (digital cert)</span>
+        <span class="cert-tag ct-time">2–4 weeks self-paced</span>
+        <span class="cert-tag ct-renew">CPD accredited</span>
+      </div>
+      <a class="cert-link" href="https://alison.com/courses/principles-of-electricity" target="_blank">alison.com — Principles of Electricity ↗</a>
     </div>
-    <div class="job-card">
-      <div class="job-type">Strong advantage</div>
-      <h4>Basic theory knowledge</h4>
-      <p>Being able to explain Ohm's Law, wire types, and basic safety in an interview sets you apart immediately from other no-experience candidates.</p>
+
+    <div class="cert-card c-priority">
+      <span class="cert-badge b-priority">⭐ Do Early</span>
+      <h3>SkillCat — Electrical Theory Certificate</h3>
+      <p>Mobile app-based training platform accredited by IACET — one of the most respected credentialing bodies in the US. Interactive simulations covering theory, NEC basics, and safety. Free to start. Great for learning on your phone during commutes and downtime.</p>
+      <div class="cert-meta">
+        <span class="cert-tag ct-cost">Free to start</span>
+        <span class="cert-tag ct-time">Self-paced, modular</span>
+        <span class="cert-tag ct-renew">IACET accredited</span>
+      </div>
+      <a class="cert-link" href="https://skillcat.io" target="_blank">skillcat.io ↗</a>
     </div>
-    <div class="job-card">
-      <div class="job-type">Strong advantage</div>
-      <h4>Alison certificate</h4>
-      <p>Any credential on a blank resume stands out. The free Alison certificate shows initiative and that you've already started learning.</p>
+
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin:1.75rem 0 1rem;">Get these in your <em>first 1–2 years</em> on the job</h3>
+  <div class="cert-grid">
+
+    <div class="cert-card c-mid">
+      <span class="cert-badge b-mid">Year 1–2</span>
+      <h3>NFPA 70E — Electrical Safety in the Workplace</h3>
+      <p>The OSHA-referenced standard for electrical safety covering arc flash hazards, shock protection, and safe work practices. Required by many commercial employers. Renews every 3 years in line with code update cycles. Online courses available for as little as $45.</p>
+      <div class="cert-meta">
+        <span class="cert-tag ct-cost">$45–100 online</span>
+        <span class="cert-tag ct-time">4–8 hours</span>
+        <span class="cert-tag ct-renew">Renews every 3 years</span>
+      </div>
+      <a class="cert-link" href="https://www.nfpa.org/training" target="_blank">nfpa.org — training courses ↗</a>
     </div>
-    <div class="job-card">
-      <div class="job-type">Big plus</div>
-      <h4>Physical readiness</h4>
-      <p>The job is physical — lifting, climbing, working in confined spaces. Mentioning that you're physically fit and comfortable with manual work matters.</p>
+
+    <div class="cert-card c-mid">
+      <span class="cert-badge b-mid">Year 1–2</span>
+      <h3>First Aid / CPR + AED</h3>
+      <p>Electricians work around live systems and in hazardous environments. CPR and first aid knowledge is practically required on most commercial job sites and is universally respected by every employer. Cheap, fast, and could save a coworker's life. Renews every 2 years.</p>
+      <div class="cert-meta">
+        <span class="cert-tag ct-cost">$30–80</span>
+        <span class="cert-tag ct-time">4–8 hours</span>
+        <span class="cert-tag ct-renew">Renews every 2 years</span>
+      </div>
+      <a class="cert-link" href="https://www.redcross.org/take-a-class" target="_blank">redcross.org — find a class ↗</a>
     </div>
-    <div class="job-card">
-      <div class="job-type">Big plus</div>
-      <h4>Genuine enthusiasm</h4>
-      <p>Contractors want apprentices who actually want to learn the trade. Expressing real interest in the work — not just a paycheck — is noticed and valued.</p>
+
+    <div class="cert-card c-mid">
+      <span class="cert-badge b-mid">Year 1–2</span>
+      <h3>OSHA 30 — Construction (Upgrade)</h3>
+      <p>The 30-hour version of OSHA training goes deeper into all construction hazards. Highly valued for anyone moving into a foreman or lead role. Demonstrates serious commitment to safety culture and significantly improves your standing with commercial contractors.</p>
+      <div class="cert-meta">
+        <span class="cert-tag ct-cost">$150–250</span>
+        <span class="cert-tag ct-time">30 hours online</span>
+        <span class="cert-tag ct-renew">No renewal required</span>
+      </div>
+      <a class="cert-link" href="https://www.osha.gov/oshtraining/outreach/construction" target="_blank">osha.gov — authorized providers ↗</a>
+    </div>
+
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin:1.75rem 0 1rem;">Longer-term credentials — <em>years 3–7</em></h3>
+  <div class="cert-grid">
+
+    <div class="cert-card c-long">
+      <span class="cert-badge b-long">Years 3–5</span>
+      <h3>NCCER Electrical Certification</h3>
+      <p>National Center for Construction Education & Research. One of the most respected industry-wide credentials in the USA — accepted by contractors in all 50 states. Certifies your skill level from Core through Level 4. Can substitute for licensing requirements in some states and significantly increases your earning power.</p>
+      <div class="cert-meta">
+        <span class="cert-tag ct-cost">Varies by program</span>
+        <span class="cert-tag ct-time">Multi-level, structured</span>
+        <span class="cert-tag ct-renew">All 50 states recognized</span>
+      </div>
+      <a class="cert-link" href="https://www.nccer.org" target="_blank">nccer.org ↗</a>
+    </div>
+
+    <div class="cert-card c-long">
+      <span class="cert-badge b-long">If relevant</span>
+      <h3>EPA Section 608 Technician</h3>
+      <p>Required by federal law to handle refrigerants — relevant if your employer does any HVAC-adjacent electrical work. Lifetime validity, no renewal needed. Inexpensive to get and adds a specialized credential that opens doors in both electrical and HVAC industries.</p>
+      <div class="cert-meta">
+        <span class="cert-tag ct-cost">$20–60 exam fee</span>
+        <span class="cert-tag ct-time">Self-study + exam</span>
+        <span class="cert-tag ct-renew">Lifetime validity</span>
+      </div>
+      <a class="cert-link" href="https://www.epa.gov/section608" target="_blank">epa.gov — Section 608 ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CHAPTER 4 ══ -->
+<section id="ch4" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 4 · Tools</div>
+    <h2>The tools of the <em>trade.</em></h2>
+    <div class="ch-divider"></div>
+    <p>An electrician is only as good as their tools — and knowing every tool by name and function before you step on a job site is one of the things that immediately marks you as serious.</p>
+  </div>
+
+  <div class="prose">
+    <p>You don't need to own all of these on day one. Most employers provide the major equipment. But you should know every tool on this list, what it does, and how to use it safely. Walking onto a job site and not recognizing basic tools is one of the fastest ways to look unprepared.</p>
+  </div>
+
+  <div class="callout tip">
+    <span class="callout-icon">🛒</span>
+    <span><strong>What to buy first:</strong> A quality voltage tester (~$20), a multimeter (~$30–60), a good set of Klein Tools lineman's pliers, and a wire stripper. These four items cover the vast majority of what a helper needs on day one and cost under $150 total.</span>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);margin:1.5rem 0 0.75rem;">Hand tools — your everyday carry</h3>
+  <div class="tools-grid">
+    <div class="tool-card"><div class="tool-icon">🔧</div><h4>Lineman's pliers</h4><p>The signature tool of the trade. Cuts, bends, grips, and twists wire. Every electrician carries these. Get Klein Tools — the industry standard.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔧</div><h4>Needle-nose pliers</h4><p>For working in tight spaces, forming wire hooks for screw terminals, and grabbing things in boxes where your fingers won't fit.</p></div>
+    <div class="tool-card"><div class="tool-icon">✂️</div><h4>Wire strippers</h4><p>Removes insulation from wire ends without damaging the conductor. Has calibrated notches for different wire gauges (sizes). Learn the gauges.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔩</div><h4>Screwdrivers (insulated)</h4><p>Phillips and flathead, multiple sizes. Must be properly insulated (rated 1000V). Never use a standard hardware store screwdriver around electrical work.</p></div>
+    <div class="tool-card"><div class="tool-icon">📏</div><h4>Tape measure</h4><p>Used constantly — marking box heights, measuring conduit runs, spacing outlets. A 25-foot tape is standard.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔦</div><h4>Flashlight / headlamp</h4><p>Electrical work happens in dark spaces — inside walls, in attics, basements, and panels. A hands-free headlamp is invaluable.</p></div>
+    <div class="tool-card"><div class="tool-icon">🪛</div><h4>Utility knife</h4><p>Strips NM cable sheathing, cuts electrical tape, opens boxes. Keep a sharp blade — a dull knife is more dangerous than a sharp one.</p></div>
+    <div class="tool-card"><div class="tool-icon">🎣</div><h4>Fish tape</h4><p>Thin, flexible steel tape used to pull wire through conduit or walls. Comes in 50–100 foot lengths, retracts into a reel. Essential for running wire through finished spaces.</p></div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);margin:1.5rem 0 0.75rem;">Testing & measurement equipment</h3>
+  <div class="tools-grid">
+    <div class="tool-card"><div class="tool-icon">🔍</div><h4>Non-contact voltage tester</h4><p>Your most important safety tool. Detects voltage without touching the wire — just hold it near. It beeps and lights up if live. Use it before touching anything.</p></div>
+    <div class="tool-card"><div class="tool-icon">📊</div><h4>Multimeter</h4><p>Measures voltage, current (amps), and resistance. Essential for troubleshooting. Learn to use this early — it tells you what's happening in any circuit.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔌</div><h4>Outlet tester / receptacle tester</h4><p>Plug into an outlet to instantly verify correct wiring — hot, neutral, and ground. Shows wiring faults with LED indicators. Fast and simple.</p></div>
+    <div class="tool-card"><div class="tool-icon">📐</div><h4>Level (torpedo level)</h4><p>Ensures electrical boxes, panels, and fixtures are mounted straight. Small enough to keep in a tool pouch. Used on almost every installation.</p></div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text);margin:1.5rem 0 0.75rem;">Conduit & installation tools</h3>
+  <div class="tools-grid">
+    <div class="tool-card"><div class="tool-icon">🔨</div><h4>Conduit bender</h4><p>Bends EMT and rigid conduit to precise angles. One of the most skill-dependent tools in the trade. Learning to bend clean 90s and offsets will make you a standout apprentice.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔗</div><h4>Cable ties / zip ties</h4><p>Keeps wire runs organized and tidy. Used constantly to bundle and secure cables. Never underestimate how much a neat job impresses inspectors and supervisors.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔩</div><h4>Hammer / electrician's hammer</h4><p>Drives staples securing NM cable to framing, nails electrical boxes to studs. Rubber-grip insulated handle is standard for electrical work.</p></div>
+    <div class="tool-card"><div class="tool-icon">🕳️</div><h4>Drill / hole saw</h4><p>Drills holes through studs and joists for running wire. A Milwaukee or DeWalt 18V drill is the industry standard. Spade bits and hole saws are common accessories.</p></div>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: Essential Electrician Tools & Safety Warnings Part 2</h3>
+      <p>Part 2 of Electrician U's tools series goes deeper into specific tool selection, proper technique, and what to look for in quality tools. Essential viewing before your first day on the job.</p>
+      <div class="instructor">Electrician U · Dustin Stelzer, Master Electrician</div>
+      <div class="video-tags"><span class="vtag">Tools</span><span class="vtag">Beginner</span><span class="vtag">Practical</span></div>
+      <a class="video-link" href="https://www.youtube.com/watch?v=lSukCAIROuw" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHAPTER 5 ══ -->
+<section id="ch5" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 5 · How Electricity Works</div>
+    <h2>Understanding what you <em>can't see.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Every electrician works with something invisible. Understanding what electricity actually is — not just how to wire things — is what separates a tradesperson from a technician.</p>
+  </div>
+
+  <div class="prose">
+    <h3>The best analogy you'll ever hear</h3>
+    <p>Think about your home's plumbing system. Water enters the house under pressure, flows through pipes, does its work (shower, dishwasher, faucet), and exits through the drain. Electrical current works almost identically — it enters under pressure, flows through wires, does its work (powers your lights, appliances), and returns through the neutral wire.</p>
+
+    <p>In plumbing, <strong>pressure</strong> is measured in PSI. In electricity, pressure is called <strong>voltage</strong> (measured in volts — V).</p>
+    <p>In plumbing, the <strong>flow rate</strong> is measured in gallons per minute. In electricity, flow is called <strong>current</strong> (measured in amperes — A, or "amps").</p>
+    <p>In plumbing, a narrow pipe restricts flow. In electricity, that restriction is called <strong>resistance</strong> (measured in ohms — Ω).</p>
+
+    <h3>The three quantities — and the law that connects them</h3>
+    <p>These three things — voltage, current, and resistance — are related by the most important equation in all of electrical work. It's called <strong>Ohm's Law</strong>, and every electrician uses it almost every day, whether they realize it or not:</p>
+  </div>
+
+  <div class="ohm-box">
+    <h3>Ohm's Law — V = I × R</h3>
+    <div class="ohm-triangle">
+      <div class="ohm-circle oc-v"><div class="oc-letter">V</div><div class="oc-label">VOLTS</div></div>
+      <div class="ohm-circle oc-i"><div class="oc-letter">I</div><div class="oc-label">AMPS</div></div>
+      <div class="ohm-circle oc-r"><div class="oc-letter">R</div><div class="oc-label">OHMS</div></div>
+    </div>
+    <div class="ohm-formula">
+      <span>V = I × R</span> &nbsp;·&nbsp; 
+      <span>I = V ÷ R</span> &nbsp;·&nbsp; 
+      <span>R = V ÷ I</span>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:10px;">Voltage = Current × Resistance &nbsp;·&nbsp; Rearrange to solve for any unknown</p>
+  </div>
+
+  <div class="prose">
+    <h3>The four rules of electricity</h3>
+    <p>Every electrical circuit follows four basic rules. Memorize these — they explain why every installation, every code requirement, and every safety procedure exists:</p>
+  </div>
+
+  <div class="two-col" style="margin:1.25rem 0">
+    <div class="card"><h4>Rule 1 — Electricity needs a complete path</h4><ul><li>Current must flow in a closed loop — from source, through the load, and back</li><li>Break the loop anywhere and current stops — that's what a switch does</li><li>An "open circuit" means the path is broken; a "closed circuit" means it's complete</li></ul></div>
+    <div class="card"><h4>Rule 2 — Electricity always does work</h4><ul><li>Current doesn't just flow for fun — it always converts energy to something else</li><li>A light bulb converts it to light and heat; a motor converts it to motion</li><li>This "load" is what every circuit is designed around</li></ul></div>
+    <div class="card"><h4>Rule 3 — Electricity flows high to low</h4><ul><li>Current always flows from higher voltage toward lower voltage</li><li>This is why electricity "wants" to find ground — the lowest potential point</li><li>Understanding this explains why grounding works the way it does</li></ul></div>
+    <div class="card"><h4>Rule 4 — Electricity finds the easiest path</h4><ul><li>Given multiple paths, current takes the one with least resistance</li><li>This is why a short circuit is dangerous — it bypasses the load entirely</li><li>Grounding creates a safe, intentional low-resistance path to earth</li></ul></div>
+  </div>
+
+  <div class="prose">
+    <h3>Series vs. parallel circuits</h3>
+    <p>Most people have seen Christmas lights where one bulb burns out and the whole string goes dark. That's a <strong>series circuit</strong> — all components in one continuous loop. Break one, break all.</p>
+    <p>The wiring in your home uses <strong>parallel circuits</strong> — each outlet and fixture is on its own branch. When one device fails, everything else keeps working. This is why your kitchen outlets going dead doesn't turn off your bedroom lights.</p>
+
+    <h3>AC vs. DC — what's the difference?</h3>
+    <p>Batteries produce <strong>DC (direct current)</strong> — electrons flow in one direction continuously. Your phone charger runs on DC. Most electronics use DC internally.</p>
+    <p>Your home runs on <strong>AC (alternating current)</strong> — the electrons reverse direction 60 times per second (60 Hz in the USA). AC is used for building wiring because it's much more efficient to transmit over long distances from power plants.</p>
+  </div>
+
+  <div class="callout tip">
+    <span class="callout-icon">💡</span>
+    <span><strong>Why this matters on the job:</strong> When you pick up a multimeter and check a circuit, you need to know whether you're measuring AC or DC voltage. Measuring the wrong setting gives you a wrong reading — or damages the meter. This is basic knowledge every employer will expect you to have.</span>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: What are Volts, Amps, Ohms & Watts? — Electrician U</h3>
+      <p>The foundational video for understanding electrical theory. Dustin Stelzer explains voltage, current, resistance, and power in plain language with real examples. Watch this and Chapter 5 will make complete sense.</p>
+      <div class="instructor">Electrician U · Dustin Stelzer, Master Electrician</div>
+      <div class="video-tags"><span class="vtag">Theory</span><span class="vtag">Ohm's Law</span><span class="vtag">Beginner essential</span></div>
+      <a class="video-link" href="https://www.youtube.com/watch?v=bb_BiksCiMw" target="_blank">Watch on YouTube ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHAPTER 6 ══ -->
+<section id="ch6" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 6 · Wire & Cable</div>
+    <h2>The material that carries <em>everything.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Wire is to an electrician what lumber is to a carpenter. You need to know every type, every size, every color code, and when each one is used — cold, without looking it up.</p>
+  </div>
+
+  <div class="prose">
+    <h3>Wire vs. cable — they're not the same thing</h3>
+    <p>A <strong>wire</strong> is a single conductor — one strand of metal (usually copper) with insulation around it. A <strong>cable</strong> is a bundle of two or more wires grouped inside a single outer jacket. Most of what you'll work with in residential wiring is cable — specifically NM cable (also called Romex, a brand name).</p>
+
+    <h3>Wire sizing — the AWG system</h3>
+    <p>Wire is sized using the <strong>American Wire Gauge (AWG)</strong> system. Here's the counterintuitive part: <strong>the higher the number, the thinner the wire.</strong> A 14-gauge wire is thinner than a 10-gauge wire. Thinner wire can carry less current before overheating. Always match wire gauge to the circuit's amperage.</p>
+  </div>
+
+  <table class="wire-table" style="margin:1.25rem 0">
+    <tr><th>AWG Size</th><th>Max Amperage</th><th>Common Use</th><th>Breaker Size</th></tr>
+    <tr><td>14 AWG</td><td>15 amps</td><td>General lighting, outlets</td><td>15-amp breaker</td></tr>
+    <tr><td>12 AWG</td><td>20 amps</td><td>Kitchen outlets, bathrooms</td><td>20-amp breaker</td></tr>
+    <tr><td>10 AWG</td><td>30 amps</td><td>Dryers, water heaters, A/C</td><td>30-amp breaker</td></tr>
+    <tr><td>8 AWG</td><td>40 amps</td><td>Electric ranges, large A/C</td><td>40-amp breaker</td></tr>
+    <tr><td>6 AWG</td><td>55 amps</td><td>Large appliances, subpanels</td><td>50–60 amp breaker</td></tr>
+  </table>
+
+  <div class="callout danger">
+    <span class="callout-icon">⚠️</span>
+    <span><strong>Mixing wire gauge and breaker size is how houses burn down.</strong> 14 AWG wire can only safely carry 15 amps. If you put it on a 20-amp breaker, the wire will overheat and potentially catch fire before the breaker trips. The NEC is very specific about this — never deviate.</span>
+  </div>
+
+  <div class="prose">
+    <h3>Wire color codes — USA standard</h3>
+    <p>In US residential wiring, wire colors tell you the wire's function. This is a safety system — knowing what each color means prevents dangerous mistakes.</p>
+  </div>
+
+  <table class="wire-table" style="margin:1.25rem 0">
+    <tr><th>Color</th><th>Function</th><th>What it means</th></tr>
+    <tr><td><span class="color-dot" style="background:#1a1a1a"></span>Black</td><td>Hot (line)</td><td>Carries current from panel to device. Always treat as energized.</td></tr>
+    <tr><td><span class="color-dot" style="background:#cc2222"></span>Red</td><td>Hot (second line)</td><td>Second hot wire in 240V circuits or 3-way switch wiring.</td></tr>
+    <tr><td><span class="color-dot" style="background:#f0f0f0;border:1px solid #ccc"></span>White</td><td>Neutral</td><td>Returns current to panel. Carries current — do not assume it's safe to touch.</td></tr>
+    <tr><td><span class="color-dot" style="background:#4CAF50"></span>Green / Bare copper</td><td>Ground (EGC)</td><td>Equipment grounding conductor. Safety path back to panel. Not normally current-carrying.</td></tr>
+    <tr><td><span class="color-dot" style="background:#3F51B5"></span>Blue / Yellow</td><td>Hot (in conduit)</td><td>Used for hot wires inside conduit runs in commercial wiring.</td></tr>
+  </table>
+
+  <div class="prose">
+    <h3>NM Cable (Romex) — the most common residential cable</h3>
+    <p>Non-metallic sheathed cable — NM-B, commonly known by the brand name Romex — is the most widely used cable type in US residential wiring. It contains two or three insulated conductors plus a bare copper ground wire, all wrapped in a plastic outer jacket. The jacket color tells you the gauge:</p>
+  </div>
+
+  <div class="two-col" style="margin:1.25rem 0">
+    <div class="card">
+      <h4>NM Cable jacket colors (USA)</h4>
+      <ul>
+        <li><strong>White jacket</strong> — 14 AWG, 15-amp circuits</li>
+        <li><strong>Yellow jacket</strong> — 12 AWG, 20-amp circuits</li>
+        <li><strong>Orange jacket</strong> — 10 AWG, 30-amp circuits</li>
+        <li><strong>Black jacket</strong> — 6 or 8 AWG, heavy appliance circuits</li>
+        <li><strong>Gray jacket</strong> — Underground feeder (UF) cable</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Other common cable types</h4>
+      <ul>
+        <li><strong>Armored cable (AC/BX)</strong> — metal spiral armor over conductors, used where physical protection is needed</li>
+        <li><strong>UF Cable</strong> — underground feeder, direct burial, gray jacket</li>
+        <li><strong>SE Cable</strong> — service entrance cable, brings power from utility meter to panel</li>
+        <li><strong>THHN/THWN</strong> — individual insulated conductors pulled through conduit</li>
+      </ul>
     </div>
   </div>
 
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:12px;">Where to find helper jobs in NY</h3>
-  <div class="card" style="margin-bottom:10px;">
-    <h4>Job boards — search these terms</h4>
-    <ul>
-      <li><strong><a href="https://www.indeed.com/q-electrician-helper-l-New-York-jobs.html" target="_blank">Indeed.com</a></strong> — search "electrician helper New York" or "electrical apprentice NYC" — most non-union hiring happens here</li>
-      <li><strong><a href="https://www.ziprecruiter.com/Jobs/Electrician-Helper/--in-New-York" target="_blank">ZipRecruiter.com</a></strong> — search "electrician helper no experience New York"</li>
-      <li><strong><a href="https://newyork.craigslist.org/search/trd" target="_blank">Craigslist NYC</a></strong> — Skilled Trades section — many small contractors post here exclusively</li>
-      <li><strong><a href="https://www.linkedin.com/jobs/search/?keywords=electrician%20helper&location=New%20York" target="_blank">LinkedIn</a></strong> — search "electrician helper NYC" — good for commercial contractors</li>
-      <li><strong><a href="https://cityjobs.nyc.gov/job/electricians-helper-in-nyc-all-boros-jid-33812" target="_blank">NYC Jobs (cityjobs.nyc.gov)</a></strong> — the city government hires electrician helpers directly; good stable option</li>
-    </ul>
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: Electrical Wiring Basics for Beginners</h3>
+      <p>A clear, beginner-friendly breakdown of home wiring — wire types, cable identification, color codes, and how residential wiring is actually laid out in a house. Perfect companion to this chapter.</p>
+      <div class="instructor">Starving Electrician · Real-world residential and commercial work</div>
+      <div class="video-tags"><span class="vtag">Wire types</span><span class="vtag">NM cable</span><span class="vtag">Color codes</span></div>
+      <a class="video-link" href="https://www.youtube.com/@StarvingElectrician" target="_blank">Starving Electrician on YouTube ↗</a>
+    </div>
   </div>
-  <div class="card" style="margin-bottom:10px;">
-    <h4>Direct outreach — often more effective than job boards</h4>
-    <ul>
-      <li>Look up electrical contractors in your NYC borough on Google Maps — call them directly and ask if they're hiring helpers</li>
-      <li>Walk into small contractor offices in industrial areas — many don't bother posting jobs online</li>
-      <li>Tell everyone you know you're looking — the trades run heavily on word of mouth and personal referrals</li>
-      <li>Visit electrical supply houses (like Graybar, Rexel, or independent supply companies) in your area — contractors are in and out all day and sometimes tip you off to who's hiring</li>
-    </ul>
+</section>
+
+<!-- ══ CHAPTER 7 ══ -->
+<section id="ch7" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 7 · Conduit & Raceways</div>
+    <h2>Protecting wire is <em>half the job.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Conduit is the protective tubing that wire travels through. In commercial and industrial work, almost everything runs in conduit. Understanding it — and learning to bend it well — is one of the fastest ways to stand out as an apprentice.</p>
   </div>
-  <div class="card">
-    <h4>What to say in the interview</h4>
+
+  <div class="prose">
+    <h3>Why conduit exists</h3>
+    <p>In residential work, NM cable is often stapled directly to framing inside walls. But in commercial buildings, garages, basements, and anywhere wire might be exposed or damaged, NM cable isn't allowed. Instead, individual THHN conductors are pulled through conduit — rigid or flexible metal or plastic tubing that protects the wire from physical damage, moisture, and pests.</p>
+
+    <h3>The main conduit types</h3>
+  </div>
+
+  <div class="tools-grid" style="margin:1.25rem 0">
+    <div class="tool-card"><div class="tool-icon">⚙️</div><h4>EMT — Electrical Metallic Tubing</h4><p>The most common conduit in commercial work. Thin-wall steel, easy to bend, cost-effective. Used in dry indoor locations. The go-to conduit for most commercial jobs.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔩</div><h4>Rigid Metal Conduit (RMC)</h4><p>Heavy-duty thick-wall steel. Used outdoors, in wet locations, where maximum physical protection is needed. Requires threading to connect sections.</p></div>
+    <div class="tool-card"><div class="tool-icon">🟦</div><h4>PVC Conduit</h4><p>Gray plastic. Lightweight, corrosion-resistant, inexpensive. Used underground and in wet locations. Cannot be used where EMT is required (e.g., exposed in commercial buildings).</p></div>
+    <div class="tool-card"><div class="tool-icon">🌀</div><h4>Flexible Metal Conduit (FMC)</h4><p>Flexible spiral metal armor — used to connect rigid conduit runs to equipment that vibrates (motors, HVAC units). Also called "Greenfield." Limited run lengths per NEC.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔄</div><h4>Liquid-tight Flexible (LFMC)</h4><p>Same as FMC but with a plastic outer jacket for moisture protection. Used for outdoor equipment connections and wet locations.</p></div>
+    <div class="tool-card"><div class="tool-icon">📦</div><h4>Surface raceways</h4><p>Plastic channels mounted on walls when you can't run wire inside walls. Common in office retrofits and basements. Wiremold is the most recognized brand.</p></div>
+  </div>
+
+  <div class="prose">
+    <h3>Conduit bending — the skill that sets you apart</h3>
+    <p>Bending conduit is one of the most visible, skill-dependent tasks in the trade. A good bend is tight, accurate, and clean. A bad bend is lumpy, kinked, or wrong-angled. Supervisors notice both.</p>
+    <p>The basic bends every apprentice must master:</p>
+  </div>
+
+  <div class="card" style="margin:1rem 0">
+    <h4>The 5 essential bends</h4>
     <ul>
-      <li><strong>Be honest about experience:</strong> "I have no field experience yet, but I've been studying for [X weeks] and I'm serious about learning this trade."</li>
-      <li><strong>Mention your credentials:</strong> "I have my OSHA 10 card and I've completed online coursework in electrical theory and residential wiring."</li>
-      <li><strong>Show you know basics:</strong> Be ready to explain Ohm's Law, name a few wire types, and describe what a GFCI outlet is.</li>
-      <li><strong>Emphasize attitude:</strong> "I show up early, I work hard, I ask questions, and I want to be in this trade long-term — not just looking for a paycheck."</li>
-      <li><strong>Ask smart questions:</strong> "What types of projects do you mostly work on?" — shows you understand the trade has different sectors.</li>
+      <li><strong>Stub-up (90° bend)</strong> — the most common bend. Brings conduit up from a floor or out from a wall at 90 degrees. Master this one first.</li>
+      <li><strong>Back-to-back bend</strong> — two 90° bends to make a U-shape for going around an obstacle above.</li>
+      <li><strong>Offset bend</strong> — two bends in opposite directions to shift the conduit run around an obstacle on a flat surface.</li>
+      <li><strong>Saddle bend</strong> — three bends to go over a pipe or other obstruction lying across the conduit path.</li>
+      <li><strong>Box offset</strong> — a small offset right at the end of a conduit run to align with a box knockout.</li>
     </ul>
   </div>
 
   <div class="callout tip">
-    <span class="callout-icon">🔑</span>
-    <span><strong>Target small to mid-size non-union residential and commercial contractors.</strong> Large commercial companies often require more experience. Small contractors — 5 to 20 employees — are your best bet. They train as they go, they need reliable help, and they'll give you real responsibility faster.</span>
+    <span class="callout-icon">🎯</span>
+    <span><strong>Practice on scrap pipe.</strong> Every conduit bender has a dedicated YouTube tutorial series. Watch Electrician U's conduit bending playlist and practice the stub-up and offset until they're perfect. This is one of the skills that gets noticed immediately by experienced electricians on your first job.</span>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: Conduit Bending series — Electrician U</h3>
+      <p>Dustin Stelzer's conduit bending series covers every bend type with clear, on-camera instruction. Watch the stub-up and offset videos before anything else — these are the first bends you'll be asked to make on the job.</p>
+      <div class="instructor">Electrician U · Dustin Stelzer, Master Electrician</div>
+      <div class="video-tags"><span class="vtag">Conduit</span><span class="vtag">Bending</span><span class="vtag">Hands-on skill</span></div>
+      <a class="video-link" href="https://www.youtube.com/@ElectricianU" target="_blank">Electrician U YouTube — search "conduit bending" ↗</a>
+    </div>
   </div>
 </section>
 
-<!-- ════ VIDEOS ════ -->
-<section id="videos" class="section">
-  <h2 class="section-heading">Video courses & YouTube series</h2>
-  <p class="section-sub">Listed in recommended watch order. Start at the top and work down as you progress through the phases.</p>
-  <div class="res-list">
+<!-- ══ CHAPTER 8 ══ -->
+<section id="ch8" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 8 · Boxes, Switches & Outlets</div>
+    <h2>Where the wire meets <em>the world.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Electrical boxes, switches, and receptacles are where an invisible wire system becomes something people actually use. This is the most hands-on chapter in the course.</p>
+  </div>
 
-    <div class="res-card featured">
-      <div class="res-avatar av-yt">EU</div>
-      <div class="res-body">
-        <h3>Electrician U — Your primary video resource</h3>
-        <p>The most comprehensive electrician learning resource online. Dustin Stelzer (licensed master) covers everything from Ohm's Law to advanced NEC code. Free YouTube channel plus a paid membership platform with hundreds of structured videos, quizzes, and learning paths. This is your go-to throughout the entire course — beginner to advanced.</p>
-        <div class="res-tags"><span class="tag tag-free">Free YouTube</span><span class="tag tag-paid">Paid platform</span><span class="tag tag-beg">All levels</span><span class="tag tag-critical">Start here</span></div>
-        <a class="res-link" href="https://www.youtube.com/@ElectricianU" target="_blank">youtube.com/@ElectricianU ↗</a> &nbsp;
-        <a class="res-link" href="https://electricianu.com" target="_blank">electricianu.com ↗</a>
-        <p class="res-note">Begin with: "Electrical Theory" playlist → "Residential Wiring" → "NEC Code" series</p>
-      </div>
+  <div class="prose">
+    <h3>Electrical boxes — every connection lives in one</h3>
+    <p>The NEC requires that every wire splice, connection, and device termination be contained inside an approved electrical box. No exceptions. This rule exists because most electrical fires start at connections — and containing them inside a box limits how far a fire can spread.</p>
+  </div>
+
+  <div class="tools-grid" style="margin:1.25rem 0">
+    <div class="tool-card"><div class="tool-icon">📦</div><h4>Single-gang boxes</h4><p>The most common. Holds one device — a single switch or outlet. Available in plastic (NM cable work) or metal (conduit work).</p></div>
+    <div class="tool-card"><div class="tool-icon">📦</div><h4>Multi-gang boxes</h4><p>Two, three, or four gang — holds multiple devices side by side. Used when multiple switches control different lights in the same location.</p></div>
+    <div class="tool-card"><div class="tool-icon">⭕</div><h4>Octagonal boxes</h4><p>Eight-sided boxes used for ceiling fixtures and junction boxes. The shape distributes weight evenly — important when supporting a heavy light fixture.</p></div>
+    <div class="tool-card"><div class="tool-icon">🔲</div><h4>4-inch square boxes</h4><p>Large capacity boxes used in commercial work for multiple connections. Require a mud ring to accommodate device mounting.</p></div>
+  </div>
+
+  <div class="prose">
+    <h3>Switches — controlling the flow</h3>
+    <p>A switch is simply a device that opens and closes a circuit. In its open position, no current flows. Closed, current flows and the load operates. Understanding switch types is essential for residential rough-in work:</p>
+  </div>
+
+  <div class="two-col" style="margin:1.25rem 0">
+    <div class="card">
+      <h4>Switch types every beginner must know</h4>
+      <ul>
+        <li><strong>Single-pole switch</strong> — controls a light from one location. Two terminals. Most common switch in any home.</li>
+        <li><strong>3-way switch</strong> — controls a light from two locations (top and bottom of stairs). Three terminals including a "common." Requires special wiring.</li>
+        <li><strong>4-way switch</strong> — used between two 3-way switches to control a light from three or more locations.</li>
+        <li><strong>GFCI switch</strong> — includes ground-fault protection. Required in bathrooms, kitchens, garages, outdoors.</li>
+        <li><strong>Dimmer switch</strong> — controls light level. Must be matched to the fixture type (LED dimmers are different from incandescent).</li>
+      </ul>
     </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-yt">KA</div>
-      <div class="res-body">
-        <h3>Khan Academy — Electrical Engineering fundamentals</h3>
-        <p>The absolute starting point for a total novice. Free, structured, and crystal clear. Covers voltage, current, resistance, Ohm's Law, and circuit analysis. Best place to build math and confidence before trade-specific content — spend your first week here.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">Phase 1 — Week 1</span></div>
-        <a class="res-link" href="https://www.khanacademy.org/science/electrical-engineering" target="_blank">khanacademy.org ↗</a>
-        <p class="res-note">Start with the "Circuit Analysis" unit — builds Ohm's Law and Kirchhoff's Laws from scratch</p>
-      </div>
+    <div class="card">
+      <h4>Receptacles (outlets)</h4>
+      <ul>
+        <li><strong>Duplex receptacle (15A)</strong> — standard two-outlet receptacle on a 15-amp/14 AWG circuit. Most common in homes.</li>
+        <li><strong>20-amp receptacle</strong> — T-shaped neutral slot. Required on 20-amp circuits (kitchens, baths).</li>
+        <li><strong>GFCI receptacle</strong> — contains TEST and RESET buttons. Required within 6 feet of water sources per NEC.</li>
+        <li><strong>AFCI receptacle</strong> — Arc Fault Circuit Interrupter. Required in bedrooms and living spaces per 2020 NEC to prevent arc-caused fires.</li>
+        <li><strong>240V receptacles</strong> — for dryers, ranges, EV chargers. Different configurations, larger amperage.</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="res-card">
-      <div class="res-avatar av-yt">CM</div>
-      <div class="res-body">
-        <h3>Craig Michaud — Electrical Instructor</h3>
-        <p>A working electrical instructor with 20+ years of field experience. Patient, clear, beginner-friendly. Ideal for total newcomers who want a teacher's approach to the fundamentals. Watch alongside Khan Academy in your first 2 weeks.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">Phase 1</span></div>
-        <a class="res-link" href="https://www.youtube.com/@CraigMichaudElectrical" target="_blank">youtube.com/@CraigMichaudElectrical ↗</a>
-      </div>
+  <div class="callout info">
+    <span class="callout-icon">ℹ️</span>
+    <span><strong>GFCI vs. AFCI — know the difference:</strong> GFCI protects people from electrocution (detects current leaking to ground). AFCI protects property from fire (detects arcing in the wiring). They solve different problems. The NEC specifies exactly where each is required — this is a common inspector question.</span>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: Wiring Switches, Outlets & Real Job Walkthroughs</h3>
+      <p>The Starving Electrician channel has some of the best on-camera demonstrations of actual switch and outlet wiring in real residential settings. Search for "wiring outlets" and "3-way switch" — these are essential viewing before your first job.</p>
+      <div class="instructor">Starving Electrician · 25+ years residential & commercial experience</div>
+      <div class="video-tags"><span class="vtag">Switches</span><span class="vtag">Outlets</span><span class="vtag">Real installations</span></div>
+      <a class="video-link" href="https://www.youtube.com/@StarvingElectrician" target="_blank">Starving Electrician on YouTube ↗</a>
     </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-yt">SE</div>
-      <div class="res-body">
-        <h3>Starving Electrician — Real jobs, real installs</h3>
-        <p>600K+ subscribers. 25 years of residential and commercial experience on camera. Essential for building visual familiarity — you need to see how work is actually done before you step foot on a job site. Start watching in week 3 and don't stop. Best channel for understanding what your first year on the job will look like.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">Phase 1 week 3 onward</span></div>
-        <a class="res-link" href="https://www.youtube.com/@StarvingElectrician" target="_blank">youtube.com/@StarvingElectrician ↗</a>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-yt">S3</div>
-      <div class="res-body">
-        <h3>S33 Electrical — Practical trade work</h3>
-        <p>Real conduit bending, panel installs, commercial rough-in. Great variety. Watch this in Phase 2 to see a wide range of installation types and build the visual vocabulary you'll need on a real job site.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">Phase 2</span></div>
-        <a class="res-link" href="https://www.youtube.com/@S33Electrical" target="_blank">youtube.com/@S33Electrical ↗</a>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-yt">ME</div>
-      <div class="res-body">
-        <h3>Modern Electrician — Career & trade culture</h3>
-        <p>Two master electricians talk about what the career really looks like. "How To Be An Electrician" series is essential — understanding trade culture, how crews operate, and what a good apprentice looks like. Watch this before your first interview and in your first months on the job.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">Before job search</span></div>
-        <a class="res-link" href="https://www.youtube.com/@ModernElectrician" target="_blank">youtube.com/@ModernElectrician ↗</a>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-yt">MH</div>
-      <div class="res-body">
-        <h3>Mike Holt — NEC code mastery</h3>
-        <p>The gold standard for National Electrical Code education. Free YouTube clips cover NEC walkthrough and code changes. The paid library is the best exam prep available. Start watching in year 2–3 of your employment as you build toward your master license.</p>
-        <div class="res-tags"><span class="tag tag-free">Free clips</span><span class="tag tag-paid">Full library</span><span class="tag tag-adv">Years 2–7</span></div>
-        <a class="res-link" href="https://www.youtube.com/@MikeHoltEnterprises" target="_blank">youtube.com/@MikeHoltEnterprises ↗</a> &nbsp;
-        <a class="res-link" href="https://mikeholt.com" target="_blank">mikeholt.com ↗</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ════ PODCASTS ════ -->
-<section id="podcasts" class="section">
-  <h2 class="section-heading">Podcasts — learn on every commute</h2>
-  <p class="section-sub">Once you're working, your commute becomes a classroom. These five podcasts cover the trade from beginner to master level.</p>
+<!-- ══ CHAPTER 9 ══ -->
+<section id="ch9" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 9 · Lighting & Panels</div>
+    <h2>Lighting up rooms — and <em>understanding the brain</em> of every building.</h2>
+    <div class="ch-divider"></div>
+    <p>Lighting circuits and electrical panels are two of the most visible, most inspected, and most important parts of any electrical installation. This chapter covers both.</p>
+  </div>
+
+  <div class="prose">
+    <h3>Lighting circuits — how they work</h3>
+    <p>A lighting circuit is a radial circuit — it runs from the panel to each fixture in sequence and ends at the last fixture, rather than forming a loop. Most homes have at least two lighting circuits (one upstairs, one downstairs) to limit the impact if a breaker trips.</p>
+
+    <p>The wire runs from the panel to a switch, and from the switch to the fixture. The key concept beginners struggle with: the <strong>switch is always wired into the hot (black) side</strong> of the circuit — never the neutral. This means that when the switch is off, the fixture's wiring is still technically energized up to the switch. This is why you still test before touching any wiring, even if the switch is off.</p>
+  </div>
+
+  <div class="two-col" style="margin:1.25rem 0">
+    <div class="card">
+      <h4>Lighting fixture types</h4>
+      <ul>
+        <li><strong>Pendant / ceiling fixture</strong> — hardwired to ceiling box, most common residential fixture</li>
+        <li><strong>Recessed (can) lighting</strong> — mounted inside ceiling. Requires proper box, IC-rated cans in insulated ceilings</li>
+        <li><strong>Track lighting</strong> — flexible positioning on a single circuit. Common in kitchens and retail</li>
+        <li><strong>Under-cabinet lights</strong> — typically low-voltage LED, hardwired or plug-in</li>
+        <li><strong>Bathroom vanity lights</strong> — require special moisture-rated fixtures in wet zones</li>
+        <li><strong>Ceiling fans</strong> — require a fan-rated box (stronger than standard ceiling box) to support the weight and vibration</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Lamp types (light sources)</h4>
+      <ul>
+        <li><strong>LED</strong> — the current standard. Efficient, long-lasting, low heat. Most new installations use LED exclusively</li>
+        <li><strong>CFL (compact fluorescent)</strong> — being phased out, still encountered in older buildings</li>
+        <li><strong>Halogen</strong> — high heat output, being replaced by LED in most applications</li>
+        <li><strong>Fluorescent (linear)</strong> — T8/T12 tubes, common in commercial kitchens, warehouses, offices</li>
+        <li><strong>HID (High Intensity Discharge)</strong> — metal halide, sodium vapor — parking lots, stadiums, industrial</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h3>The electrical panel — the building's brain</h3>
+    <p>The main electrical panel (also called a breaker box, load center, or service panel) is where all electrical circuits in a building originate. It's the most important piece of electrical equipment in any building and the component most likely to be inspected carefully.</p>
+
+    <p>Understanding what's inside a panel is fundamental knowledge. Here's what you'll find:</p>
+  </div>
+
+  <div class="card" style="margin:1rem 0">
+    <h4>Inside a residential electrical panel</h4>
+    <ul>
+      <li><strong>Main breaker</strong> — the master disconnect for the entire panel. Usually 100–200 amps in residential service. Turning this off de-energizes all branch circuits but NOT the service entrance wires feeding the panel — those are always live.</li>
+      <li><strong>Hot bus bars</strong> — two metal bars running down either side of the panel carrying the incoming power. All circuit breakers connect to these. These are live even with the main breaker off.</li>
+      <li><strong>Neutral bus bar</strong> — white neutral wires from all circuits connect here. At zero volts under normal conditions.</li>
+      <li><strong>Ground bus bar</strong> — bare copper equipment grounding wires connect here. Connected to the neutral bar only at the main panel (not at subpanels).</li>
+      <li><strong>Single-pole breakers</strong> — 15A and 20A breakers for lighting and outlet circuits. Connect to one hot bus bar, carry 120V.</li>
+      <li><strong>Double-pole breakers</strong> — 240V breakers for large appliances (dryer, range, A/C, water heater). Connect to both hot bus bars, carry 240V.</li>
+      <li><strong>GFCI/AFCI breakers</strong> — breakers with built-in protection, replacing the need for individual device protection on those circuits.</li>
+    </ul>
+  </div>
+
+  <div class="callout danger">
+    <span class="callout-icon">⚠️</span>
+    <span><strong>The service entrance wires are ALWAYS live.</strong> The main breaker disconnects the branch circuits — not the wires feeding into the panel from the utility. Those wires at the top of the panel carry lethal voltage 24/7. Never touch them. Only the utility company can de-energize them.</span>
+  </div>
+
+  <div class="prose">
+    <h3>Grounding and overcurrent protection</h3>
+    <p><strong>Grounding</strong> provides a safe path for fault current to return to the source and trip the breaker, rather than flowing through a person or starting a fire. There are two types of grounds in every panel: the system ground (connects neutral to earth via a grounding electrode at the main panel) and equipment grounding conductors (bare copper wires that ground metal enclosures and equipment).</p>
+    <p><strong>Overcurrent protection</strong> — breakers and fuses — protects wire from carrying more current than it's rated for. When current exceeds the breaker's rating, it trips. This protects the wire, which protects the building. The breaker is sized to the wire, not to the devices on the circuit.</p>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: Electrical Panel Basics — Electrician U</h3>
+      <p>Dustin Stelzer explains how to read and understand a residential electrical panel — what's inside, how circuits are organized, and how breakers work. Essential knowledge before you work around any panel.</p>
+      <div class="instructor">Electrician U · Dustin Stelzer, Master Electrician</div>
+      <div class="video-tags"><span class="vtag">Panels</span><span class="vtag">Breakers</span><span class="vtag">Grounding</span></div>
+      <a class="video-link" href="https://www.youtube.com/@ElectricianU" target="_blank">Electrician U — search "panel basics" ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHAPTER 10 ══ -->
+<section id="ch10" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 10 · Reading Plans & Codes</div>
+    <h2>The language every electrician <em>must speak.</em></h2>
+    <div class="ch-divider"></div>
+    <p>Blueprint reading and code knowledge are what separate someone who can follow instructions from someone who can actually think independently on a job site. Learn this and you become indispensable.</p>
+  </div>
+
+  <div class="prose">
+    <h3>Electrical blueprints — what they show</h3>
+    <p>An electrical plan is a drawing of a building viewed from above (a floor plan) with electrical symbols added to show where every outlet, switch, fixture, and panel is located. It also shows the circuit paths connecting them. Before anyone drives a single nail, electricians use these plans to determine how much wire to order, where to drill holes, and how to route conduit runs.</p>
+  </div>
+
+  <div class="two-col" style="margin:1.25rem 0">
+    <div class="card">
+      <h4>Common electrical symbols to memorize</h4>
+      <ul>
+        <li><strong>Circle with two lines</strong> — duplex receptacle (outlet)</li>
+        <li><strong>Circle with WP</strong> — weatherproof outdoor outlet</li>
+        <li><strong>S</strong> — single-pole switch</li>
+        <li><strong>S3</strong> — 3-way switch</li>
+        <li><strong>Circle with X</strong> — ceiling light fixture</li>
+        <li><strong>Circle with F</strong> — ceiling fan</li>
+        <li><strong>Filled circle</strong> — recessed light (can light)</li>
+        <li><strong>Fluorescent symbol</strong> — linear fluorescent fixture</li>
+        <li><strong>Panel symbol (rectangle)</strong> — electrical panel location</li>
+        <li><strong>Dashed lines</strong> — wiring not visible (inside wall)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>What else to look for on electrical plans</h4>
+      <ul>
+        <li><strong>Panel schedule</strong> — lists every circuit breaker, what it controls, its amperage, and the wire gauge</li>
+        <li><strong>Circuit numbers</strong> — each circuit is numbered to match the panel schedule</li>
+        <li><strong>Riser diagram</strong> — shows how panels and circuits connect vertically through a multi-story building</li>
+        <li><strong>Single-line diagram</strong> — simplified view of the entire electrical distribution system, showing panel sizes and feeds</li>
+        <li><strong>Notes and specifications</strong> — written requirements that supplement the drawing</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h3>The National Electrical Code — why it exists</h3>
+    <p>The <strong>National Electrical Code (NEC)</strong>, formally NFPA 70, is the most important document in the electrical trade. It's a set of rules, regulations, and standards for safe electrical installation in the United States. It is updated every three years by the National Fire Protection Association (NFPA). Almost every jurisdiction in the USA adopts the NEC — often with local amendments.</p>
+
+    <p>Here's something critical to understand: <strong>the NEC is not a design guide, it's a minimum safety standard.</strong> It tells you what you must do to be safe. Good electricians go beyond the minimum.</p>
+  </div>
+
+  <div class="card" style="margin:1rem 0">
+    <h4>Key NEC articles every beginner should know</h4>
+    <ul>
+      <li><strong>Article 100 — Definitions:</strong> The dictionary of the NEC. If you don't understand a term, it's defined here.</li>
+      <li><strong>Article 110 — Requirements for Electrical Installations:</strong> General requirements that apply to everything.</li>
+      <li><strong>Articles 200–230 — Services:</strong> How power enters a building. Service entrance, meter, main panel.</li>
+      <li><strong>Article 300 — Wiring Methods:</strong> How wire and cable must be installed, supported, and protected.</li>
+      <li><strong>Article 310 — Conductors:</strong> Wire ampacity tables, insulation types, temperature ratings.</li>
+      <li><strong>Article 400–410 — Conductors, Cords & Luminaires:</strong> Flexible cords, lighting fixtures, lamp requirements.</li>
+      <li><strong>Article 210 — Branch Circuits:</strong> Outlet spacing, circuit requirements by room type.</li>
+      <li><strong>Article 230 — Services:</strong> Service entrance wire, clearances, meter requirements.</li>
+      <li><strong>Article 250 — Grounding and Bonding:</strong> The most referenced article for inspections.</li>
+    </ul>
+  </div>
+
   <div class="callout tip">
-    <span class="callout-icon">🎧</span>
-    <span>Fill every commute, gym session, and errand run with trade podcasts. Over a full year of working in the trade, this adds up to 200–400 hours of free electrical education — the equivalent of a college semester at zero cost.</span>
+    <span class="callout-icon">📖</span>
+    <span><strong>You don't need to memorize the NEC.</strong> You need to know how to use it — how it's organized, where to look things up, and which articles govern which types of work. Experienced electricians carry a code book on every job site. They don't have it memorized — they know how to find the answer fast.</span>
   </div>
-  <div class="res-list">
 
-    <div class="res-card featured">
-      <div class="res-avatar av-pod">EU</div>
-      <div class="res-body">
-        <h3>Electrician U Podcast</h3>
-        <p>The audio companion to the Electrician U YouTube channel. Covers electrical theory, components, practical job skills, and NEC concepts from beginner to advanced. Topics range from "what is a capacitor" to conduit bending technique to advanced code. Start from Episode 1 and work through chronologically — this is your daily commute companion.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">Start Week 1</span></div>
-        <p class="res-note">Apple Podcasts · Spotify · electricianu.com</p>
-      </div>
+  <!-- VIDEO -->
+  <div class="video-card">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Watch: NEC Introduction — Mike Holt Enterprises</h3>
+      <p>Mike Holt is the most respected NEC educator in the USA. His free YouTube clips on NEC fundamentals, Article 100 definitions, and code organization are the clearest introduction to the code available anywhere. Start with the NEC theory introduction series.</p>
+      <div class="instructor">Mike Holt Enterprises · Mike Holt, Master Electrician & NEC Educator</div>
+      <div class="video-tags"><span class="vtag">NEC</span><span class="vtag">Code</span><span class="vtag">Blueprints</span></div>
+      <a class="video-link" href="https://www.youtube.com/@MikeHoltEnterprises" target="_blank">Mike Holt on YouTube ↗</a>
     </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-pod">YE</div>
-      <div class="res-body">
-        <h3>The Young Electrician Podcast</h3>
-        <p>Built specifically for people entering the trade — tips for getting hired, surviving your first months, earning respect on the job site, and advancing faster. Exactly the advice you need during Phase 2 and your first year working. Rated 4.8/5 on Apple Podcasts.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">During job search and first year</span></div>
-        <p class="res-note">Apple Podcasts · Spotify</p>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-pod">36</div>
-      <div class="res-body">
-        <h3>The 360 Electrician Podcast</h3>
-        <p>Trade interviews covering every level — from getting hired as a helper all the way to running a contracting business. The episode "How to Become an Apprentice Electrician" is essential early listening. Great for understanding the full arc of the career you're entering.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">All phases</span></div>
-        <a class="res-link" href="https://www.the360electrician.com/podcasts" target="_blank">the360electrician.com ↗</a>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-pod">MN</div>
-      <div class="res-body">
-        <h3>Master the NEC — Paul Abernathy</h3>
-        <p>960+ episodes dedicated to the National Electrical Code. Hosted by master electrician and Electrical Code Academy founder Paul Abernathy. Start this in your second year on the job and work through it consistently. By the time you're ready for your exam, you'll know the NEC better than most people sitting in the room.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-adv">Year 2 onward</span></div>
-        <p class="res-note">Apple Podcasts · Spotify — also try the companion "Electrify" podcast</p>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-pod">EC</div>
-      <div class="res-body">
-        <h3>EC&M Magazine Podcast</h3>
-        <p>Industry-level content covering NEC updates, technical insights, and market trends. NEC Consultant Russ LeBlanc breaks down code concepts in 10 minutes or less per episode. Great for staying current with NYC 2025 Electrical Code updates and understanding how the industry is evolving around green energy, EV charging, and smart buildings.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-adv">Year 1–2 onward</span></div>
-        <p class="res-note">Search "EC&M Magazine" on Apple Podcasts or Spotify</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ════ ONLINE COURSES ════ -->
-<section id="online" class="section">
-  <h2 class="section-heading">Online courses & platforms</h2>
-  <p class="section-sub">Structured learning to build on your video and podcast study — from free beginner courses to NY-specific job prep.</p>
-  <div class="res-list">
-
-    <div class="res-card featured">
-      <div class="res-avatar av-course">OSHA</div>
-      <div class="res-body">
-        <h3>OSHA 10 — Do this first</h3>
-        <p>The 10-hour OSHA Construction safety course covers electrical hazards, lockout/tagout, arc flash, fall protection, and PPE. This is the single most important credential for getting your first helper job. Complete it in week 2 of your self-study. It takes about 10 hours spread over a few evenings and costs $30–50 through an authorized provider.</p>
-        <div class="res-tags"><span class="tag tag-paid">~$30–50</span><span class="tag tag-critical">Do this first — Week 2</span></div>
-        <a class="res-link" href="https://www.osha.gov/oshtraining/outreach/construction" target="_blank">osha.gov ↗</a>
-        <p class="res-note">Search "OSHA 10 online construction authorized provider" — only use OSHA-authorized training organizations.</p>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-course">Ali</div>
-      <div class="res-body">
-        <h3>Alison — Free electrical courses + certificate</h3>
-        <p>Two excellent free courses: "Principles of Electricity" (beginner theory, circuits, components) and a full "Electrical Diploma" covering residential systems and trade practice. Free to study — small fee for a printed certificate but the digital certificate is free. Complete this in weeks 1–3 and list it on your resume immediately.</p>
-        <div class="res-tags"><span class="tag tag-free">Free to study</span><span class="tag tag-free">Certificate included</span><span class="tag tag-beg">Weeks 1–3</span></div>
-        <a class="res-link" href="https://alison.com/courses/electrical" target="_blank">alison.com ↗</a>
-        <p class="res-note">Complete this before applying for jobs — it's a tangible credential on an otherwise blank resume.</p>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-course">SC</div>
-      <div class="res-body">
-        <h3>SkillCat — Mobile training app</h3>
-        <p>Free-to-start mobile app with interactive simulations covering electrical theory, NEC basics, troubleshooting, and safety. Accredited by IACET — certificates have real credibility. Perfect for 10–15 minute sessions during breaks or downtime. Available on iOS and Android.</p>
-        <div class="res-tags"><span class="tag tag-free">Free to start</span><span class="tag tag-beg">Phase 1–2</span></div>
-        <a class="res-link" href="https://skillcat.io" target="_blank">skillcat.io ↗</a>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-course">BMCC</div>
-      <div class="res-body">
-        <h3>BMCC / CUNY — Online Electrician Training</h3>
-        <p>Borough of Manhattan Community College's 100% online course designed specifically to prepare NY students for an entry-level electrician apprenticeship. Taught by Greg Fletcher, a master electrician with 40+ years of experience. Covers residential wiring, service entrances, solar PV, and troubleshooting. The most NY-relevant structured course available — excellent for building the knowledge base that impresses employers in interviews.</p>
-        <div class="res-tags"><span class="tag tag-paid">Paid — check CUNY financial aid</span><span class="tag tag-beg">Phase 2 / Job prep</span></div>
-        <a class="res-link" href="https://www.bmcc.cuny.edu/ce/online-courses/online-electrician-training/" target="_blank">bmcc.cuny.edu ↗</a>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-course">Cur</div>
-      <div class="res-body">
-        <h3>Cursa — Free electrical modules</h3>
-        <p>30+ free self-paced modules covering residential wiring, solar installation, and circuit analysis with free digital certificates. Good supplemental resource during your first 6 weeks to add breadth to your theory study and stack more credentials for your resume.</p>
-        <div class="res-tags"><span class="tag tag-free">Free</span><span class="tag tag-beg">Phase 1–2</span></div>
-        <a class="res-link" href="https://cursa.app/free-courses-electrician-online" target="_blank">cursa.app ↗</a>
-      </div>
-    </div>
-
-    <div class="res-card">
-      <div class="res-avatar av-course">EU+</div>
-      <div class="res-body">
-        <h3>Electrician U — Paid online platform</h3>
-        <p>The paid Electrician U membership gives you hundreds of structured videos, quizzes, badges, and a progress-tracking system. Licensed in multiple states for CEU continuing education credits. Best started once you're working and need structured continuing education to supplement on-the-job learning.</p>
-        <div class="res-tags"><span class="tag tag-paid">Paid membership</span><span class="tag tag-adv">Once employed</span></div>
-        <a class="res-link" href="https://electricianu.com" target="_blank">electricianu.com ↗</a>
-      </div>
-    </div>
-
+<!-- ══ CHAPTER 11 ══ -->
+<section id="ch11" class="chapter">
+  <div class="ch-header">
+    <div class="ch-number">Chapter 11 · Getting Hired</div>
+    <h2>Everything you've learned — <em>now put it to work.</em></h2>
+    <div class="ch-divider"></div>
+    <p>If you've worked through this course, you already know more than most people who apply for helper positions. Now let's make sure you get the job.</p>
   </div>
-</section>
 
-<!-- ════ WEEKLY SCHEDULE ════ -->
-<section id="schedule" class="section">
-  <h2 class="section-heading">Weekly study plan</h2>
-  <p class="section-sub">Two schedules — one for your pre-employment self-study phase, one for once you're working. Both are designed around a full life, not a full-time student.</p>
+  <div class="prose">
+    <h3>What employers are actually looking for</h3>
+    <p>Here's the honest truth about hiring at the helper level: most employers are not looking for someone who knows everything. They're looking for someone who is <strong>safe, reliable, and teachable.</strong> Technical knowledge is a bonus at this stage. Character is the requirement.</p>
+  </div>
 
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:10px;margin-top:4px;">Pre-employment (weeks 1–10) — ~10 hrs/week</h3>
-  <div class="week-grid" style="margin-bottom:1.75rem">
-    <div class="day-card">
-      <div class="day-label">Monday</div>
-      <h4>Theory study</h4>
-      <p>1.5 hrs — Khan Academy or Electrician U theory playlist. Take handwritten notes. Pause and repeat unclear parts.</p>
+  <div class="job-grid" style="margin:1.5rem 0">
+    <div class="job-card"><div class="jtype">Must have</div><h4>OSHA 10 Card</h4><p>The first thing most contractors check. Get it before you apply to anything. It tells employers you've taken safety seriously before day one.</p></div>
+    <div class="job-card"><div class="jtype">Must have</div><h4>Reliable transportation</h4><p>Job sites move and change. A valid driver's license and reliable transportation are frequently listed requirements for helper positions.</p></div>
+    <div class="job-card"><div class="jtype">Strong advantage</div><h4>Basic theory knowledge</h4><p>Being able to explain Ohm's Law, name wire types, and describe what a GFCI does in an interview immediately sets you apart from most applicants.</p></div>
+    <div class="job-card"><div class="jtype">Strong advantage</div><h4>Certificates on your resume</h4><p>Alison and SkillCat certificates on a blank resume show initiative. Employers notice the person who started learning before they got hired.</p></div>
+    <div class="job-card"><div class="jtype">Big plus</div><h4>Physical readiness</h4><p>This is physical work — lifting, climbing, kneeling, working in tight spaces. Mention it. Employers appreciate knowing you understand what you're signing up for.</p></div>
+    <div class="job-card"><div class="jtype">Most important</div><h4>Genuine enthusiasm</h4><p>Contractors hire people they want to spend 8 hours a day with on a job site. Someone excited about the trade and eager to learn is worth more than any certificate.</p></div>
+  </div>
+
+  <div class="prose">
+    <h3>Where to find helper jobs</h3>
+  </div>
+
+  <div class="two-col" style="margin:1.25rem 0">
+    <div class="card">
+      <h4>Job boards — search these terms</h4>
+      <ul>
+        <li><strong><a href="https://www.indeed.com/q-electrician-helper-jobs.html" target="_blank">Indeed.com ↗</a></strong> — "electrician helper" or "electrical apprentice no experience" — most non-union hiring happens here</li>
+        <li><strong><a href="https://www.ziprecruiter.com/Jobs/Electrician-Helper" target="_blank">ZipRecruiter.com ↗</a></strong> — "electrician helper no experience"</li>
+        <li><strong><a href="https://www.craigslist.org" target="_blank">Craigslist — Skilled Trades ↗</a></strong> — many small contractors post here exclusively; check daily</li>
+        <li><strong><a href="https://www.linkedin.com/jobs" target="_blank">LinkedIn ↗</a></strong> — good for commercial contractors and larger companies</li>
+      </ul>
     </div>
-    <div class="day-card">
-      <div class="day-label">Tuesday</div>
-      <h4>Podcast + OSHA</h4>
-      <p>Commute: Electrician U podcast. Evening: OSHA 10 course sessions (~1 hr). Complete by end of week 2.</p>
-    </div>
-    <div class="day-card">
-      <div class="day-label">Wednesday</div>
-      <h4>Real-work videos</h4>
-      <p>1.5 hrs — Starving Electrician or S33 Electrical. Watch how things are actually done on real job sites.</p>
-    </div>
-    <div class="day-card">
-      <div class="day-label">Thursday</div>
-      <h4>Online course</h4>
-      <p>1.5 hrs — Alison, SkillCat, or BMCC/CUNY. Complete Alison certificate by end of week 3.</p>
-    </div>
-    <div class="day-card">
-      <div class="day-label">Friday</div>
-      <h4>Job applications</h4>
-      <p>From week 6 onward: 1 hr applying on Indeed, ZipRecruiter, Craigslist. Send at least 5 applications per week.</p>
-    </div>
-    <div class="day-card">
-      <div class="day-label">Saturday</div>
-      <h4>Deep study session</h4>
-      <p>2–3 hrs — book reading, NEC intro, Electrician U longer series. Most productive learning block of the week.</p>
-    </div>
-    <div class="day-card rest">
-      <div class="day-label">Sunday</div>
-      <h4>Rest + light listen</h4>
-      <p>Optional podcast during chores. Rest is part of learning — let the week consolidate.</p>
+    <div class="card">
+      <h4>Direct outreach — often more effective</h4>
+      <ul>
+        <li>Search Google Maps for "electrical contractor [your city]" and call them directly</li>
+        <li>Many small contractors (5–20 employees) never post jobs online — they hire by phone call and word of mouth</li>
+        <li>Walk into electrical supply houses — contractors come in daily and will sometimes tip you off to who's hiring</li>
+        <li>Tell everyone in your network — the trades run heavily on personal referrals</li>
+      </ul>
     </div>
   </div>
 
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:10px;">Once employed — ~5 hrs/week alongside work</h3>
-  <div class="week-grid" style="margin-bottom:1.75rem">
-    <div class="day-card">
-      <div class="day-label">Commute daily</div>
-      <h4>Podcasts</h4>
-      <p>Electrician U or Young Electrician on the way to and from work. 30–60 min/day adds up fast.</p>
+  <div class="prose">
+    <h3>What to say in the interview</h3>
+  </div>
+
+  <div class="card" style="margin:1rem 0">
+    <h4>Words that work in electrician interviews</h4>
+    <ul>
+      <li><strong>Be honest about where you are:</strong> "I have no field experience yet, but I've completed this course, earned my OSHA 10 card, and I'm serious about building a career in this trade."</li>
+      <li><strong>Show what you know:</strong> Be ready to explain Ohm's Law, name the wire gauges for 15 and 20-amp circuits, and describe what a GFCI does and why it's required near water.</li>
+      <li><strong>Emphasize attitude:</strong> "I show up early, I'm physically fit, I take direction well, and I ask questions when I'm unsure. I want to be in this trade for the long term."</li>
+      <li><strong>Ask smart questions:</strong> "What types of projects does your company mostly work on?" — This shows you understand the trade has different sectors and that you're thinking strategically.</li>
+    </ul>
+  </div>
+
+  <div class="callout tip">
+    <span class="callout-icon">🎯</span>
+    <span><strong>Target small to mid-size non-union residential and commercial contractors.</strong> They train as they go, give you real responsibility faster, and are much more likely to hire someone with no experience than a large commercial firm. A company with 5–20 employees is your best starting point.</span>
+  </div>
+
+  <div class="prose">
+    <h3>Once you're hired — what happens next</h3>
+    <p>Getting hired is the beginning, not the destination. From day one, two things matter above everything else:</p>
+    <p><strong>1. Keep a job diary.</strong> Every day, write down what you worked on, what systems you touched, and what you learned. This is your legal proof of experience for your eventual license application. Without it, years of work may not be creditable. Start it on day one and never stop.</p>
+    <p><strong>2. Keep learning.</strong> Bring this course with you. Continue watching the recommended YouTube channels. Start listening to the Electrician U podcast on your commute. The electricians who advance fastest are the ones who study at home what they saw on the job that day — connecting theory to real experience in real time.</p>
+  </div>
+
+  <div style="background:var(--off-black);border-radius:var(--r);padding:2rem;margin:2rem 0;text-align:center;">
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--yellow);margin-bottom:10px;">You're ready.</div>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);max-width:500px;margin:0 auto 1.5rem;line-height:1.75;">You now know more about the electrical trade than the vast majority of people who walk into interviews every day. Go get the job. The work starts now.</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.35);">For more information or questions, email <a href="mailto:info@darcocenter.org" style="color:var(--yellow);font-weight:600;">info@darcocenter.org</a></p>
+  </div>
+
+  <!-- RECOMMENDED CONTINUING RESOURCES -->
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text);margin:1.5rem 0 1rem;">Your continuing education resources</h3>
+
+  <div class="video-card" style="margin-bottom:10px">
+    <div class="video-thumb">▶</div>
+    <div class="video-body">
+      <h3>Electrician U — YouTube & Platform</h3>
+      <p>Your primary ongoing learning resource. Free YouTube channel for all levels. Paid platform with structured courses, quizzes, and CEU credits once you're employed.</p>
+      <div class="instructor">Dustin Stelzer, Master Electrician · Austin, TX</div>
+      <a class="video-link" href="https://www.youtube.com/@ElectricianU" target="_blank">YouTube ↗</a>
+      <a class="video-link" href="https://electricianu.com" style="margin-left:6px" target="_blank">Platform ↗</a>
     </div>
-    <div class="day-card">
-      <div class="day-label">Evening ×2/week</div>
-      <h4>Targeted video study</h4>
-      <p>1 hr each — study what you saw that day on the job. Google the technique, watch the Electrician U video on it. Connect theory to experience.</p>
-    </div>
-    <div class="day-card">
-      <div class="day-label">Evening ×1/week</div>
-      <h4>NEC reading</h4>
-      <p>30–45 min — work through NEC articles slowly. Use Mike Holt's illustrated guide. Don't rush it — depth matters more than speed.</p>
-    </div>
-    <div class="day-card">
-      <div class="day-label">Saturday morning</div>
-      <h4>Job diary + review</h4>
-      <p>30–45 min — update your job diary with the week's work. Review notes. This habit is crucial for your future license application.</p>
-    </div>
-    <div class="day-card rest">
-      <div class="day-label">Sunday</div>
-      <h4>Rest</h4>
-      <p>Physical work is demanding. Rest fully — you'll learn better and perform better on the job.</p>
+  </div>
+
+  <div class="video-card" style="margin-bottom:10px">
+    <div class="video-thumb">🎙</div>
+    <div class="video-body">
+      <h3>Electrician U Podcast — daily commute listening</h3>
+      <p>Theory, practical advice, career guidance, and trade culture. Start from Episode 1 and work through chronologically. Use your commute as a classroom.</p>
+      <div class="instructor">Dustin Stelzer · Available on Apple Podcasts & Spotify</div>
+      <a class="video-link" href="https://podcasts.apple.com/us/podcast/electrician-u/id1583270265" target="_blank">Apple Podcasts ↗</a>
     </div>
   </div>
 
-  <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:12px;">Milestones to hit</h3>
-  <div class="milestone-list">
-    <div class="milestone"><div class="m-dot">W2</div><div class="m-body"><h4>End of Week 2</h4><p>OSHA 10 card obtained or in progress. Khan Academy circuit analysis unit complete. Know Ohm's Law cold.</p></div></div>
-    <div class="milestone"><div class="m-dot">W3</div><div class="m-body"><h4>End of Week 3</h4><p>Alison certificate earned. Resume updated. Can explain voltage, current, AC/DC, and wire types conversationally.</p></div></div>
-    <div class="milestone"><div class="m-dot">W6</div><div class="m-body"><h4>End of Week 6</h4><p>Actively applying for helper jobs — 5+ applications per week. Know residential wiring basics and common tool names.</p></div></div>
-    <div class="milestone"><div class="m-dot">W10</div><div class="m-body"><h4>Weeks 8–12</h4><p>First job offer received or interviews underway. Can speak confidently about safety, basic theory, and why you want to be in this trade.</p></div></div>
-    <div class="milestone"><div class="m-dot">M6</div><div class="m-body"><h4>6 months employed</h4><p>Trusted on the job site for independent tasks. Listening to podcasts daily. Job diary maintained every week.</p></div></div>
-    <div class="milestone"><div class="m-dot">Y1</div><div class="m-body"><h4>1 year employed</h4><p>Negotiated a pay raise. Reading NEC articles regularly. Handling most helper tasks without supervision. Thinking about specialization.</p></div></div>
-    <div class="milestone"><div class="m-dot">Y3+</div><div class="m-body"><h4>Year 3 onward</h4><p>Working as a skilled electrician, not a helper. NEC knowledge building seriously. Planning for your master license timeline.</p></div></div>
-  </div>
-</section>
-
-<!-- ════ CHECKLIST ════ -->
-<section id="checklist" class="section">
-  <h2 class="section-heading">Progress tracker</h2>
-  <p class="section-sub">Check off each item as you complete it. Your progress is tracked during this session.</p>
-
-  <div class="progress-wrap"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
-  <p class="progress-meta" id="prog-label">0 of 32 completed — let's get started!</p>
-
-  <div class="check-group">
-    <h3>Phase 1 — Foundation study (weeks 1–4)</h3>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Started <a href="https://www.khanacademy.org/science/electrical-engineering" target="_blank">Khan Academy</a> electrical engineering fundamentals</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Watched <a href="https://www.youtube.com/@CraigMichaudElectrical" target="_blank">Craig Michaud</a> beginner video series</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Started <a href="https://www.youtube.com/@ElectricianU" target="_blank">Electrician U</a> "Electrical Theory" YouTube playlist</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Completed <a href="https://www.osha.gov/oshtraining/outreach/construction" target="_blank">OSHA 10 Construction Safety</a> — card received ✅</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Completed <a href="https://alison.com/courses/principles-of-electricity" target="_blank">Alison "Principles of Electricity"</a> course</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Downloaded Alison digital certificate (free)</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Purchased <a href="https://www.amazon.com/s?k=ugly%27s+electrical+references" target="_blank">Ugly's Electrical References</a> — it's on your shelf</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Subscribed to <a href="https://podcasts.apple.com/us/podcast/electrician-u/id1583270265" target="_blank">Electrician U podcast</a> — listening on commutes</div></div>
+  <div class="video-card" style="margin-bottom:10px">
+    <div class="video-thumb">🎙</div>
+    <div class="video-body">
+      <h3>The Young Electrician Podcast</h3>
+      <p>Built specifically for people entering the trade — how to get hired, survive the first year, and advance faster. Rated 4.8/5. Essential listening in your first 12 months.</p>
+      <div class="instructor">Ruben Young · Available on Apple Podcasts & Spotify</div>
+      <a class="video-link" href="https://podcasts.apple.com/us/podcast/the-young-electrician-podcast/id1648191383" target="_blank">Apple Podcasts ↗</a>
+    </div>
   </div>
 
-  <div class="check-group">
-    <h3>Phase 2 — Job-ready skills (weeks 5–10)</h3>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Watched <a href="https://www.youtube.com/@ElectricianU" target="_blank">Electrician U</a> residential wiring series</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Watched 10+ <a href="https://www.youtube.com/@StarvingElectrician" target="_blank">Starving Electrician</a> real job videos</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Completed <a href="https://cursa.app/free-courses-electrician-online" target="_blank">Cursa</a> Home Electrical 101 modules</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Enrolled in <a href="https://www.bmcc.cuny.edu/ce/online-courses/online-electrician-training/" target="_blank">BMCC/CUNY Online Electrician</a> course (NY-specific)</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Can name 5+ wire types and explain AWG sizing</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Subscribed to <a href="https://podcasts.apple.com/us/podcast/the-young-electrician-podcast/id1648191383" target="_blank">Young Electrician Podcast</a></div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Purchased <a href="https://www.amazon.com/s?k=electrical+wiring+residential+mullin+simmons" target="_blank">Electrical Wiring Residential</a> (Mullin & Simmons)</div></div>
-  </div>
-
-  <div class="check-group">
-    <h3>Job search milestones</h3>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Resume updated: OSHA 10, Alison certificate, courses listed</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Profiles created on <a href="https://www.indeed.com" target="_blank">Indeed</a> and <a href="https://www.ziprecruiter.com" target="_blank">ZipRecruiter</a></div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Researched 10+ non-union electrical contractors in your area</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">First 5 job applications submitted (week 6)</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Practiced "why I want to be an electrician" out loud</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">First interview completed</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">First job offer received and accepted 🎉</div></div>
-  </div>
-
-  <div class="check-group">
-    <h3>First year on the job</h3>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Job diary started — logging dates, site, and tasks performed</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Daily commute podcast habit established</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Started reading <a href="https://www.nfpa.org/codes-and-standards/nfpa-70-standard-for-electrical-installations/70" target="_blank">NEC Article 100</a> (definitions)</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Watched <a href="https://www.youtube.com/@ModernElectrician" target="_blank">Modern Electrician</a> career development series</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">First pay raise negotiated (6–12 months in)</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Can confidently perform basic installations without direction</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">Started <a href="https://podcasts.apple.com/us/podcast/master-the-nec/id1474770803" target="_blank">"Master the NEC" podcast</a> by Paul Abernathy</div></div>
-    <div class="check-item"><div class="check-box" onclick="toggle(this)"></div><div class="check-text">1-year employment anniversary — experience clock is running ⚡</div></div>
-  </div>
-</section>
-
-<!-- ════ PRO TIPS ════ -->
-<section id="tips" class="section">
-  <h2 class="section-heading">Pro tips for the direct-hire path</h2>
-  <p class="section-sub">Advice specifically for someone entering the trade through the direct-hire route — what sets people apart, what gets them fired, and what builds a long career.</p>
-  <div class="tips-grid">
-    <div class="tip-card"><div class="tip-num">01</div><h4>Your OSHA 10 card is your entry ticket</h4><p>Get it before you apply to a single job. It costs $30–50, takes 10 hours, and is the first thing most employers check. Without it, many contractors won't even return your call.</p></div>
-    <div class="tip-card"><div class="tip-num">02</div><h4>Apply before you feel ready</h4><p>You do not need to feel ready to apply for helper roles. Employers are hiring for attitude and reliability. Start applying by week 6, even if you're still actively studying. The two run in parallel.</p></div>
-    <div class="tip-card"><div class="tip-num">03</div><h4>Target small non-union contractors</h4><p>A 5–20 person non-union residential or light commercial contractor will train you faster, give you more hands-on responsibility, and advance you quicker than a large company that treats helpers as disposable labor.</p></div>
-    <div class="tip-card"><div class="tip-num">04</div><h4>Start your job diary on day one</h4><p>Document every task you perform, every panel you worked on, every installation type. This becomes your legally required proof of experience for your NYC master license. Without it, years of work may be uncreditable.</p></div>
-    <div class="tip-card"><div class="tip-num">05</div><h4>Never stop asking questions</h4><p>On your first job, you know almost nothing — and that's fine. What isn't fine is pretending you do know. The electricians you work with know you're new. Ask constantly. They respect it.</p></div>
-    <div class="tip-card"><div class="tip-num">06</div><h4>Show up early. Every single day.</h4><p>In the trades, being on time means being late. Arriving 10–15 minutes early, tools ready, says everything about who you are. In a crew of 10, the helper who's always there early gets the most teaching, the best tasks, and the first raise.</p></div>
-    <div class="tip-card"><div class="tip-num">07</div><h4>Connect what you study to what you see</h4><p>The most powerful learning happens when you watch something on the job site and then go home and watch an Electrician U video on exactly that. Theory finally makes sense when you've just seen it in real life.</p></div>
-    <div class="tip-card"><div class="tip-num">08</div><h4>Negotiate your pay — it won't happen automatically</h4><p>Non-union pay is not automatic. Every 6–12 months, document the new skills you've developed, prepare what you want to say, and have the conversation. Contractors expect this. If you don't ask, you're leaving money on the table.</p></div>
-    <div class="tip-card"><div class="tip-num">09</div><h4>The NYC code changed in December 2025</h4><p>The 2025 NYC Electrical Code (effective December 21, 2025) brought important amendments on top of the NEC. When working in NYC, city-specific rules override NEC where they're stricter. Make sure the experienced electricians you work with know you're aware of this.</p></div>
-    <div class="tip-card"><div class="tip-num">10</div><h4>Your goal: 10,500 documented hours</h4><p>That's the clock you're running. Every hour of documented work under a licensed master electrician brings you closer to your NYC master license. Think of it as a countdown — every single shift counts.</p></div>
-    <div class="tip-card"><div class="tip-num">11</div><h4>Solar and EV are where the growth is</h4><p>NY's clean energy mandates mean solar, battery storage, and EV charging installation are exploding. If your employer does any of this work, learn it eagerly. These skills command premium pay and will only get more valuable.</p></div>
-    <div class="tip-card"><div class="tip-num">12</div><h4>You're building toward independence</h4><p>The master license is the finish line that unlocks everything — permits, contracts, your own business. Keep that goal visible. Every shift, every podcast, every NEC chapter is a step toward the day you work for yourself.</p></div>
+  <div class="video-card">
+    <div class="video-thumb">🎙</div>
+    <div class="video-body">
+      <h3>Master the NEC — Paul Abernathy</h3>
+      <p>960+ episodes dedicated entirely to the National Electrical Code. Start this in your second year. By exam time, you'll know the code better than most people in the room.</p>
+      <div class="instructor">Paul Abernathy, Master Electrician · Electrical Code Academy</div>
+      <a class="video-link" href="https://podcasts.apple.com/us/podcast/master-the-nec/id1474770803" target="_blank">Apple Podcasts ↗</a>
+    </div>
   </div>
 </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
-  <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;">
-    <div style="width:36px;height:36px;background:var(--yellow);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:16px;color:var(--navy);font-weight:700;">D</div>
-    <div style="text-align:left;">
-      <div style="font-family:'DM Serif Display',serif;font-size:16px;color:var(--white);font-weight:700;">Darco Inc</div>
-      <div style="font-size:11px;color:var(--slate-light);letter-spacing:0.05em;text-transform:uppercase;">Career Training Program</div>
+  <div class="footer-logo">
+    <div class="f-d">D</div>
+    <div style="text-align:left">
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--white);font-weight:700;">Darco Inc</div>
+      <div style="font-size:11px;letter-spacing:0.05em;text-transform:uppercase;">Electrical Career Program</div>
     </div>
   </div>
-  <p>A <strong>Darco Inc</strong> career development resource · Built for <strong>New York State</strong> · <strong>2025–26</strong></p>
-  <p style="margin-top:12px;font-size:14px;color:var(--slate-light);">For more information or questions, email us at <a href="mailto:info@darcocenter.org" style="color:var(--yellow);font-weight:600;">info@darcocenter.org</a></p>
-  <p style="margin-top:10px;font-size:12px;opacity:0.65;">Verify NYC licensing requirements at <a href="https://www.nyc.gov/site/buildings/industry/obtain-a-master-and-special-electrician-license.page" target="_blank">nyc.gov/buildings ↗</a> · Apply via <a href="https://www.nyc.gov/site/buildings/dob-now/dob-now-licensing.page" target="_blank">DOB NOW Licensing portal ↗</a></p>
+  <p>A <strong>Darco Inc</strong> career development resource · <strong>USA</strong> · Updated <strong>2025–26</strong></p>
+  <p class="contact">For more information or questions, email <a href="mailto:info@darcocenter.org">info@darcocenter.org</a></p>
+  <p style="margin-top:10px;font-size:12px;opacity:0.4;">Educational content only. Always consult qualified professionals and verify local codes before performing electrical work.</p>
 </footer>
 
 <script>
-function showTab(id, btn) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+function goTo(id, btn) {
+  document.querySelectorAll('.chapter').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.ch-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
-  window.scrollTo({ top: document.querySelector('.nav-bar').offsetTop - 58, behavior: 'smooth' });
-}
-function toggle(box) {
-  box.classList.toggle('done');
-  box.nextElementSibling.classList.toggle('done');
-  var done = document.querySelectorAll('.check-box.done').length;
-  var total = document.querySelectorAll('.check-box').length;
-  var pct = Math.round(done / total * 100);
-  document.getElementById('prog-fill').style.width = pct + '%';
-  var msg = done + ' of ' + total + ' completed';
-  if (pct === 100) msg += ' — you\'re ready! 🎉';
-  else if (pct >= 75) msg += ' — almost there!';
-  else if (pct >= 50) msg += ' — great progress!';
-  else if (pct >= 25) msg += ' — keep going!';
-  else msg += ' — just getting started!';
-  document.getElementById('prog-label').textContent = msg;
+  const nav = document.querySelector('.chapter-nav');
+  window.scrollTo({ top: nav.offsetTop - 56, behavior: 'smooth' });
+  // scroll nav button into view
+  btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
 </script>
 </body>
