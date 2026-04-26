@@ -245,6 +245,49 @@ footer .contact a{color:var(--yellow);font-weight:600}
 .tl-week-status{min-width:50px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .tl-week.complete{background:var(--green-light)}
 .tl-week.complete .tl-week-label{background:rgba(31,156,110,.15)}
+
+/* ── QUIZ SYSTEM ── */
+.quiz-wrap{margin:2rem 0;background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.quiz-header{background:var(--off-black);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.quiz-header h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--yellow);margin:0}
+.quiz-progress{font-size:12px;color:rgba(255,255,255,.5)}
+.quiz-progress-bar{height:4px;background:rgba(255,255,255,.1);margin:0}
+.quiz-progress-fill{height:100%;background:var(--yellow);transition:width .3s ease;width:0%}
+.quiz-body{padding:1.5rem}
+.quiz-q-num{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);margin-bottom:8px}
+.quiz-question{font-size:16px;font-weight:600;color:var(--text);line-height:1.5;margin-bottom:1.2rem}
+.quiz-options{display:flex;flex-direction:column;gap:8px}
+.quiz-option{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);cursor:pointer;transition:all .15s;background:var(--white);font-family:'Source Sans 3',sans-serif;font-size:14px;color:var(--text-mid);text-align:left;width:100%}
+.quiz-option:hover:not(:disabled){border-color:var(--yellow-dim);background:var(--yellow-pale);color:var(--text)}
+.quiz-option.selected{border-color:var(--blue);background:var(--blue-light);color:var(--blue)}
+.quiz-option.correct{border-color:var(--green);background:var(--green-light);color:var(--green-dark,#065F46);font-weight:600}
+.quiz-option.wrong{border-color:var(--red);background:var(--red-light);color:var(--red);font-weight:600}
+.quiz-option:disabled{cursor:default}
+.quiz-option-letter{width:24px;height:24px;border-radius:50%;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--text-muted);flex-shrink:0;transition:all .15s}
+.quiz-option.selected .quiz-option-letter{background:var(--blue);color:var(--white)}
+.quiz-option.correct .quiz-option-letter{background:var(--green);color:var(--white)}
+.quiz-option.wrong .quiz-option-letter{background:var(--red);color:var(--white)}
+.quiz-feedback{margin-top:1rem;padding:10px 14px;border-radius:var(--r-sm);font-size:14px;font-weight:600;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct{background:var(--green-light);color:#065F46;border-left:3px solid var(--green)}
+.quiz-feedback.wrong{background:var(--red-light);color:#5A1010;border-left:3px solid var(--red)}
+.quiz-nav{display:flex;justify-content:flex-end;margin-top:1.2rem}
+.quiz-next-btn{background:var(--off-black);color:var(--yellow);border:none;padding:10px 24px;border-radius:30px;font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .15s;display:none}
+.quiz-next-btn:hover{opacity:.85}
+.quiz-next-btn.show{display:block}
+.quiz-result{padding:2rem;text-align:center;display:none}
+.quiz-result.show{display:block}
+.quiz-result-emoji{font-size:48px;margin-bottom:12px}
+.quiz-result h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--text);margin-bottom:8px}
+.quiz-result p{font-size:14px;color:var(--text-mid);line-height:1.7;margin-bottom:1.2rem}
+.quiz-score{font-size:2rem;font-weight:700;margin:10px 0}
+.quiz-score.pass{color:var(--green)}
+.quiz-score.fail{color:var(--red)}
+.quiz-retry-btn{background:var(--red);color:var(--white);border:none;padding:11px 26px;border-radius:30px;font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .15s;margin-right:8px}
+.quiz-retry-btn:hover{opacity:.85}
+.quiz-pass-msg{background:var(--green-light);border:1px solid var(--green);border-radius:var(--r-sm);padding:14px;font-size:14px;color:#065F46;font-weight:600;margin-bottom:1rem}
+.quiz-fail-msg{background:var(--red-light);border:1px solid var(--red);border-radius:var(--r-sm);padding:14px;font-size:14px;color:#5A1010;font-weight:600;margin-bottom:1rem}
+
 </style>
 </head>
 <body>
@@ -411,6 +454,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
   </div>
 
 
+
+  <!-- QUIZ -->
+  <div id="quiz-ch0" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch0">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch0"></div></div>
+    <div class="quiz-body" id="qbody-ch0"></div>
+    <div class="quiz-result" id="qresult-ch0"></div>
+  </div>
+
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch0">
     <div class="mark-complete-text">
@@ -506,6 +561,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
     </div>
   </div>
 
+
+
+  <!-- QUIZ -->
+  <div id="quiz-ch1" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch1">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch1"></div></div>
+    <div class="quiz-body" id="qbody-ch1"></div>
+    <div class="quiz-result" id="qresult-ch1"></div>
+  </div>
 
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch1">
@@ -677,6 +744,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
   </div>
 
 
+
+  <!-- QUIZ -->
+  <div id="quiz-ch2" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch2">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch2"></div></div>
+    <div class="quiz-body" id="qbody-ch2"></div>
+    <div class="quiz-result" id="qresult-ch2"></div>
+  </div>
+
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch2">
     <div class="mark-complete-text">
@@ -773,6 +852,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
   </div>
 
 
+
+  <!-- QUIZ -->
+  <div id="quiz-ch3" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch3">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch3"></div></div>
+    <div class="quiz-body" id="qbody-ch3"></div>
+    <div class="quiz-result" id="qresult-ch3"></div>
+  </div>
+
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch3">
     <div class="mark-complete-text">
@@ -859,6 +950,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
   </div>
 
 
+
+  <!-- QUIZ -->
+  <div id="quiz-ch4" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch4">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch4"></div></div>
+    <div class="quiz-body" id="qbody-ch4"></div>
+    <div class="quiz-result" id="qresult-ch4"></div>
+  </div>
+
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch4">
     <div class="mark-complete-text">
@@ -920,6 +1023,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
     </div>
   </div>
 
+
+
+  <!-- QUIZ -->
+  <div id="quiz-ch5" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch5">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch5"></div></div>
+    <div class="quiz-body" id="qbody-ch5"></div>
+    <div class="quiz-result" id="qresult-ch5"></div>
+  </div>
 
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch5">
@@ -999,6 +1114,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
   </div>
 
 
+
+  <!-- QUIZ -->
+  <div id="quiz-ch6" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch6">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch6"></div></div>
+    <div class="quiz-body" id="qbody-ch6"></div>
+    <div class="quiz-result" id="qresult-ch6"></div>
+  </div>
+
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch6">
     <div class="mark-complete-text">
@@ -1056,6 +1183,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
     </div>
   </div>
 
+
+
+  <!-- QUIZ -->
+  <div id="quiz-ch7" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch7">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch7"></div></div>
+    <div class="quiz-body" id="qbody-ch7"></div>
+    <div class="quiz-result" id="qresult-ch7"></div>
+  </div>
 
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch7">
@@ -1141,6 +1280,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
   </div>
 
 
+
+  <!-- QUIZ -->
+  <div id="quiz-ch8" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch8">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch8"></div></div>
+    <div class="quiz-body" id="qbody-ch8"></div>
+    <div class="quiz-result" id="qresult-ch8"></div>
+  </div>
+
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch8">
     <div class="mark-complete-text">
@@ -1211,6 +1362,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
     </div>
   </div>
 
+
+
+  <!-- QUIZ -->
+  <div id="quiz-ch9" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch9">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch9"></div></div>
+    <div class="quiz-body" id="qbody-ch9"></div>
+    <div class="quiz-result" id="qresult-ch9"></div>
+  </div>
 
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch9">
@@ -1290,6 +1453,18 @@ footer .contact a{color:var(--yellow);font-weight:600}
     </div>
   </div>
 
+
+
+  <!-- QUIZ -->
+  <div id="quiz-ch10" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch10">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch10"></div></div>
+    <div class="quiz-body" id="qbody-ch10"></div>
+    <div class="quiz-result" id="qresult-ch10"></div>
+  </div>
 
   <!-- MARK COMPLETE -->
   <div class="mark-complete-wrap" id="mcw-ch10">
@@ -1408,6 +1583,33 @@ footer .contact a{color:var(--yellow);font-weight:600}
       <a class="bonus-link" href="https://podcasts.apple.com/us/podcast/master-the-nec/id1474770803" target="_blank">Apple Podcasts ↗</a>
     </div>
   </div>
+
+  <!-- QUIZ -->
+  <div id="quiz-ch11" class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>📝 Final Chapter Quiz</h3>
+      <span class="quiz-progress" id="qprog-ch11">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-ch11"></div></div>
+    <div class="quiz-body" id="qbody-ch11"></div>
+    <div class="quiz-result" id="qresult-ch11"></div>
+  </div>
+
+  <!-- MARK COMPLETE -->
+  <div class="mark-complete-wrap" id="mcw-ch11">
+    <div class="mark-complete-text">
+      <strong>Chapter 11 — Getting Hired</strong><br>
+      Passed the quiz? This chapter — and the entire course — is now complete.
+    </div>
+    <button class="mark-complete-btn" id="mcb-ch11" onclick="markComplete('ch11')">
+      ✓ Mark Chapter 11 Complete
+    </button>
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)">
+    <div style="font-size:13px;color:var(--text-muted)">Chapter 11 of 11 — Course Complete 🎉</div>
+  </div>
+
 </section>
 
 </main>
@@ -1901,6 +2103,187 @@ document.head.appendChild(style);
   };
 
 })();
+
+// ── QUIZ SYSTEM ──
+const QUIZ_DATA = {
+  ch0:{title:"Chapter 0 — Welcome",questions:[{q:"What is the primary goal of the Darco Electrical Career Course?",type:"mc",options:["To replace a union apprenticeship program","To make students employable as electricians","To prepare students for a four-year engineering degree","To teach electrical theory only"],answer:1},{q:"True or False: You need prior electrical experience to start this course.",type:"tf",options:["True","False"],answer:1},{q:"What should you do if you don't understand something in a chapter?",type:"mc",options:["Skip it and come back later","Don't rush — re-read and rewatch until you understand","Move on and hope it becomes clear","Look for a different course"],answer:1},{q:"True or False: The direct-hire path and the union path lead to the same electrician license.",type:"tf",options:["True","False"],answer:0},{q:"What is the recommended approach to working through this course?",type:"mc",options:["Skip chapters you find boring","Work through chapters in order — each builds on the last","Start with the getting hired chapter first","Watch only the videos and skip the reading"],answer:1},{q:"True or False: The goal of this course is to finish as fast as possible.",type:"tf",options:["True","False"],answer:1},{q:"Which of the following best describes what an electrician actually does?",type:"mc",options:["Fixes blown fuses and replaces outlets","Lays the invisible infrastructure that powers buildings for 50+ years","Installs appliances in homes","Reads blueprints only"],answer:1},{q:"True or False: Darco Inc created this course because the path into the electrical trade is unnecessarily confusing for beginners.",type:"tf",options:["True","False"],answer:0},{q:"Which credential should you earn FIRST according to this course?",type:"mc",options:["NCCER certification","OSHA 10 Construction Safety card","Master electrician license","EPA Section 608"],answer:1},{q:"True or False: You need a four-year degree to become an electrician.",type:"tf",options:["True","False"],answer:1}]},
+  ch1:{title:"Chapter 1 — The Trade",questions:[{q:"According to the BLS, how many electrician job openings are projected each year through 2030?",type:"mc",options:["About 20,000","About 50,000","About 81,000","About 120,000"],answer:2},{q:"True or False: Non-union electrical experience counts toward your license just as much as union experience.",type:"tf",options:["True","False"],answer:0},{q:"What is the typical starting pay range for an electrician's helper in the USA?",type:"mc",options:["$8–12/hr","$17–22/hr","$35–45/hr","$55–65/hr"],answer:1},{q:"True or False: Voltage is the measurement of electrical current flow.",type:"tf",options:["True","False"],answer:1},{q:"At what career stage can an electrician pull permits, run projects, and start their own business?",type:"mc",options:["Helper level","Apprentice level","Journeyman level","Master electrician level"],answer:3},{q:"True or False: Ohm's Law states that Voltage equals Current multiplied by Resistance.",type:"tf",options:["True","False"],answer:0},{q:"What does V = I × R represent?",type:"mc",options:["Voltage equals Inductance times Resistance","Voltage equals Current times Resistance","Voltage equals Impedance times Reactance","Voltage equals Insulation times Rating"],answer:1},{q:"True or False: The median annual wage for electricians in 2024 was approximately $62,350.",type:"tf",options:["True","False"],answer:0},{q:"Which best describes what 'current' means in electrical terms?",type:"mc",options:["The pressure pushing electricity through a circuit","The opposition to electricity flow","The rate of electron flow through a conductor","The total power consumed by a load"],answer:2},{q:"True or False: Every hour you work as an electrician's helper counts toward your future license.",type:"tf",options:["True","False"],answer:0}]},
+  ch2:{title:"Chapter 2 — Safety",questions:[{q:"What does LOTO stand for?",type:"mc",options:["Linked Output Transfer Operation","Lockout/Tagout","Line Output Testing Order","Load Off Turn Off"],answer:1},{q:"True or False: 'It should be off' is acceptable reason to skip testing a circuit before working on it.",type:"tf",options:["True","False"],answer:1},{q:"What temperature can an arc flash reach?",type:"mc",options:["1,000°F","5,000°F","15,000°F","35,000°F"],answer:3},{q:"True or False: You should test for voltage before touching any wire, every single time.",type:"tf",options:["True","False"],answer:0},{q:"What is the correct sequence when de-energizing a circuit?",type:"mc",options:["Test, turn off breaker, lock out, tag out","Turn off breaker, lock out, tag out, test","Tag out, test, turn off breaker, lock out","Lock out, tag out, turn off breaker, test"],answer:1},{q:"True or False: FR (Flame-Resistant) clothing is required in arc flash environments.",type:"tf",options:["True","False"],answer:0},{q:"Approximately how many electrical fires occur in the US each year?",type:"mc",options:["About 5,000","About 15,000","About 45,000","About 100,000"],answer:2},{q:"True or False: Water and electricity are safe as long as voltage is under 120V.",type:"tf",options:["True","False"],answer:1},{q:"What does a GFCI device protect against?",type:"mc",options:["Arc flash explosions only","Current leaking to ground that could electrocute a person","Overloaded circuits and fires","High voltage surges from the utility"],answer:1},{q:"True or False: You may remove another worker's lock from a LOTO system if you need to restore power quickly.",type:"tf",options:["True","False"],answer:1}]},
+  ch3:{title:"Chapter 3 — Certifications",questions:[{q:"Which certification should every helper get FIRST?",type:"mc",options:["NCCER Electrical Certification","OSHA 10 Construction Safety","EPA Section 608","NFPA 70E"],answer:1},{q:"True or False: The OSHA 10 card expires after 5 years and must be renewed.",type:"tf",options:["True","False"],answer:1},{q:"How many hours is the OSHA 10 Construction course?",type:"mc",options:["5 hours","8 hours","10 hours","30 hours"],answer:2},{q:"True or False: The Alison electrical certificate is completely free to earn.",type:"tf",options:["True","False"],answer:0},{q:"What does NFPA 70E cover?",type:"mc",options:["How to read electrical blueprints","Electrical safety in the workplace including arc flash","National wiring color codes","Conduit bending standards"],answer:1},{q:"True or False: SkillCat is accredited by IACET.",type:"tf",options:["True","False"],answer:0},{q:"What minimum score do you need to pass the OSHA 10 exam?",type:"mc",options:["60%","70%","80%","90%"],answer:1},{q:"True or False: NCCER certification is accepted by contractors in all 50 states.",type:"tf",options:["True","False"],answer:0},{q:"How long does it typically take to receive your OSHA 10 DOL card?",type:"mc",options:["Same day — digital download","3–5 business days","About 2 weeks by mail","4–6 weeks by mail"],answer:2},{q:"True or False: You should never pay more than $60 for the OSHA 10 course.",type:"tf",options:["True","False"],answer:0}]},
+  ch4:{title:"Chapter 4 — Tools",questions:[{q:"What is the most important safety tool an electrician carries every day?",type:"mc",options:["Multimeter","Non-contact voltage tester","Wire strippers","Lineman's pliers"],answer:1},{q:"True or False: Regular hardware store screwdrivers are safe for electrical work if you're careful.",type:"tf",options:["True","False"],answer:1},{q:"What voltage rating must insulated screwdrivers have for safe electrical work?",type:"mc",options:["120V rated","240V rated","600V rated","1000V rated"],answer:3},{q:"True or False: A multimeter can measure voltage, current, and resistance.",type:"tf",options:["True","False"],answer:0},{q:"What are lineman's pliers primarily used for?",type:"mc",options:["Measuring wire gauge","Cutting, bending, gripping and twisting wire","Stripping insulation from wire ends","Bending conduit to precise angles"],answer:1},{q:"True or False: A tick tracer (non-contact tester) is 100% reliable and never gives false readings.",type:"tf",options:["True","False"],answer:1},{q:"What is fish tape used for?",type:"mc",options:["Measuring wire lengths","Pulling wire through conduit or finished walls","Taping wire connections","Testing circuits for voltage"],answer:1},{q:"True or False: When stripping wire, you should place your thumb on the insulated part of the stripper for better control and safety.",type:"tf",options:["True","False"],answer:0},{q:"Which brand is considered the industry standard for electrician's hand tools in the USA?",type:"mc",options:["DeWalt","Milwaukee","Klein Tools","Craftsman"],answer:2},{q:"True or False: A conduit bender is used to bend EMT and rigid conduit to precise angles.",type:"tf",options:["True","False"],answer:0}]},
+  ch5:{title:"Chapter 5 — How Electricity Works",questions:[{q:"What is the relationship described by Ohm's Law?",type:"mc",options:["Power equals current times time","Voltage equals current multiplied by resistance","Resistance equals voltage plus current","Current equals voltage multiplied by resistance"],answer:1},{q:"True or False: In a series circuit, if one bulb burns out, all other bulbs also go out.",type:"tf",options:["True","False"],answer:0},{q:"What happens to current flow when resistance in a circuit doubles?",type:"mc",options:["Current doubles","Current stays the same","Current is cut in half","Current increases by 25%"],answer:2},{q:"True or False: In a parallel circuit, each load receives the full supply voltage.",type:"tf",options:["True","False"],answer:0},{q:"What does AWG stand for?",type:"mc",options:["Alternating Wire Gauge","American Wire Gauge","Amperage Wire Grade","Authorized Wiring Guide"],answer:1},{q:"True or False: In the AWG system, a larger gauge number means a thicker, heavier wire.",type:"tf",options:["True","False"],answer:1},{q:"What is the purpose of a circuit breaker?",type:"mc",options:["To increase voltage to connected devices","To open the circuit when there is an overload or short circuit","To convert AC power to DC power","To measure resistance in a circuit"],answer:1},{q:"True or False: House wiring in the USA is wired in parallel so each outlet and light gets the full supply voltage.",type:"tf",options:["True","False"],answer:0},{q:"What is the difference between AC and DC current?",type:"mc",options:["AC flows only in wires, DC flows through air","AC constantly alternates direction while DC flows steadily in one direction","AC is always safer than DC","DC is used in homes, AC in batteries"],answer:1},{q:"True or False: Grounding an appliance protects people by giving fault current a safe low-resistance path that trips the breaker.",type:"tf",options:["True","False"],answer:0}]},
+  ch6:{title:"Chapter 6 — Wire & Cable",questions:[{q:"What color is always used for a HOT conductor in standard US residential wiring?",type:"mc",options:["White","Green","Black","Gray"],answer:2},{q:"True or False: In the AWG system, 14-gauge wire is thicker than 10-gauge wire.",type:"tf",options:["True","False"],answer:1},{q:"What is the maximum amperage for 12 AWG wire?",type:"mc",options:["15 amps","20 amps","30 amps","40 amps"],answer:1},{q:"True or False: White and gray wires both represent the neutral conductor — white for standard, gray for 480V systems.",type:"tf",options:["True","False"],answer:0},{q:"What color wire indicates the grounding conductor (EGC)?",type:"mc",options:["White","Red","Blue","Green or bare copper"],answer:3},{q:"True or False: Mixing wire gauge and breaker size is a leading cause of electrical fires.",type:"tf",options:["True","False"],answer:0},{q:"In a three-phase system, which color indicates a WARNING that one hot conductor is 208V to ground instead of 120V?",type:"mc",options:["Purple","Orange","Brown","Yellow"],answer:1},{q:"True or False: 14 AWG wire can safely be used on a 20-amp breaker.",type:"tf",options:["True","False"],answer:1},{q:"Per NEC 2023, which color replaced gray for 0-10V dimming leads in lighting fixtures?",type:"mc",options:["Purple","Pink","Orange","Tan"],answer:1},{q:"True or False: Black, red, and blue are the hot conductor colors for a three-phase system at standard low voltage.",type:"tf",options:["True","False"],answer:0}]},
+  ch7:{title:"Chapter 7 — Conduit & Raceways",questions:[{q:"What does EMT stand for?",type:"mc",options:["Electrical Metal Tube","Electrical Metallic Tubing","External Metal Tubing","Enclosed Metal Track"],answer:1},{q:"True or False: PVC conduit is gray plastic that can be used underground and in wet locations.",type:"tf",options:["True","False"],answer:0},{q:"Which conduit type is used to connect rigid conduit runs to vibrating equipment like motors?",type:"mc",options:["EMT","PVC","Flexible Metal Conduit (FMC)","Rigid Metal Conduit (RMC)"],answer:2},{q:"True or False: The takeoff for a ½" EMT stub-up 90° bend is 5 inches.",type:"tf",options:["True","False"],answer:0},{q:"What is an offset bend used for?",type:"mc",options:["To bring conduit up from the floor at 90 degrees","To clear an obstacle by bending in two opposite directions","To align conduit flush with a box knockout","To change conduit direction at a single point"],answer:1},{q:"True or False: Rigid Metal Conduit (RMC) is heavy-duty thick-wall steel used outdoors and in wet locations.",type:"tf",options:["True","False"],answer:0},{q:"What is a box offset used for?",type:"mc",options:["To make a 90° turn around a corner","A tiny offset at the end of a run to align flush with a box knockout","To change conduit height along a wall","To connect two pieces of conduit"],answer:1},{q:"True or False: The 'star mark' on a conduit bender is used for a back 90° bend.",type:"tf",options:["True","False"],answer:0},{q:"Which conduit type is most commonly used in commercial electrical work?",type:"mc",options:["PVC","EMT","Flexible Metal Conduit","Rigid Metal Conduit"],answer:1},{q:"True or False: A kick bend is essentially half of an offset and is the easiest and fastest bend in the trade.",type:"tf",options:["True","False"],answer:0}]},
+  ch8:{title:"Chapter 8 — Boxes, Switches & Outlets",questions:[{q:"What is the correct term for the wall device that receives a plug?",type:"mc",options:["Plug","Socket","Receptacle","Outlet box"],answer:2},{q:"True or False: GFCI protects people from electrocution by detecting current leaking to ground.",type:"tf",options:["True","False"],answer:0},{q:"What is the correct order to connect wires to a switch or device?",type:"mc",options:["Hots first, neutrals second, grounds last","Neutrals first, hots second, grounds last","Grounds first, neutrals second, hots last","Any order is fine"],answer:2},{q:"True or False: AFCI breakers protect against arc faults that could cause fires.",type:"tf",options:["True","False"],answer:0},{q:"When making a shepherd's hook for a screw terminal, which direction should the hook face?",type:"mc",options:["Counterclockwise — so it opens as the screw tightens","Clockwise — so it tightens as the screw turns","Either direction works equally well","Depends on whether it's hot or neutral"],answer:1},{q:"True or False: Per NEC 2023, GFCI protection is now required for hardwired appliances like ranges, ovens, and dryers.",type:"tf",options:["True","False"],answer:0},{q:"What does a single-pole switch actually do electrically?",type:"mc",options:["It reverses the polarity of the circuit","It breaks and reconnects the hot conductor to open and close the circuit","It reduces voltage to the load","It switches between two different circuits"],answer:1},{q:"True or False: You must leave at least 8 inches of wire outside the box when roughing in.",type:"tf",options:["True","False"],answer:0},{q:"Which receptacle type has a T-shaped neutral slot and is required on 20-amp circuits?",type:"mc",options:["15-amp duplex","20-amp receptacle","GFCI receptacle","AFCI receptacle"],answer:1},{q:"True or False: The tab between the top and bottom outlets on a duplex receptacle can be broken to allow separate wiring.",type:"tf",options:["True","False"],answer:0}]},
+  ch9:{title:"Chapter 9 — Lighting & Panels",questions:[{q:"What determines the amperage rating of an electrical panel?",type:"mc",options:["The size of the main breaker","The number of circuit breakers installed","The size of the bus bars inside","The gauge of wire entering the panel"],answer:2},{q:"True or False: The main bonding jumper (green screw) should be installed in both the service panel AND subpanels.",type:"tf",options:["True","False"],answer:1},{q:"What is the maximum height for the highest breaker handle in a panel?",type:"mc",options:["5 feet 4 inches","6 feet 0 inches","6 feet 7 inches","7 feet 0 inches"],answer:2},{q:"True or False: The service entrance wires are always live even when the main breaker is turned off.",type:"tf",options:["True","False"],answer:0},{q:"What is the difference between a single-pole and a double-pole breaker?",type:"mc",options:["Single-pole handles 240V, double-pole handles 120V","Single-pole handles 120V on one hot, double-pole handles 240V across two hots","Single-pole is for commercial, double-pole for residential","There is no functional difference"],answer:1},{q:"True or False: Neutral wires in a panel are isolated on plastic-backed bus bars because they can carry current.",type:"tf",options:["True","False"],answer:0},{q:"What does MBR stand for when describing panel types?",type:"mc",options:["Main Branch Relay","Main Breaker","Master Bus Rating","Maximum Bus Resistance"],answer:1},{q:"True or False: A 200-amp panel with two bus bars has 400 total amps available.",type:"tf",options:["True","False"],answer:1},{q:"Per NEC 2023, what is now required on all new and replacement service panels?",type:"mc",options:["AFCI breakers on every circuit","Surge protection","GFCI main breaker","Smart monitoring systems"],answer:1},{q:"True or False: GFCI breakers can be used instead of GFCI receptacles to protect an entire circuit.",type:"tf",options:["True","False"],answer:0}]},
+  ch10:{title:"Chapter 10 — Reading Plans & Codes",questions:[{q:"On a blueprint, what does 'S3' represent?",type:"mc",options:["A single-pole switch","A three-way switch","A four-way switch","A dimmer switch"],answer:1},{q:"True or False: You need to memorize the entire NEC to work as an electrician.",type:"tf",options:["True","False"],answer:1},{q:"What does 'SD' represent on a blueprint?",type:"mc",options:["Single dimmer","Switch with disconnect","Smoke detector","Surge device"],answer:2},{q:"True or False: A circle with two lines through it on a blueprint represents a standard 120V duplex receptacle.",type:"tf",options:["True","False"],answer:0},{q:"Which NEC article covers grounding and bonding?",type:"mc",options:["Article 100","Article 210","Article 250","Article 310"],answer:2},{q:"True or False: 'WP' next to a recessed can on a blueprint means the fixture is weatherproof rated.",type:"tf",options:["True","False"],answer:0},{q:"What does 'J' inside a box symbol mean on a commercial blueprint?",type:"mc",options:["Junction box — run a home run here and leave wires for future connection","Just a box — no wiring required","Joint connection between two circuits","Jumper connection between panels"],answer:0},{q:"True or False: NEC Article 100 contains the definitions used throughout the entire code book.",type:"tf",options:["True","False"],answer:0},{q:"What does 'OS' stand for on an electrical blueprint?",type:"mc",options:["Outdoor Switch","Occupancy Sensor","Overhead Service","Open Socket"],answer:1},{q:"True or False: NEC Article 334 covers NM cable (Romex) installation requirements.",type:"tf",options:["True","False"],answer:0}]},
+  ch11:{title:"Chapter 11 — Getting Hired",questions:[{q:"What is the single most important credential to have before applying for an electrician's helper position?",type:"mc",options:["A college degree in electrical engineering","OSHA 10 Construction Safety card","NCCER certification","Journeyman license"],answer:1},{q:"True or False: Small to mid-size non-union residential contractors are the best target for a no-experience helper job.",type:"tf",options:["True","False"],answer:0},{q:"What should you start on Day 1 of your first electrical job?",type:"mc",options:["Looking for a better paying job","A job diary recording what you worked on each day","Studying for your master license exam","Asking for a raise"],answer:1},{q:"True or False: Electrical contractors frequently post jobs on Craigslist skilled trades and often hire directly by phone.",type:"tf",options:["True","False"],answer:0},{q:"In an interview, which answer is BEST when asked about experience?",type:"mc",options:["'I know everything about electrical'","'I have no experience but I've completed this course, earned my OSHA 10, and I'm serious about building a career in this trade'","'I don't have experience but I learn fast'","'I've done some electrical work at home'"],answer:1},{q:"True or False: The job diary you keep as a helper is legal proof of experience for your future license application.",type:"tf",options:["True","False"],answer:0},{q:"What is the best way to find small contractors who never post jobs online?",type:"mc",options:["Wait for them to find you on LinkedIn","Search Google Maps for 'electrical contractor [your city]' and call directly","Post your resume on job boards and wait","Visit the local union hall"],answer:1},{q:"True or False: Employers at the helper level care more about character than technical knowledge.",type:"tf",options:["True","False"],answer:0},{q:"Which podcast is specifically designed for people entering the electrical trade?",type:"mc",options:["Master the NEC","The Young Electrician Podcast","Electrician U Podcast","Modern Electrician"],answer:1},{q:"True or False: Walking into electrical supply houses is a good strategy because contractors come in daily and hiring often happens through personal referrals.",type:"tf",options:["True","False"],answer:0}]}
+};
+
+const LETTERS = ['A','B','C','D'];
+
+function buildQuiz(chId){
+  const data = QUIZ_DATA[chId];
+  if(!data) return '';
+  return `
+  <div class="quiz-wrap" id="quiz-${chId}">
+    <div class="quiz-header">
+      <h3>📝 Chapter Quiz — ${data.title}</h3>
+      <span class="quiz-progress" id="qprog-${chId}">Question 1 of 10</span>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qfill-${chId}"></div></div>
+    <div class="quiz-body" id="qbody-${chId}"></div>
+    <div class="quiz-result" id="qresult-${chId}"></div>
+  </div>`;
+}
+
+function initQuiz(chId){
+  const data = QUIZ_DATA[chId];
+  if(!data) return;
+  // Shuffle questions
+  const qs = [...data.questions].sort(()=>Math.random()-0.5);
+  const state = {qs, current:0, score:0, answered:false};
+  window['_quiz_'+chId] = state;
+  renderQuestion(chId);
+}
+
+function renderQuestion(chId){
+  const state = window['_quiz_'+chId];
+  const {qs, current} = state;
+  const q = qs[current];
+  const body = document.getElementById('qbody-'+chId);
+  const prog = document.getElementById('qprog-'+chId);
+  const fill = document.getElementById('qfill-'+chId);
+  if(!body) return;
+  
+  prog.textContent = 'Question '+(current+1)+' of '+qs.length;
+  fill.style.width = (current/qs.length*100)+'%';
+  state.answered = false;
+  
+  const letters = q.type==='tf' ? ['T','F'] : LETTERS;
+  const optHtml = q.options.map((opt,i)=>`
+    <button class="quiz-option" id="qopt-${chId}-${i}" onclick="selectOption('${chId}',${i})">
+      <span class="quiz-option-letter">${letters[i]}</span>
+      <span>${opt}</span>
+    </button>`).join('');
+  
+  body.innerHTML = `
+    <div class="quiz-q-num">Question ${current+1} of ${qs.length} · ${q.type==='tf'?'True or False':'Multiple Choice'}</div>
+    <div class="quiz-question">${q.q}</div>
+    <div class="quiz-options">${optHtml}</div>
+    <div class="quiz-feedback" id="qfb-${chId}"></div>
+    <div class="quiz-nav">
+      <button class="quiz-next-btn" id="qnext-${chId}" onclick="nextQuestion('${chId}')">
+        ${current+1 < qs.length ? 'Next Question →' : 'See Results →'}
+      </button>
+    </div>`;
+}
+
+function selectOption(chId, idx){
+  const state = window['_quiz_'+chId];
+  if(state.answered) return;
+  state.answered = true;
+  
+  const q = state.qs[state.current];
+  const correct = q.answer === idx;
+  if(correct) state.score++;
+  
+  // Style options
+  q.options.forEach((_,i)=>{
+    const btn = document.getElementById('qopt-'+chId+'-'+i);
+    if(!btn) return;
+    btn.disabled = true;
+    if(i===idx) btn.classList.add(correct?'correct':'wrong');
+    if(!correct && i===q.answer) btn.classList.add('correct');
+  });
+  
+  // Feedback
+  const fb = document.getElementById('qfb-'+chId);
+  if(fb){
+    fb.className = 'quiz-feedback show '+(correct?'correct':'wrong');
+    fb.textContent = correct ? '✅ Correct!' : '❌ Incorrect — the correct answer is highlighted above.';
+  }
+  
+  // Show next button
+  const nxt = document.getElementById('qnext-'+chId);
+  if(nxt) nxt.classList.add('show');
+}
+
+function nextQuestion(chId){
+  const state = window['_quiz_'+chId];
+  state.current++;
+  if(state.current >= state.qs.length){
+    showResult(chId);
+  } else {
+    renderQuestion(chId);
+  }
+}
+
+function showResult(chId){
+  const state = window['_quiz_'+chId];
+  const body = document.getElementById('qbody-'+chId);
+  const result = document.getElementById('qresult-'+chId);
+  const prog = document.getElementById('qprog-'+chId);
+  const fill = document.getElementById('qfill-'+chId);
+  
+  if(body) body.style.display='none';
+  fill.style.width='100%';
+  prog.textContent = 'Complete';
+  
+  const pct = Math.round(state.score/state.qs.length*100);
+  const pass = state.score === state.qs.length; // 100% required
+  
+  result.className = 'quiz-result show';
+  
+  if(pass){
+    result.innerHTML = `
+      <div class="quiz-result-emoji">🎉</div>
+      <div class="quiz-pass-msg">Perfect score! You've mastered this chapter.</div>
+      <h3>Chapter Complete!</h3>
+      <div class="quiz-score pass">${state.score} / ${state.qs.length}</div>
+      <p>You answered all ${state.qs.length} questions correctly. You're ready to move on.</p>`;
+    // Auto-trigger mark complete
+    setTimeout(()=>markComplete(chId), 600);
+  } else {
+    result.innerHTML = `
+      <div class="quiz-result-emoji">📚</div>
+      <div class="quiz-fail-msg">You need 100% to pass. Review the chapter and try again.</div>
+      <h3>Not quite yet...</h3>
+      <div class="quiz-score fail">${state.score} / ${state.qs.length}</div>
+      <p>You got <strong>${state.score} out of ${state.qs.length}</strong> correct (${pct}%). You need all 10 correct to move on. Re-read the chapter, rewatch the video, then try again.</p>
+      <button class="quiz-retry-btn" onclick="retryQuiz('${chId}')">↺ Retake Quiz</button>`;
+  }
+}
+
+function retryQuiz(chId){
+  const data = QUIZ_DATA[chId];
+  const qs = [...data.questions].sort(()=>Math.random()-0.5);
+  window['_quiz_'+chId] = {qs, current:0, score:0, answered:false};
+  const body = document.getElementById('qbody-'+chId);
+  const result = document.getElementById('qresult-'+chId);
+  if(body) body.style.display='block';
+  result.className = 'quiz-result';
+  renderQuestion(chId);
+}
+
+// Initialize quizzes when chapters become visible
+const _origGoTo = window.goTo;
+window.goTo = function(id, btn){
+  _origGoTo(id, btn);
+  setTimeout(()=>{ if(!window['_quiz_'+id]) initQuiz(id); }, 100);
+};
+
+// Init ch0 on load
+window.addEventListener('DOMContentLoaded',()=>{ 
+  setTimeout(()=>initQuiz('ch0'), 300);
+  // Restore completed quiz states
+  const completed = getCompleted();
+  completed.forEach(chId=>{
+    const wrap = document.getElementById('quiz-'+chId);
+    if(wrap) wrap.style.opacity='0.6';
+  });
+});
+
 </script>
 </body>
 </html>
