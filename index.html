@@ -1445,5 +1445,357 @@ const style = document.createElement('style');
 style.textContent = '@keyframes flashFade{0%{opacity:1}100%{opacity:0}}';
 document.head.appendChild(style);
 </script>
+
+<!-- ══ LAUNCH CLOCK CSS ══ -->
+<style>
+/* Onboarding Popup Overlay */
+.lc-overlay{position:fixed;inset:0;background:rgba(10,10,10,.85);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px)}
+.lc-popup{background:var(--white);border-radius:16px;max-width:480px;width:100%;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.lc-popup-header{background:var(--off-black);padding:1.6rem 1.8rem;text-align:center}
+.lc-popup-bolt{font-size:36px;margin-bottom:8px}
+.lc-popup-header h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--white);margin-bottom:6px}
+.lc-popup-header p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;max-width:340px;margin:0 auto}
+.lc-popup-body{padding:1.6rem 1.8rem}
+.lc-popup-body label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);margin-bottom:6px;margin-top:1rem}
+.lc-popup-body label:first-child{margin-top:0}
+.lc-popup-body input[type=text],.lc-popup-body input[type=date]{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-family:'Source Sans 3',sans-serif;font-size:14px;color:var(--text);background:var(--cream);outline:none;transition:border-color .15s}
+.lc-popup-body input:focus{border-color:var(--yellow-dim)}
+.lc-goal-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.lc-goal-btn{padding:8px 14px;border:1.5px solid var(--border);border-radius:30px;font-size:12px;font-weight:500;color:var(--text-mid);cursor:pointer;background:var(--white);transition:all .15s;font-family:'Source Sans 3',sans-serif}
+.lc-goal-btn:hover{border-color:var(--yellow-dim);color:var(--text)}
+.lc-goal-btn.selected{background:var(--off-black);border-color:var(--off-black);color:var(--yellow)}
+.lc-popup-note{font-size:12px;color:var(--text-muted);line-height:1.6;margin-top:12px;padding:10px 14px;background:var(--cream-dark);border-radius:var(--r-sm)}
+.lc-start-btn{width:100%;margin-top:1.2rem;background:var(--off-black);color:var(--yellow);border:none;padding:14px;border-radius:30px;font-family:'Source Sans 3',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .15s;letter-spacing:.02em}
+.lc-start-btn:hover{opacity:.85}
+.lc-start-btn:disabled{opacity:.4;cursor:default}
+
+/* Floating Clock Widget */
+.lc-widget{position:fixed;bottom:20px;right:20px;z-index:9000;width:200px;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);transition:all .3s;cursor:pointer;user-select:none}
+.lc-widget:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.lc-widget-header{padding:8px 12px;display:flex;align-items:center;gap:7px}
+.lc-widget-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.lc-widget-label{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.lc-widget-body{padding:8px 12px 10px}
+.lc-widget-name{font-size:11px;font-weight:600;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lc-widget-timer{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;line-height:1;margin-bottom:4px;letter-spacing:-.5px}
+.lc-widget-sub{font-size:10px;opacity:.7}
+.lc-widget-progress{height:4px;border-radius:4px;margin-top:8px;overflow:hidden}
+.lc-widget-progress-fill{height:100%;border-radius:4px;transition:width .5s ease}
+.lc-widget-chapters{font-size:10px;margin-top:6px;opacity:.8}
+.lc-widget-expand{font-size:10px;text-align:center;padding:5px;opacity:.5;border-top:1px solid rgba(255,255,255,.1);margin-top:4px}
+
+/* On track — green */
+.lc-widget.on-track{background:linear-gradient(135deg,#0F5132,#1F9C6E)}
+.lc-widget.on-track .lc-widget-dot{background:#6EE7B7}
+.lc-widget.on-track .lc-widget-label{color:#6EE7B7}
+.lc-widget.on-track .lc-widget-header{background:rgba(0,0,0,.15)}
+.lc-widget.on-track .lc-widget-name,.lc-widget.on-track .lc-widget-timer,.lc-widget.on-track .lc-widget-sub,.lc-widget.on-track .lc-widget-chapters{color:var(--white)}
+.lc-widget.on-track .lc-widget-progress{background:rgba(255,255,255,.2)}
+.lc-widget.on-track .lc-widget-progress-fill{background:#6EE7B7}
+
+/* Behind — red pulsing */
+.lc-widget.behind{background:linear-gradient(135deg,#7F1D1D,#C13030);animation:pulseRed 2.5s ease-in-out infinite}
+@keyframes pulseRed{0%,100%{box-shadow:0 8px 32px rgba(193,48,48,.3)}50%{box-shadow:0 8px 32px rgba(193,48,48,.7),0 0 20px rgba(193,48,48,.4)}}
+.lc-widget.behind .lc-widget-dot{background:#FCA5A5;animation:dotPulse 1.5s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.lc-widget.behind .lc-widget-label{color:#FCA5A5}
+.lc-widget.behind .lc-widget-header{background:rgba(0,0,0,.2)}
+.lc-widget.behind .lc-widget-name,.lc-widget.behind .lc-widget-timer,.lc-widget.behind .lc-widget-sub,.lc-widget.behind .lc-widget-chapters{color:var(--white)}
+.lc-widget.behind .lc-widget-progress{background:rgba(255,255,255,.2)}
+.lc-widget.behind .lc-widget-progress-fill{background:#FCA5A5}
+
+/* Finished — gold */
+.lc-widget.finished{background:linear-gradient(135deg,#78350F,#C9A02A)}
+.lc-widget.finished .lc-widget-dot{background:var(--yellow)}
+.lc-widget.finished .lc-widget-label{color:var(--yellow)}
+.lc-widget.finished .lc-widget-header{background:rgba(0,0,0,.15)}
+.lc-widget.finished .lc-widget-name,.lc-widget.finished .lc-widget-timer,.lc-widget.finished .lc-widget-sub,.lc-widget.finished .lc-widget-chapters{color:var(--white)}
+.lc-widget.finished .lc-widget-progress{background:rgba(255,255,255,.2)}
+.lc-widget.finished .lc-widget-progress-fill{background:var(--yellow);width:100%!important}
+
+/* Minimized widget */
+.lc-widget.minimized .lc-widget-body{display:none}
+.lc-widget.minimized .lc-widget-expand{display:none}
+.lc-widget.minimized{width:auto}
+
+/* Completion popup */
+.lc-complete-popup{position:fixed;inset:0;background:rgba(10,10,10,.85);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px)}
+.lc-complete-box{background:var(--off-black);border-radius:16px;max-width:400px;width:100%;padding:2.5rem;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
+.lc-complete-emoji{font-size:56px;margin-bottom:16px}
+.lc-complete-box h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--yellow);margin-bottom:10px}
+.lc-complete-box p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:1.5rem}
+.lc-complete-btn{background:var(--yellow);color:var(--black);border:none;padding:12px 28px;border-radius:30px;font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:700;cursor:pointer}
+
+@media(max-width:480px){.lc-widget{bottom:12px;right:12px;width:170px}}
+</style>
+
+<!-- ══ LAUNCH CLOCK HTML ══ -->
+
+<!-- Onboarding Popup -->
+<div class="lc-overlay" id="lcOverlay" style="display:none">
+  <div class="lc-popup">
+    <div class="lc-popup-header">
+      <div class="lc-popup-bolt">⚡</div>
+      <h2>Start your countdown</h2>
+      <p>Set your goal and we'll track your progress — showing you exactly whether you're on pace to get hired on time.</p>
+    </div>
+    <div class="lc-popup-body">
+      <label>Your first name</label>
+      <input type="text" id="lcName" placeholder="e.g. Marcus" oninput="lcCheckReady()">
+      <label>When do you want to be job-ready?</label>
+      <div class="lc-goal-btns">
+        <button class="lc-goal-btn" onclick="lcSetGoal(42,this)">6 weeks <span style="opacity:.6;font-size:11px">· recommended</span></button>
+        <button class="lc-goal-btn" onclick="lcSetGoal(56,this)">8 weeks</button>
+        <button class="lc-goal-btn" onclick="lcSetGoal(84,this)">12 weeks</button>
+        <button class="lc-goal-btn" onclick="lcSetGoal(0,this)">Pick a date</button>
+      </div>
+      <div id="lcDateWrap" style="display:none;margin-top:8px">
+        <input type="date" id="lcCustomDate" onchange="lcCheckReady()">
+      </div>
+      <div class="lc-popup-note">
+        ⏱ The clock will count down in real time. If you fall behind your pace, it turns <strong style="color:#C13030">red</strong>. Stay on track and it stays <strong style="color:#1F9C6E">green</strong>. Simple.
+      </div>
+      <button class="lc-start-btn" id="lcStartBtn" disabled onclick="lcStart()">Start my countdown →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Widget -->
+<div class="lc-widget on-track" id="lcWidget" style="display:none" onclick="lcToggleMinimize()">
+  <div class="lc-widget-header">
+    <div class="lc-widget-dot"></div>
+    <div class="lc-widget-label" id="lcWidgetLabel">On Track</div>
+  </div>
+  <div class="lc-widget-body">
+    <div class="lc-widget-name" id="lcWidgetName">Your countdown</div>
+    <div class="lc-widget-timer" id="lcWidgetTimer">--d --h</div>
+    <div class="lc-widget-sub" id="lcWidgetSub">until your target date</div>
+    <div class="lc-widget-progress">
+      <div class="lc-widget-progress-fill" id="lcWidgetFill" style="width:0%"></div>
+    </div>
+    <div class="lc-widget-chapters" id="lcWidgetChapters">0 / 11 chapters done</div>
+  </div>
+  <div class="lc-widget-expand">tap to minimize</div>
+</div>
+
+<!-- Completion Celebration -->
+<div class="lc-complete-popup" id="lcCompletePopup" style="display:none">
+  <div class="lc-complete-box">
+    <div class="lc-complete-emoji" id="lcCompleteEmoji">🎉</div>
+    <h2 id="lcCompleteTitle">Course Complete!</h2>
+    <p id="lcCompleteMsg">You finished the course. Now go get that job.</p>
+    <button class="lc-complete-btn" onclick="document.getElementById('lcCompletePopup').style.display='none';goTo('ch11',document.querySelectorAll('.ch-btn')[11])">Go to Getting Hired →</button>
+  </div>
+</div>
+
+<!-- ══ LAUNCH CLOCK JS ══ -->
+<script>
+(function(){
+  const STORAGE_KEY = 'darco-launch-clock';
+  let lcData = null;
+  let lcInterval = null;
+  let lcMinimized = false;
+
+  function lcLoad(){
+    try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)||'null'); }
+    catch(e){ return null; }
+  }
+
+  function lcSave(data){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+    catch(e){}
+  }
+
+  // ── GOAL SELECTION ──
+  let selectedDays = 0;
+  window.lcSetGoal = function(days, btn){
+    document.querySelectorAll('.lc-goal-btn').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedDays = days;
+    const dateWrap = document.getElementById('lcDateWrap');
+    if(days === 0){
+      dateWrap.style.display = 'block';
+    } else {
+      dateWrap.style.display = 'none';
+      document.getElementById('lcCustomDate').value = '';
+    }
+    lcCheckReady();
+  };
+
+  window.lcCheckReady = function(){
+    const name = document.getElementById('lcName').value.trim();
+    const customDate = document.getElementById('lcCustomDate').value;
+    const ready = name.length > 0 && (selectedDays > 0 || customDate);
+    document.getElementById('lcStartBtn').disabled = !ready;
+  };
+
+  window.lcStart = function(){
+    const name = document.getElementById('lcName').value.trim();
+    const customDate = document.getElementById('lcCustomDate').value;
+    let targetDate;
+    if(selectedDays > 0){
+      targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + selectedDays);
+    } else {
+      targetDate = new Date(customDate + 'T23:59:59');
+    }
+    const data = {
+      name: name,
+      startDate: new Date().toISOString(),
+      targetDate: targetDate.toISOString(),
+      totalDays: Math.round((targetDate - new Date()) / (1000*60*60*24))
+    };
+    lcSave(data);
+    lcData = data;
+    document.getElementById('lcOverlay').style.display = 'none';
+    lcInitWidget();
+  };
+
+  // ── WIDGET ──
+  window.lcToggleMinimize = function(){
+    lcMinimized = !lcMinimized;
+    const w = document.getElementById('lcWidget');
+    const exp = w.querySelector('.lc-widget-expand');
+    if(lcMinimized){
+      w.classList.add('minimized');
+      if(exp) exp.style.display = 'none';
+    } else {
+      w.classList.remove('minimized');
+      if(exp){ exp.style.display = 'block'; exp.textContent = 'tap to minimize'; }
+    }
+  };
+
+  function lcInitWidget(){
+    if(!lcData) return;
+    const widget = document.getElementById('lcWidget');
+    widget.style.display = 'block';
+    lcTick();
+    if(lcInterval) clearInterval(lcInterval);
+    lcInterval = setInterval(lcTick, 1000);
+  }
+
+  function lcTick(){
+    if(!lcData) return;
+    const now = new Date();
+    const target = new Date(lcData.targetDate);
+    const start = new Date(lcData.startDate);
+    const totalMs = target - start;
+    const remainMs = target - now;
+    const elapsed = now - start;
+    const completed = getCompleted().length;
+    const totalChapters = 11;
+
+    // Time remaining
+    const days = Math.floor(remainMs / (1000*60*60*24));
+    const hours = Math.floor((remainMs % (1000*60*60*24)) / (1000*60*60));
+    const mins = Math.floor((remainMs % (1000*60*60)) / (1000*60));
+    const secs = Math.floor((remainMs % (1000*60)) / 1000);
+
+    // Progress % by time
+    const timePct = Math.min(100, Math.max(0, (elapsed/totalMs)*100));
+    // Expected chapters by now
+    const expectedChapters = Math.floor((timePct/100) * totalChapters);
+    // Are we on track?
+    const isFinished = completed >= totalChapters;
+    const isBehind = !isFinished && completed < expectedChapters;
+    const isPast = remainMs <= 0 && !isFinished;
+
+    const widget = document.getElementById('lcWidget');
+    const label = document.getElementById('lcWidgetLabel');
+    const name = document.getElementById('lcWidgetName');
+    const timer = document.getElementById('lcWidgetTimer');
+    const sub = document.getElementById('lcWidgetSub');
+    const fill = document.getElementById('lcWidgetFill');
+    const chapters = document.getElementById('lcWidgetChapters');
+
+    // Chapter progress bar
+    const chPct = Math.round((completed/totalChapters)*100);
+    if(fill) fill.style.width = chPct + '%';
+    if(chapters) chapters.textContent = completed + ' / ' + totalChapters + ' chapters done';
+    if(name) name.textContent = lcData.name + "'s countdown";
+
+    if(isFinished){
+      widget.className = 'lc-widget finished';
+      if(label) label.textContent = '🎉 Complete!';
+      if(timer) timer.textContent = 'Done!';
+      if(sub) sub.textContent = 'Course finished — go get hired!';
+    } else if(isPast || isBehind){
+      widget.className = 'lc-widget behind';
+      if(label) label.textContent = isPast ? '⚠ Overdue!' : '⚠ Behind';
+      if(isPast){
+        if(timer) timer.textContent = 'Overdue!';
+        if(sub) sub.textContent = 'You\'re past your target date';
+      } else {
+        if(days > 0) { if(timer) timer.textContent = days + 'd ' + hours + 'h'; }
+        else if(hours > 0) { if(timer) timer.textContent = hours + 'h ' + mins + 'm'; }
+        else { if(timer) timer.textContent = mins + 'm ' + secs + 's'; }
+        if(sub) sub.textContent = 'Expected ' + expectedChapters + ' ch by now';
+      }
+    } else {
+      widget.className = 'lc-widget on-track';
+      if(label) label.textContent = '✓ On Track';
+      if(days > 0) { if(timer) timer.textContent = days + 'd ' + hours + 'h'; }
+      else if(hours > 0) { if(timer) timer.textContent = hours + 'h ' + mins + 'm'; }
+      else { if(timer) timer.textContent = mins + 'm ' + secs + 's'; }
+      if(sub) sub.textContent = 'remaining to job-ready';
+    }
+
+    // Check for completion celebration
+    if(isFinished && !lcData.celebrated){
+      lcData.celebrated = true;
+      lcSave(lcData);
+      setTimeout(()=>{
+        const popup = document.getElementById('lcCompletePopup');
+        const title = document.getElementById('lcCompleteTitle');
+        const msg = document.getElementById('lcCompleteMsg');
+        const emoji = document.getElementById('lcCompleteEmoji');
+        const targetDate = new Date(lcData.targetDate);
+        const early = remainMs > 0;
+        if(early){
+          emoji.textContent = '🏆';
+          title.textContent = 'You finished early, ' + lcData.name + '!';
+          msg.textContent = 'You completed the course ' + days + ' days ahead of schedule. That\'s exactly the kind of person electrical contractors want to hire. Go get that job.';
+        } else {
+          emoji.textContent = '🎉';
+          title.textContent = 'Course complete, ' + lcData.name + '!';
+          msg.textContent = 'You finished the Darco Electrical Career Course. Everything you need to walk into a job interview with confidence is in your head. Now go use it.';
+        }
+        popup.style.display = 'flex';
+      }, 800);
+    }
+  }
+
+  // ── INIT ──
+  window.addEventListener('DOMContentLoaded', ()=>{
+    lcData = lcLoad();
+    if(!lcData){
+      // Show onboarding popup after a short delay
+      setTimeout(()=>{
+        document.getElementById('lcOverlay').style.display = 'flex';
+      }, 1200);
+    } else {
+      lcInitWidget();
+    }
+  });
+
+  // Hook into markComplete to update widget immediately
+  const originalMarkComplete = window.markComplete;
+  window.markComplete = function(chId){
+    originalMarkComplete(chId);
+    setTimeout(lcTick, 100);
+  };
+
+  // Reset launch clock when progress resets
+  const originalReset = window.resetProgress;
+  window.resetProgress = function(){
+    if(!confirm('Reset all your progress? This cannot be undone.')) return;
+    saveCompleted([]);
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  };
+
+})();
+</script>
 </body>
 </html>
