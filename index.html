@@ -2267,24 +2267,31 @@ function retryQuiz(chId){
 }
 
 
-// Initialize quizzes when chapters become visible
-// Patch goTo AFTER it's defined
+// ── QUIZ INIT FIX ──
+// Always re-render quiz when a chapter becomes visible
 window.addEventListener('DOMContentLoaded', ()=>{
-  // Patch navigation to init quiz when chapter opens
+
+  // Render ALL quizzes immediately on load (hidden chapters still have DOM elements)
+  Object.keys(QUIZ_DATA).forEach(chId => {
+    initQuiz(chId);
+  });
+
+  // Patch goTo to re-render quiz each time chapter is opened
   const _orig = window.goTo;
   window.goTo = function(id, btn){
     _orig(id, btn);
+    // Always re-render the quiz for this chapter
     setTimeout(()=>{
-      if(!window['_quiz_'+id]){
+      const state = window['_quiz_'+id];
+      if(state && state.current === 0 && !state.answered){
+        renderQuestion(id);
+      } else if(!state){
         initQuiz(id);
       }
-    }, 150);
+    }, 50);
   };
 
-  // Init ch0 immediately since it's the first visible chapter
-  setTimeout(()=>{ initQuiz('ch0'); }, 200);
-
-  // Restore completed quiz visual states
+  // Restore completed visual states
   try {
     const completed = getCompleted();
     completed.forEach(chId=>{
