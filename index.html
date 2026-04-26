@@ -2266,22 +2266,32 @@ function retryQuiz(chId){
   renderQuestion(chId);
 }
 
-// Initialize quizzes when chapters become visible
-const _origGoTo = window.goTo;
-window.goTo = function(id, btn){
-  _origGoTo(id, btn);
-  setTimeout(()=>{ if(!window['_quiz_'+id]) initQuiz(id); }, 100);
-};
 
-// Init ch0 on load
-window.addEventListener('DOMContentLoaded',()=>{ 
-  setTimeout(()=>initQuiz('ch0'), 300);
-  // Restore completed quiz states
-  const completed = getCompleted();
-  completed.forEach(chId=>{
-    const wrap = document.getElementById('quiz-'+chId);
-    if(wrap) wrap.style.opacity='0.6';
-  });
+// Initialize quizzes when chapters become visible
+// Patch goTo AFTER it's defined
+window.addEventListener('DOMContentLoaded', ()=>{
+  // Patch navigation to init quiz when chapter opens
+  const _orig = window.goTo;
+  window.goTo = function(id, btn){
+    _orig(id, btn);
+    setTimeout(()=>{
+      if(!window['_quiz_'+id]){
+        initQuiz(id);
+      }
+    }, 150);
+  };
+
+  // Init ch0 immediately since it's the first visible chapter
+  setTimeout(()=>{ initQuiz('ch0'); }, 200);
+
+  // Restore completed quiz visual states
+  try {
+    const completed = getCompleted();
+    completed.forEach(chId=>{
+      const wrap = document.getElementById('quiz-'+chId);
+      if(wrap) wrap.style.opacity='0.6';
+    });
+  } catch(e){}
 });
 
 </script>
