@@ -1634,7 +1634,9 @@ function goTo(id,btn){
   document.querySelectorAll('.ch-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+  var nav = document.querySelector('.chapter-nav');
+  var navTop = nav.getBoundingClientRect().top + window.pageYOffset - 60;
+  window.scrollTo({top:navTop, behavior:'smooth'});
   btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
 }
 
@@ -2378,3 +2380,188 @@ ch11:[
 {q:"What is the practical difference between an electrician's helper and an electrician's apprentice?",o:["There is no difference — the titles are interchangeable","Helper is entry-level with no formal program — apprentice implies a structured program — both count toward license hours","Helper works only residential — apprentice works only commercial","Helper earns below minimum wage — apprentice earns journeyman scale"],a:1,e:"In practice both titles describe entry-level workers learning the trade. Helper is the informal direct-hire term — employed by a contractor and learning on the job. Apprentice more often implies enrollment in a formal apprenticeship program. Both accumulate license hours equally. The key is working under a licensed master."},
 {q:"True or False: The most important thing after completing this course is to start applying immediately — every week you wait is license hours you are not earning.",o:["True","False"],a:0,e:"True. Your license clock only runs when you are working. Every week of delay is experience hours, skill development, and income you are not earning. The knowledge from this course gives you a real advantage right now. Apply this week. Make ten calls. Walk into three supply houses. Your career starts the moment you decide it does."}
 ]
+};
+
+var QS = {};
+
+function qInit(id){
+  var qs = QDATA[id].slice().sort(function(){return Math.random()-0.5;});
+  QS[id] = {qs:qs,cur:0,score:0,done:false,wrong:[]};
+  qRender(id);
+}
+
+function qRender(id){
+  var s = QS[id];
+  var q = s.qs[s.cur];
+  var body = document.getElementById('qbody-'+id);
+  var prog = document.getElementById('qprog-'+id);
+  var fill = document.getElementById('qfill-'+id);
+  if(!body) return;
+  s.done = false;
+  prog.textContent = 'Question '+(s.cur+1)+' of '+s.qs.length;
+  fill.style.width = Math.round(s.cur/s.qs.length*100)+'%';
+  var letters = q.o.length === 2 ? ['T','F'] : ['A','B','C','D'];
+  var opts = '';
+  for(var i=0;i<q.o.length;i++){
+    opts += '<button class="quiz-option" id="qo-'+id+'-'+i+'" onclick="qPick(\''+id+'\','+i+')">'
+          + '<span class="quiz-option-letter">'+letters[i]+'</span>'
+          + '<span>'+q.o[i]+'</span></button>';
+  }
+  body.innerHTML = '<div class="quiz-q-num">Question '+(s.cur+1)+' of '+s.qs.length
+    +' &middot; '+(q.o.length===2?'True or False':'Multiple Choice')+'</div>'
+    +'<div class="quiz-question">'+q.q+'</div>'
+    +'<div class="quiz-options">'+opts+'</div>'
+    +'<div class="quiz-feedback" id="qfb-'+id+'"></div>'
+    +'<div class="quiz-nav"><button class="quiz-next-btn" id="qnxt-'+id+'" onclick="qNext(\''+id+'\')">'
+    +(s.cur+1<s.qs.length?'Next Question &rarr;':'See Results &rarr;')+'</button></div>';
+}
+
+function qPick(id,idx){
+  var s = QS[id];
+  if(s.done) return;
+  s.done = true;
+  var q = s.qs[s.cur];
+  var correct = q.a === idx;
+  if(correct){
+    s.score++;
+  } else {
+    if(!s.wrong) s.wrong = [];
+    s.wrong.push({
+      num: s.cur+1,
+      q: q.q,
+      yourAnswer: q.o[idx],
+      correctAnswer: q.o[q.a],
+      explanation: q.e || 'Review this topic in the chapter content above.'
+    });
+  }
+  for(var i=0;i<q.o.length;i++){
+    var b = document.getElementById('qo-'+id+'-'+i);
+    if(b){
+      b.disabled = true;
+      if(i===idx) b.classList.add(correct?'correct':'wrong');
+      if(!correct && i===q.a) b.classList.add('correct');
+    }
+  }
+  var fb = document.getElementById('qfb-'+id);
+  if(fb){
+    fb.className='quiz-feedback show '+(correct?'correct':'wrong');
+    fb.textContent = correct ? '✅ Correct!' : '❌ Incorrect — the correct answer is highlighted above.';
+  }
+  var nb = document.getElementById('qnxt-'+id);
+  if(nb) nb.classList.add('show');
+}
+
+function qNext(id){
+  var s = QS[id];
+  s.cur++;
+  if(s.cur >= s.qs.length){ qResult(id); } else { qRender(id); }
+}
+
+function qResult(id){
+  var s = QS[id];
+  var body = document.getElementById('qbody-'+id);
+  var result = document.getElementById('qresult-'+id);
+  var fill = document.getElementById('qfill-'+id);
+  var prog = document.getElementById('qprog-'+id);
+  if(body) body.style.display='none';
+  fill.style.width='100%';
+  prog.textContent='Complete';
+  var total = s.qs.length;
+  var pass = s.score >= (total - 3);
+  var missed = s.wrong || [];
+
+  var reviewHtml = '';
+  if(missed.length > 0){
+    reviewHtml += '<div style="margin-top:1.5rem;text-align:left;border-top:1px solid rgba(0,0,0,.1);padding-top:1.2rem">'
+      +'<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:'
+      +(pass?'#065F46':'#5A1010')
+      +';margin-bottom:12px">'
+      +(pass?'📖 Review — questions you missed:':'📖 Questions you got wrong — study these before retaking:')
+      +'</div>';
+    for(var i=0;i<missed.length;i++){
+      var m = missed[i];
+      reviewHtml += '<div style="border:1px solid #e5e7eb;border-radius:8px;padding:14px;margin-bottom:10px;background:#fafafa">'
+        +'<div style="font-size:13px;font-weight:700;color:#111;margin-bottom:8px">Q'+m.num+'. '+m.q+'</div>'
+        +'<div style="font-size:12.5px;color:#C13030;margin-bottom:4px"><span style="font-weight:700">✗ Your answer: </span>'+m.yourAnswer+'</div>'
+        +'<div style="font-size:12.5px;color:#1F9C6E;margin-bottom:8px"><span style="font-weight:700">✓ Correct answer: </span>'+m.correctAnswer+'</div>'
+        +'<div style="font-size:12px;color:#4A5268;background:#fffbeb;border-left:3px solid #F7C948;padding:8px 10px;border-radius:0 4px 4px 0;line-height:1.6"><strong style="color:#92400e">Why: </strong>'+m.explanation+'</div>'
+        +'</div>';
+    }
+    reviewHtml += '</div>';
+  } else {
+    reviewHtml = '<div style="margin-top:1rem;font-size:14px;color:#065F46;font-weight:600">🏆 You got every question right!</div>';
+  }
+
+  result.className='quiz-result show';
+
+  var motivMsgs = {
+    'ch0':'You actually did it. You showed up, you started, and you finished Chapter 0. That already puts you ahead of everyone who said they were going to learn a trade and never opened a single page. This is real. You are on your way. Do not stop now.',
+    'ch1':'That is what I am talking about! You now understand what this trade is, what the path looks like, and what Ohm\'s Law means. Most people your age are still figuring out what they want to do. You already know. Keep that energy going into every chapter.',
+    'ch2':'I am proud of you for taking safety seriously. I have seen too many people get hurt because they got comfortable. The fact that you sat down, studied it, and passed this quiz tells me you are the kind of person who comes home safe every day. That matters more than anything.',
+    'ch3':'Look at you — already thinking about credentials before you even have a job! That is the mindset that gets people hired fast and promoted faster. Stack those certifications, put them on your resume, and watch how differently employers treat you. You are ahead of the game.',
+    'ch4':'You know your tools now. That is not a small thing — walk onto any job site and name every tool a journeyman hands you and watch their face change. They will start trusting you with more. You just earned that. Now go handle those tools like you own the trade.',
+    'ch5':'Electricity makes sense to you now. You understand the WHY — not just the what. That is what separates a great electrician from someone who just follows instructions. When something goes wrong on a job site you will be the one who can think through it. That is powerful.',
+    'ch6':'Wire colors, gauge sizes, ampacity limits — you know them cold now. On your first day when a journeyman says hand me some 12-2 you are not going to freeze. You are going to reach for exactly the right thing. That moment is coming. You are ready for it.',
+    'ch7':'Conduit bending is one of the most satisfying skills in this trade and you just laid the foundation for it. The first time you pull a clean 90 on a real job site — no kinks, perfect measurement — you are going to feel it. Keep practicing. That feeling is worth it.',
+    'ch8':'Switches, outlets, boxes — this is where the trade gets real and hands-on. You now know how to do this work right, safely, and professionally. The electricians who build the best reputations are the ones who do clean work every single time. You are becoming one of them.',
+    'ch9':'Panels are intimidating to most people and you just mastered them. Bus bars, breakers, bonding, grounding — you get it now. Walk up to any panel on any job site and you will know exactly what you are looking at. That confidence is worth everything on Day 1.',
+    'ch10':'Reading blueprints and knowing your codes puts you in a different category entirely. You can walk onto a job site, look at the plans, and know what needs to happen. That is not helper-level thinking — that is journeyman thinking. You are ahead of where you should be.',
+    'ch11':'You finished the entire course. Every single chapter. Do you realize how rare that is? Most people quit. You did not. Now take everything you learned, walk into that interview with your OSHA 10 card and your knowledge, and go get that job. You have earned it. Now go claim it.'
+  };
+  var motivText = motivMsgs[id] || 'You did it. Keep pushing — every chapter you finish is one step closer to the career you are building. Do not stop now.';
+  var motivHtml = '<div style="margin-top:2rem;display:flex;gap:16px;align-items:flex-start">'
+    +'<div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px">'
+    +'<div style="width:52px;height:52px;background:#111318;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-size:23px;color:#F7C948;font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,.15)">D</div>'
+    +'<div style="font-size:9px;color:#8A93A8;text-align:center;letter-spacing:.03em;line-height:1.4">Your<br>Mentor</div>'
+    +'</div>'
+    +'<div style="flex:1;position:relative">'
+    +'<div style="background:#FFFDF7;border:2px solid #C9A02A;border-radius:4px;padding:2rem;position:relative;min-height:160px;display:flex;align-items:center;box-shadow:0 3px 16px rgba(201,160,42,.15)">'
+    +'<div style="position:absolute;top:18px;left:-11px;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-right:9px solid #C9A02A"></div>'
+    +'<div style="position:absolute;top:18px;left:-8px;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-right:9px solid #FFFDF7"></div>'
+    +'<p style="font-family:\'Playfair Display\',Georgia,serif;font-size:22px;color:#1A1E26;line-height:1.85;margin:0;font-style:italic">'+motivText+'</p>'
+    +'</div>'
+    +'<div style="margin-top:7px;padding-left:4px;font-size:11px;color:#8A93A8;font-style:italic">Darco Electrical Career Course</div>'
+    +'</div>'
+    +'</div>';
+
+  if(pass){
+    var emoji = s.score===total ? '🎉' : '👍';
+    var passMsg = s.score===total
+      ? 'Perfect score! You have completely mastered this chapter.'
+      : 'You passed with '+s.score+'/'+total+'. Review the missed questions below so they stick.';
+    result.innerHTML='<div class="quiz-result-emoji">'+emoji+'</div>'
+      +'<div class="quiz-pass-msg">'+passMsg+'</div>'
+      +'<h3>Chapter Quiz — Passed!</h3>'
+      +'<div class="quiz-score pass">'+s.score+' / '+total+'</div>'
+      +'<p style="font-size:13px;color:#4A5268">Pass mark is 17 out of 20. You scored '+s.score+' — you are ready to move on.</p>'
+      +reviewHtml
+      +motivHtml;
+    setTimeout(function(){ markComplete(id); },800);
+  } else {
+    result.innerHTML='<div class="quiz-result-emoji">📚</div>'
+      +'<div class="quiz-fail-msg">You need at least 17 out of 20 to pass. You scored '+s.score+' — review the chapter then try again.</div>'
+      +'<h3>Not quite yet...</h3>'
+      +'<div class="quiz-score fail">'+s.score+' / '+total+'</div>'
+      +'<p style="font-size:13px;color:#4A5268">You missed '+(total-s.score)+' question'+(total-s.score>1?'s':'')+'. Study the explanations below then retake.</p>'
+      +reviewHtml
+      +'<button class="quiz-retry-btn" style="margin-top:1.5rem" onclick="qRetry(\''+id+'\')">&#8634; Retake Quiz</button>';
+  }
+}
+
+function qRetry(id){
+  var qs = QDATA[id].slice().sort(function(){return Math.random()-0.5;});
+  QS[id]={qs:qs,cur:0,score:0,done:false,wrong:[]};
+  var body=document.getElementById('qbody-'+id);
+  var result=document.getElementById('qresult-'+id);
+  if(body) body.style.display='block';
+  result.className='quiz-result';
+  qRender(id);
+}
+
+window.onload = function(){
+  var ids = ['ch0','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10','ch11'];
+  for(var i=0;i<ids.length;i++){ qInit(ids[i]); }
+};
+</script>
+</body>
+</html>
