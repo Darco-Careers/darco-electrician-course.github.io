@@ -2517,9 +2517,15 @@ function qResult(id){
       'ch11':'You made it through the entire course. That took discipline, patience and a belief in yourself that most people never find. Now go use what you know. Apply this week. Make the calls. Walk into that interview ready. Your career starts now.'
     };
     var motivText = motivMsgs[id] || 'Great work. Keep pushing forward — every chapter completed is one step closer to the career you are building.';
-    var motivHtml = '<div style="margin-top:1.5rem;background:linear-gradient(135deg,#111318,#2C3140);border-radius:10px;padding:1.4rem 1.6rem;text-align:left;border-left:4px solid #F7C948">'
-      +'<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#F7C948;margin-bottom:8px">&#9889; Keep Going</div>'
-      +'<p style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.75;margin:0;font-style:italic">'+motivText+'</p>'
+    var motivHtml = '<div style="margin-top:2rem;background:#FFFDF7;border-radius:12px;padding:2rem 2rem 1.5rem;text-align:left;box-shadow:0 4px 24px rgba(0,0,0,.08);border:1px solid #F0EAD8;position:relative;overflow:hidden">'
+      +'<div style="position:absolute;top:-10px;left:16px;font-family:Georgia,serif;font-size:80px;color:#F7C948;opacity:.35;line-height:1;pointer-events:none">&ldquo;</div>'
+      +'<p style="font-family:\'Playfair Display\',Georgia,serif;font-size:17px;color:#2C3140;line-height:1.85;margin:0 0 1.2rem;font-style:italic;position:relative;z-index:1;padding-top:.5rem">'+motivText+'</p>'
+      +'<div style="display:flex;align-items:center;gap:10px;border-top:1px solid #F0EAD8;padding-top:1rem">'
+      +'<div style="width:36px;height:36px;background:#111318;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-size:16px;color:#F7C948;font-weight:700;flex-shrink:0">D</div>'
+      +'<div><div style="font-family:\'Playfair Display\',Georgia,serif;font-size:13px;font-style:italic;color:#4A5268">Your Darco Mentor</div>'
+      +'<div style="font-size:11px;color:#8A93A8;letter-spacing:.04em">Darco Electrical Career Course</div></div>'
+      +'</div>'
+      +'<div style="position:absolute;bottom:-20px;right:16px;font-family:Georgia,serif;font-size:80px;color:#F7C948;opacity:.15;line-height:1;pointer-events:none">&rdquo;</div>'
       +'</div>';
     result.innerHTML='<div class="quiz-result-emoji">'+emoji+'</div>'
       +'<div class="quiz-pass-msg">'+passMsg+'</div>'
