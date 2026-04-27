@@ -2109,144 +2109,257 @@ document.head.appendChild(style);
 });
 </script>
 
+</body>
+</html>
 <script>
-// ══════════════════════════════════════════
-// DARCO QUIZ SYSTEM — standalone script
-// ══════════════════════════════════════════
-
-const LETTERS = ['A','B','C','D'];
-
-const QUIZ_DATA = {
-  ch0:{title:"Chapter 0",questions:[{q:"What is the primary goal of the Darco Electrical Career Course?",type:"mc",options:["To replace a union apprenticeship","To make students employable as electricians","To prepare for a four-year degree","To teach theory only"],answer:1},{q:"True or False: You need prior electrical experience to start this course.",type:"tf",options:["True","False"],answer:1},{q:"What is the recommended approach to working through this course?",type:"mc",options:["Skip chapters you find boring","Work through chapters in order","Start with the getting hired chapter first","Watch only the videos"],answer:1},{q:"True or False: The direct-hire path and the union path lead to the same electrician license.",type:"tf",options:["True","False"],answer:0},{q:"Which credential should you earn FIRST?",type:"mc",options:["NCCER certification","OSHA 10 Construction Safety card","Master electrician license","EPA Section 608"],answer:1},{q:"True or False: The goal of this course is to finish as fast as possible.",type:"tf",options:["True","False"],answer:1},{q:"Which best describes what an electrician actually does?",type:"mc",options:["Fixes blown fuses and replaces outlets","Lays invisible infrastructure that powers buildings for 50+ years","Installs appliances in homes","Reads blueprints only"],answer:1},{q:"True or False: Darco Inc created this course because the path into the trade is unnecessarily confusing for beginners.",type:"tf",options:["True","False"],answer:0},{q:"True or False: You need a four-year degree to become an electrician.",type:"tf",options:["True","False"],answer:1},{q:"True or False: Every hour you work as a helper counts toward your future license.",type:"tf",options:["True","False"],answer:0}]},
-  ch1:{title:"Chapter 1",questions:[{q:"How many electrician job openings are projected in the US each year through 2030?",type:"mc",options:["About 20,000","About 50,000","About 81,000","About 120,000"],answer:2},{q:"True or False: Non-union electrical experience counts toward your license just as much as union experience.",type:"tf",options:["True","False"],answer:0},{q:"What is the typical starting pay for an electrician's helper?",type:"mc",options:["$8-12/hr","$17-22/hr","$35-45/hr","$55-65/hr"],answer:1},{q:"True or False: Voltage is the measurement of electrical current flow.",type:"tf",options:["True","False"],answer:1},{q:"At what career stage can an electrician pull permits and start their own business?",type:"mc",options:["Helper level","Apprentice level","Journeyman level","Master electrician level"],answer:3},{q:"True or False: Ohm's Law states that Voltage equals Current multiplied by Resistance.",type:"tf",options:["True","False"],answer:0},{q:"What does V = I x R represent?",type:"mc",options:["Voltage equals Inductance times Resistance","Voltage equals Current times Resistance","Voltage equals Impedance times Reactance","Voltage equals Insulation times Rating"],answer:1},{q:"True or False: The median annual wage for electricians in 2024 was approximately $62,350.",type:"tf",options:["True","False"],answer:0},{q:"Which best describes what current means in electrical terms?",type:"mc",options:["The pressure pushing electricity","The opposition to flow","The rate of electron flow through a conductor","The total power consumed"],answer:2},{q:"True or False: Every hour you work as a helper counts toward your future license.",type:"tf",options:["True","False"],answer:0}]},
-  ch2:{title:"Chapter 2",questions:[{q:"What does LOTO stand for?",type:"mc",options:["Linked Output Transfer Operation","Lockout/Tagout","Line Output Testing Order","Load Off Turn Off"],answer:1},{q:"True or False: It is acceptable to skip testing a circuit if you are confident the power is off.",type:"tf",options:["True","False"],answer:1},{q:"What temperature can an arc flash reach?",type:"mc",options:["1,000 degrees F","5,000 degrees F","15,000 degrees F","35,000 degrees F"],answer:3},{q:"True or False: You should test for voltage before touching any wire, every single time.",type:"tf",options:["True","False"],answer:0},{q:"What is the correct sequence when de-energizing a circuit?",type:"mc",options:["Test, turn off breaker, lock out, tag out","Turn off breaker, lock out, tag out, test","Tag out, test, turn off breaker, lock out","Lock out, tag out, turn off breaker, test"],answer:1},{q:"True or False: FR (Flame-Resistant) clothing is required in arc flash environments.",type:"tf",options:["True","False"],answer:0},{q:"Approximately how many electrical fires occur in the US each year?",type:"mc",options:["About 5,000","About 15,000","About 45,000","About 100,000"],answer:2},{q:"True or False: Water and electricity are safe together as long as voltage is under 120V.",type:"tf",options:["True","False"],answer:1},{q:"What does a GFCI device protect against?",type:"mc",options:["Arc flash explosions only","Current leaking to ground that could electrocute a person","Overloaded circuits and fires","High voltage surges"],answer:1},{q:"True or False: You may remove another worker's lock from a LOTO system if you need to restore power quickly.",type:"tf",options:["True","False"],answer:1}]},
-  ch3:{title:"Chapter 3",questions:[{q:"Which certification should every helper get FIRST?",type:"mc",options:["NCCER Electrical Certification","OSHA 10 Construction Safety","EPA Section 608","NFPA 70E"],answer:1},{q:"True or False: The OSHA 10 card expires after 5 years and must be renewed.",type:"tf",options:["True","False"],answer:1},{q:"How many hours is the OSHA 10 Construction course?",type:"mc",options:["5 hours","8 hours","10 hours","30 hours"],answer:2},{q:"True or False: The Alison electrical certificate is completely free to earn.",type:"tf",options:["True","False"],answer:0},{q:"What does NFPA 70E cover?",type:"mc",options:["How to read electrical blueprints","Electrical safety in the workplace including arc flash","National wiring color codes","Conduit bending standards"],answer:1},{q:"True or False: SkillCat is accredited by IACET.",type:"tf",options:["True","False"],answer:0},{q:"What minimum score do you need to pass the OSHA 10 exam?",type:"mc",options:["60%","70%","80%","90%"],answer:1},{q:"True or False: NCCER certification is accepted by contractors in all 50 states.",type:"tf",options:["True","False"],answer:0},{q:"How long does it typically take to receive your OSHA 10 DOL card?",type:"mc",options:["Same day download","3-5 business days","About 2 weeks by mail","4-6 weeks by mail"],answer:2},{q:"True or False: You should never pay more than $60 for the OSHA 10 course.",type:"tf",options:["True","False"],answer:0}]},
-  ch4:{title:"Chapter 4",questions:[{q:"What is the most important safety tool an electrician carries every day?",type:"mc",options:["Multimeter","Non-contact voltage tester","Wire strippers","Lineman's pliers"],answer:1},{q:"True or False: Regular hardware store screwdrivers are safe for electrical work if you are careful.",type:"tf",options:["True","False"],answer:1},{q:"What voltage rating must insulated screwdrivers have for electrical work?",type:"mc",options:["120V rated","240V rated","600V rated","1000V rated"],answer:3},{q:"True or False: A multimeter can measure voltage, current, and resistance.",type:"tf",options:["True","False"],answer:0},{q:"What are lineman's pliers primarily used for?",type:"mc",options:["Measuring wire gauge","Cutting, bending, gripping and twisting wire","Stripping insulation from wire ends","Bending conduit to angles"],answer:1},{q:"True or False: A non-contact voltage tester is 100% reliable and never gives false readings.",type:"tf",options:["True","False"],answer:1},{q:"What is fish tape used for?",type:"mc",options:["Measuring wire lengths","Pulling wire through conduit or walls","Taping wire connections","Testing circuits for voltage"],answer:1},{q:"True or False: When stripping wire you should place your thumb on the insulated part of the stripper for better control and safety.",type:"tf",options:["True","False"],answer:0},{q:"Which brand is the industry standard for electrician hand tools in the USA?",type:"mc",options:["DeWalt","Milwaukee","Klein Tools","Craftsman"],answer:2},{q:"True or False: A conduit bender is used to bend EMT and rigid conduit to precise angles.",type:"tf",options:["True","False"],answer:0}]},
-  ch5:{title:"Chapter 5",questions:[{q:"What relationship does Ohm's Law describe?",type:"mc",options:["Power equals current times time","Voltage equals current multiplied by resistance","Resistance equals voltage plus current","Current equals voltage multiplied by resistance"],answer:1},{q:"True or False: In a series circuit if one bulb burns out all other bulbs also go out.",type:"tf",options:["True","False"],answer:0},{q:"What happens to current when resistance in a circuit doubles?",type:"mc",options:["Current doubles","Current stays the same","Current is cut in half","Current increases by 25%"],answer:2},{q:"True or False: In a parallel circuit each load receives the full supply voltage.",type:"tf",options:["True","False"],answer:0},{q:"What does AWG stand for?",type:"mc",options:["Alternating Wire Gauge","American Wire Gauge","Amperage Wire Grade","Authorized Wiring Guide"],answer:1},{q:"True or False: In the AWG system a larger gauge number means a thicker heavier wire.",type:"tf",options:["True","False"],answer:1},{q:"What is the purpose of a circuit breaker?",type:"mc",options:["To increase voltage to devices","To open the circuit when there is an overload or short circuit","To convert AC to DC power","To measure resistance in a circuit"],answer:1},{q:"True or False: House wiring in the USA is wired in parallel so each outlet gets the full supply voltage.",type:"tf",options:["True","False"],answer:0},{q:"What is the difference between AC and DC current?",type:"mc",options:["AC flows only in wires DC flows through air","AC constantly alternates direction while DC flows steadily in one direction","AC is always safer than DC","DC is used in homes AC in batteries"],answer:1},{q:"True or False: Grounding an appliance protects people by giving fault current a safe low-resistance path that trips the breaker.",type:"tf",options:["True","False"],answer:0}]},
-  ch6:{title:"Chapter 6",questions:[{q:"What color is always used for a HOT conductor in standard US residential wiring?",type:"mc",options:["White","Green","Black","Gray"],answer:2},{q:"True or False: In the AWG system 14-gauge wire is thicker than 10-gauge wire.",type:"tf",options:["True","False"],answer:1},{q:"What is the maximum amperage for 12 AWG wire?",type:"mc",options:["15 amps","20 amps","30 amps","40 amps"],answer:1},{q:"True or False: White and gray wires both represent the neutral conductor.",type:"tf",options:["True","False"],answer:0},{q:"What color wire indicates the grounding conductor?",type:"mc",options:["White","Red","Blue","Green or bare copper"],answer:3},{q:"True or False: Mixing wire gauge and breaker size is a leading cause of electrical fires.",type:"tf",options:["True","False"],answer:0},{q:"In a three-phase system which color indicates a WARNING that one hot conductor is 208V to ground?",type:"mc",options:["Purple","Orange","Brown","Yellow"],answer:1},{q:"True or False: 14 AWG wire can safely be used on a 20-amp breaker.",type:"tf",options:["True","False"],answer:1},{q:"Per NEC 2023 which color replaced gray for 0-10V dimming leads in lighting fixtures?",type:"mc",options:["Purple","Pink","Orange","Tan"],answer:1},{q:"True or False: Black red and blue are the hot conductor colors for a standard low voltage three-phase system.",type:"tf",options:["True","False"],answer:0}]},
-  ch7:{title:"Chapter 7",questions:[{q:"What does EMT stand for?",type:"mc",options:["Electrical Metal Tube","Electrical Metallic Tubing","External Metal Tubing","Enclosed Metal Track"],answer:1},{q:"True or False: PVC conduit is gray plastic that can be used underground and in wet locations.",type:"tf",options:["True","False"],answer:0},{q:"Which conduit type connects rigid conduit runs to vibrating equipment like motors?",type:"mc",options:["EMT","PVC","Flexible Metal Conduit","Rigid Metal Conduit"],answer:2},{q:"True or False: The takeoff for a half inch EMT stub-up 90 degree bend is 5 inches.",type:"tf",options:["True","False"],answer:0},{q:"What is an offset bend used for?",type:"mc",options:["To bring conduit up from the floor at 90 degrees","To clear an obstacle by bending in two opposite directions","To align conduit flush with a box knockout","To change conduit direction at one point"],answer:1},{q:"True or False: Rigid Metal Conduit is heavy-duty thick-wall steel used outdoors and in wet locations.",type:"tf",options:["True","False"],answer:0},{q:"What is a box offset used for?",type:"mc",options:["To make a 90 degree turn around a corner","A tiny offset at the end of a run to align flush with a box knockout","To change conduit height along a wall","To connect two pieces of conduit"],answer:1},{q:"True or False: The star mark on a conduit bender is used for a back 90 degree bend.",type:"tf",options:["True","False"],answer:0},{q:"Which conduit type is most commonly used in commercial electrical work?",type:"mc",options:["PVC","EMT","Flexible Metal Conduit","Rigid Metal Conduit"],answer:1},{q:"True or False: A kick bend is essentially half of an offset and is the easiest and fastest bend in the trade.",type:"tf",options:["True","False"],answer:0}]},
-  ch8:{title:"Chapter 8",questions:[{q:"What is the correct term for the wall device that receives a plug?",type:"mc",options:["Plug","Socket","Receptacle","Outlet box"],answer:2},{q:"True or False: GFCI protects people from electrocution by detecting current leaking to ground.",type:"tf",options:["True","False"],answer:0},{q:"What is the correct order to connect wires to a switch or device?",type:"mc",options:["Hots first neutrals second grounds last","Neutrals first hots second grounds last","Grounds first neutrals second hots last","Any order is fine"],answer:2},{q:"True or False: AFCI breakers protect against arc faults that could cause fires.",type:"tf",options:["True","False"],answer:0},{q:"When making a shepherd's hook which direction should the hook face?",type:"mc",options:["Counterclockwise so it opens as the screw tightens","Clockwise so it tightens as the screw turns","Either direction works equally well","Depends on whether it is hot or neutral"],answer:1},{q:"True or False: Per NEC 2023 GFCI protection is now required for hardwired appliances like ranges ovens and dryers.",type:"tf",options:["True","False"],answer:0},{q:"What does a single-pole switch do electrically?",type:"mc",options:["It reverses the polarity of the circuit","It breaks and reconnects the hot conductor to open and close the circuit","It reduces voltage to the load","It switches between two different circuits"],answer:1},{q:"True or False: You must leave at least 8 inches of wire outside the box when roughing in.",type:"tf",options:["True","False"],answer:0},{q:"Which receptacle type has a T-shaped neutral slot and is required on 20-amp circuits?",type:"mc",options:["15-amp duplex","20-amp receptacle","GFCI receptacle","AFCI receptacle"],answer:1},{q:"True or False: The tab between the top and bottom outlets on a duplex receptacle can be broken to allow separate wiring.",type:"tf",options:["True","False"],answer:0}]},
-  ch9:{title:"Chapter 9",questions:[{q:"What determines the amperage rating of an electrical panel?",type:"mc",options:["The size of the main breaker","The number of circuit breakers installed","The size of the bus bars inside","The gauge of wire entering the panel"],answer:2},{q:"True or False: The main bonding jumper green screw should be installed in both the service panel and all subpanels.",type:"tf",options:["True","False"],answer:1},{q:"What is the maximum height for the highest breaker handle in a panel?",type:"mc",options:["5 feet 4 inches","6 feet 0 inches","6 feet 7 inches","7 feet 0 inches"],answer:2},{q:"True or False: The service entrance wires are always live even when the main breaker is turned off.",type:"tf",options:["True","False"],answer:0},{q:"What is the difference between a single-pole and a double-pole breaker?",type:"mc",options:["Single-pole handles 240V double-pole handles 120V","Single-pole handles 120V on one hot double-pole handles 240V across two hots","Single-pole is for commercial double-pole for residential","There is no functional difference"],answer:1},{q:"True or False: Neutral wires in a panel are isolated on plastic-backed bus bars because they can carry current.",type:"tf",options:["True","False"],answer:0},{q:"What does MBR stand for when describing panel types?",type:"mc",options:["Main Branch Relay","Main Breaker","Master Bus Rating","Maximum Bus Resistance"],answer:1},{q:"True or False: A 200-amp panel with two bus bars has 400 total amps available.",type:"tf",options:["True","False"],answer:1},{q:"Per NEC 2023 what is now required on all new and replacement service panels?",type:"mc",options:["AFCI breakers on every circuit","Surge protection","GFCI main breaker","Smart monitoring systems"],answer:1},{q:"True or False: GFCI breakers can protect an entire circuit instead of using individual GFCI receptacles.",type:"tf",options:["True","False"],answer:0}]},
-  ch10:{title:"Chapter 10",questions:[{q:"On a blueprint what does S3 represent?",type:"mc",options:["A single-pole switch","A three-way switch","A four-way switch","A dimmer switch"],answer:1},{q:"True or False: You need to memorize the entire NEC to work as an electrician.",type:"tf",options:["True","False"],answer:1},{q:"What does SD represent on a blueprint?",type:"mc",options:["Single dimmer","Switch with disconnect","Smoke detector","Surge device"],answer:2},{q:"True or False: A circle with two lines through it on a blueprint represents a standard 120V duplex receptacle.",type:"tf",options:["True","False"],answer:0},{q:"Which NEC article covers grounding and bonding?",type:"mc",options:["Article 100","Article 210","Article 250","Article 310"],answer:2},{q:"True or False: WP next to a recessed can on a blueprint means the fixture is weatherproof rated.",type:"tf",options:["True","False"],answer:0},{q:"What does J inside a box symbol mean on a commercial blueprint?",type:"mc",options:["Junction box run a home run here and leave wires for future connection","Just a box no wiring required","Joint connection between two circuits","Jumper connection between panels"],answer:0},{q:"True or False: NEC Article 100 contains the definitions used throughout the entire code book.",type:"tf",options:["True","False"],answer:0},{q:"What does OS stand for on an electrical blueprint?",type:"mc",options:["Outdoor Switch","Occupancy Sensor","Overhead Service","Open Socket"],answer:1},{q:"True or False: NEC Article 334 covers NM cable Romex installation requirements.",type:"tf",options:["True","False"],answer:0}]},
-  ch11:{title:"Chapter 11",questions:[{q:"What is the most important credential to have before applying for an electrician helper position?",type:"mc",options:["A college degree in electrical engineering","OSHA 10 Construction Safety card","NCCER certification","Journeyman license"],answer:1},{q:"True or False: Small to mid-size non-union residential contractors are the best target for a no-experience helper job.",type:"tf",options:["True","False"],answer:0},{q:"What should you start on Day 1 of your first electrical job?",type:"mc",options:["Looking for a better paying job","A job diary recording what you worked on each day","Studying for your master license exam","Asking for a raise"],answer:1},{q:"True or False: Electrical contractors frequently post jobs on Craigslist and often hire directly by phone.",type:"tf",options:["True","False"],answer:0},{q:"In an interview which answer is BEST when asked about experience?",type:"mc",options:["I know everything about electrical","I have no experience but I completed this course earned my OSHA 10 and I am serious about building a career in this trade","I do not have experience but I learn fast","I have done some electrical work at home"],answer:1},{q:"True or False: The job diary you keep as a helper is legal proof of experience for your future license application.",type:"tf",options:["True","False"],answer:0},{q:"What is the best way to find small contractors who never post jobs online?",type:"mc",options:["Wait for them to find you on LinkedIn","Search Google Maps for electrical contractor in your city and call directly","Post your resume on job boards and wait","Visit the local union hall"],answer:1},{q:"True or False: Employers at the helper level care more about character than technical knowledge.",type:"tf",options:["True","False"],answer:0},{q:"Which podcast is specifically designed for people entering the electrical trade?",type:"mc",options:["Master the NEC","The Young Electrician Podcast","Electrician U Podcast","Modern Electrician"],answer:1},{q:"True or False: Walking into electrical supply houses is a good strategy because contractors come in daily and hiring often happens through personal referrals.",type:"tf",options:["True","False"],answer:0}]}
+// DARCO QUIZ — simple direct injection (same pattern as working test)
+var QDATA = {
+ch0:[
+{q:"What is the primary goal of the Darco Electrical Career Course?",o:["To replace a union apprenticeship","To make students employable as electricians","To prepare for a four-year degree","To teach theory only"],a:1},
+{q:"True or False: You need prior electrical experience to start this course.",o:["True","False"],a:1},
+{q:"What is the recommended approach to working through this course?",o:["Skip chapters you find boring","Work through chapters in order — each builds on the last","Start with the getting hired chapter","Watch only the videos"],a:1},
+{q:"True or False: The direct-hire path and the union path lead to the same electrician license.",o:["True","False"],a:0},
+{q:"Which credential should you earn FIRST?",o:["NCCER certification","OSHA 10 Construction Safety card","Master electrician license","EPA Section 608"],a:1},
+{q:"True or False: The goal of this course is to finish as fast as possible.",o:["True","False"],a:1},
+{q:"Which best describes what an electrician actually does?",o:["Fixes blown fuses and replaces outlets","Lays invisible infrastructure that powers buildings for 50+ years","Installs appliances in homes","Reads blueprints only"],a:1},
+{q:"True or False: Darco created this course because the path into the trade is unnecessarily confusing for beginners.",o:["True","False"],a:0},
+{q:"True or False: You need a four-year degree to become an electrician.",o:["True","False"],a:1},
+{q:"True or False: Every hour you work as a helper counts toward your future license.",o:["True","False"],a:0}
+],
+ch1:[
+{q:"How many electrician job openings are projected in the US each year through 2030?",o:["About 20,000","About 50,000","About 81,000","About 120,000"],a:2},
+{q:"True or False: Non-union electrical experience counts toward your license just as much as union experience.",o:["True","False"],a:0},
+{q:"What is the typical starting pay for an electrician's helper?",o:["$8-12/hr","$17-22/hr","$35-45/hr","$55-65/hr"],a:1},
+{q:"True or False: Voltage is the measurement of electrical current flow.",o:["True","False"],a:1},
+{q:"At what career stage can an electrician pull permits and start their own business?",o:["Helper level","Apprentice level","Journeyman level","Master electrician level"],a:3},
+{q:"True or False: Ohm's Law states that Voltage equals Current multiplied by Resistance.",o:["True","False"],a:0},
+{q:"What does V = I x R represent?",o:["Voltage equals Inductance times Resistance","Voltage equals Current times Resistance","Voltage equals Impedance times Reactance","Voltage equals Insulation times Rating"],a:1},
+{q:"True or False: The median annual wage for electricians in 2024 was approximately $62,350.",o:["True","False"],a:0},
+{q:"Which best describes what current means in electrical terms?",o:["The pressure pushing electricity","The opposition to flow","The rate of electron flow through a conductor","The total power consumed"],a:2},
+{q:"True or False: Every hour you work as a helper counts toward your future license.",o:["True","False"],a:0}
+],
+ch2:[
+{q:"What does LOTO stand for?",o:["Linked Output Transfer Operation","Lockout/Tagout","Line Output Testing Order","Load Off Turn Off"],a:1},
+{q:"True or False: It is acceptable to skip testing a circuit if you are confident the power is off.",o:["True","False"],a:1},
+{q:"What temperature can an arc flash reach?",o:["1,000 degrees F","5,000 degrees F","15,000 degrees F","35,000 degrees F"],a:3},
+{q:"True or False: You should test for voltage before touching any wire, every single time.",o:["True","False"],a:0},
+{q:"What is the correct sequence when de-energizing a circuit?",o:["Test, turn off breaker, lock out, tag out","Turn off breaker, lock out, tag out, test","Tag out, test, turn off breaker, lock out","Lock out, tag out, turn off breaker, test"],a:1},
+{q:"True or False: FR (Flame-Resistant) clothing is required in arc flash environments.",o:["True","False"],a:0},
+{q:"Approximately how many electrical fires occur in the US each year?",o:["About 5,000","About 15,000","About 45,000","About 100,000"],a:2},
+{q:"True or False: Water and electricity are safe together as long as voltage is under 120V.",o:["True","False"],a:1},
+{q:"What does a GFCI device protect against?",o:["Arc flash explosions only","Current leaking to ground that could electrocute a person","Overloaded circuits and fires","High voltage surges"],a:1},
+{q:"True or False: You may remove another worker's lock from a LOTO system if you need to restore power quickly.",o:["True","False"],a:1}
+],
+ch3:[
+{q:"Which certification should every helper get FIRST?",o:["NCCER Electrical Certification","OSHA 10 Construction Safety","EPA Section 608","NFPA 70E"],a:1},
+{q:"True or False: The OSHA 10 card expires after 5 years and must be renewed.",o:["True","False"],a:1},
+{q:"How many hours is the OSHA 10 Construction course?",o:["5 hours","8 hours","10 hours","30 hours"],a:2},
+{q:"True or False: The Alison electrical certificate is completely free to earn.",o:["True","False"],a:0},
+{q:"What does NFPA 70E cover?",o:["How to read electrical blueprints","Electrical safety in the workplace including arc flash","National wiring color codes","Conduit bending standards"],a:1},
+{q:"True or False: SkillCat is accredited by IACET.",o:["True","False"],a:0},
+{q:"What minimum score do you need to pass the OSHA 10 exam?",o:["60%","70%","80%","90%"],a:1},
+{q:"True or False: NCCER certification is accepted by contractors in all 50 states.",o:["True","False"],a:0},
+{q:"How long does it take to receive your OSHA 10 DOL card?",o:["Same day download","3-5 business days","About 2 weeks by mail","4-6 weeks by mail"],a:2},
+{q:"True or False: You should never pay more than $60 for the OSHA 10 course.",o:["True","False"],a:0}
+],
+ch4:[
+{q:"What is the most important safety tool an electrician carries every day?",o:["Multimeter","Non-contact voltage tester","Wire strippers","Lineman's pliers"],a:1},
+{q:"True or False: Regular hardware store screwdrivers are safe for electrical work if you are careful.",o:["True","False"],a:1},
+{q:"What voltage rating must insulated screwdrivers have for electrical work?",o:["120V rated","240V rated","600V rated","1000V rated"],a:3},
+{q:"True or False: A multimeter can measure voltage, current, and resistance.",o:["True","False"],a:0},
+{q:"What are lineman's pliers primarily used for?",o:["Measuring wire gauge","Cutting, bending, gripping and twisting wire","Stripping insulation from wire ends","Bending conduit to angles"],a:1},
+{q:"True or False: A non-contact voltage tester is 100% reliable and never gives false readings.",o:["True","False"],a:1},
+{q:"What is fish tape used for?",o:["Measuring wire lengths","Pulling wire through conduit or walls","Taping wire connections","Testing circuits for voltage"],a:1},
+{q:"True or False: When stripping wire place your thumb on the insulated part of the stripper for better control.",o:["True","False"],a:0},
+{q:"Which brand is the industry standard for electrician hand tools in the USA?",o:["DeWalt","Milwaukee","Klein Tools","Craftsman"],a:2},
+{q:"True or False: A conduit bender is used to bend EMT and rigid conduit to precise angles.",o:["True","False"],a:0}
+],
+ch5:[
+{q:"What relationship does Ohm's Law describe?",o:["Power equals current times time","Voltage equals current multiplied by resistance","Resistance equals voltage plus current","Current equals voltage multiplied by resistance"],a:1},
+{q:"True or False: In a series circuit if one bulb burns out all other bulbs also go out.",o:["True","False"],a:0},
+{q:"What happens to current when resistance in a circuit doubles?",o:["Current doubles","Current stays the same","Current is cut in half","Current increases by 25%"],a:2},
+{q:"True or False: In a parallel circuit each load receives the full supply voltage.",o:["True","False"],a:0},
+{q:"What does AWG stand for?",o:["Alternating Wire Gauge","American Wire Gauge","Amperage Wire Grade","Authorized Wiring Guide"],a:1},
+{q:"True or False: In the AWG system a larger gauge number means a thicker heavier wire.",o:["True","False"],a:1},
+{q:"What is the purpose of a circuit breaker?",o:["To increase voltage to devices","To open the circuit when there is an overload or short circuit","To convert AC to DC power","To measure resistance"],a:1},
+{q:"True or False: House wiring in the USA is wired in parallel so each outlet gets the full supply voltage.",o:["True","False"],a:0},
+{q:"What is the difference between AC and DC current?",o:["AC flows only in wires DC flows through air","AC constantly alternates direction while DC flows steadily in one direction","AC is always safer than DC","DC is used in homes AC in batteries"],a:1},
+{q:"True or False: Grounding an appliance protects people by giving fault current a safe path that trips the breaker.",o:["True","False"],a:0}
+],
+ch6:[
+{q:"What color is always used for a HOT conductor in standard US residential wiring?",o:["White","Green","Black","Gray"],a:2},
+{q:"True or False: In the AWG system 14-gauge wire is thicker than 10-gauge wire.",o:["True","False"],a:1},
+{q:"What is the maximum amperage for 12 AWG wire?",o:["15 amps","20 amps","30 amps","40 amps"],a:1},
+{q:"True or False: White and gray wires both represent the neutral conductor.",o:["True","False"],a:0},
+{q:"What color wire indicates the grounding conductor?",o:["White","Red","Blue","Green or bare copper"],a:3},
+{q:"True or False: Mixing wire gauge and breaker size is a leading cause of electrical fires.",o:["True","False"],a:0},
+{q:"In a three-phase system which color indicates one hot conductor is 208V to ground instead of 120V?",o:["Purple","Orange","Brown","Yellow"],a:1},
+{q:"True or False: 14 AWG wire can safely be used on a 20-amp breaker.",o:["True","False"],a:1},
+{q:"Per NEC 2023 which color replaced gray for 0-10V dimming leads in lighting fixtures?",o:["Purple","Pink","Orange","Tan"],a:1},
+{q:"True or False: Black red and blue are the hot conductor colors for a standard low voltage three-phase system.",o:["True","False"],a:0}
+],
+ch7:[
+{q:"What does EMT stand for?",o:["Electrical Metal Tube","Electrical Metallic Tubing","External Metal Tubing","Enclosed Metal Track"],a:1},
+{q:"True or False: PVC conduit is gray plastic that can be used underground and in wet locations.",o:["True","False"],a:0},
+{q:"Which conduit type connects rigid conduit runs to vibrating equipment like motors?",o:["EMT","PVC","Flexible Metal Conduit","Rigid Metal Conduit"],a:2},
+{q:"True or False: The takeoff for a half inch EMT stub-up 90 degree bend is 5 inches.",o:["True","False"],a:0},
+{q:"What is an offset bend used for?",o:["To bring conduit up from the floor at 90 degrees","To clear an obstacle by bending in two opposite directions","To align conduit flush with a box knockout","To change direction at one point"],a:1},
+{q:"True or False: Rigid Metal Conduit is heavy-duty thick-wall steel used outdoors and in wet locations.",o:["True","False"],a:0},
+{q:"What is a box offset used for?",o:["To make a 90 degree turn around a corner","A tiny offset at the end of a run to align flush with a box knockout","To change conduit height along a wall","To connect two pieces of conduit"],a:1},
+{q:"True or False: The star mark on a conduit bender is used for a back 90 degree bend.",o:["True","False"],a:0},
+{q:"Which conduit type is most commonly used in commercial electrical work?",o:["PVC","EMT","Flexible Metal Conduit","Rigid Metal Conduit"],a:1},
+{q:"True or False: A kick bend is essentially half of an offset and is the easiest and fastest bend in the trade.",o:["True","False"],a:0}
+],
+ch8:[
+{q:"What is the correct term for the wall device that receives a plug?",o:["Plug","Socket","Receptacle","Outlet box"],a:2},
+{q:"True or False: GFCI protects people from electrocution by detecting current leaking to ground.",o:["True","False"],a:0},
+{q:"What is the correct order to connect wires to a switch or device?",o:["Hots first neutrals second grounds last","Neutrals first hots second grounds last","Grounds first neutrals second hots last","Any order is fine"],a:2},
+{q:"True or False: AFCI breakers protect against arc faults that could cause fires.",o:["True","False"],a:0},
+{q:"When making a shepherd's hook which direction should the hook face?",o:["Counterclockwise so it opens as the screw tightens","Clockwise so it tightens as the screw turns","Either direction works equally well","Depends on whether it is hot or neutral"],a:1},
+{q:"True or False: Per NEC 2023 GFCI protection is now required for hardwired appliances like ranges ovens and dryers.",o:["True","False"],a:0},
+{q:"What does a single-pole switch do electrically?",o:["It reverses the polarity","It breaks and reconnects the hot conductor to open and close the circuit","It reduces voltage to the load","It switches between two circuits"],a:1},
+{q:"True or False: You must leave at least 8 inches of wire outside the box when roughing in.",o:["True","False"],a:0},
+{q:"Which receptacle type has a T-shaped neutral slot and is required on 20-amp circuits?",o:["15-amp duplex","20-amp receptacle","GFCI receptacle","AFCI receptacle"],a:1},
+{q:"True or False: The tab between the top and bottom outlets on a duplex receptacle can be broken to allow separate wiring.",o:["True","False"],a:0}
+],
+ch9:[
+{q:"What determines the amperage rating of an electrical panel?",o:["The size of the main breaker","The number of circuit breakers installed","The size of the bus bars inside","The gauge of wire entering the panel"],a:2},
+{q:"True or False: The main bonding jumper green screw should be installed in both the service panel and all subpanels.",o:["True","False"],a:1},
+{q:"What is the maximum height for the highest breaker handle in a panel?",o:["5 feet 4 inches","6 feet 0 inches","6 feet 7 inches","7 feet 0 inches"],a:2},
+{q:"True or False: The service entrance wires are always live even when the main breaker is turned off.",o:["True","False"],a:0},
+{q:"What is the difference between a single-pole and a double-pole breaker?",o:["Single-pole handles 240V double-pole handles 120V","Single-pole handles 120V on one hot double-pole handles 240V across two hots","Single-pole is for commercial double-pole for residential","There is no functional difference"],a:1},
+{q:"True or False: Neutral wires in a panel are isolated on plastic-backed bus bars because they can carry current.",o:["True","False"],a:0},
+{q:"What does MBR stand for when describing panel types?",o:["Main Branch Relay","Main Breaker","Master Bus Rating","Maximum Bus Resistance"],a:1},
+{q:"True or False: A 200-amp panel with two bus bars has 400 total amps available.",o:["True","False"],a:1},
+{q:"Per NEC 2023 what is now required on all new and replacement service panels?",o:["AFCI breakers on every circuit","Surge protection","GFCI main breaker","Smart monitoring systems"],a:1},
+{q:"True or False: GFCI breakers can protect an entire circuit instead of using individual GFCI receptacles.",o:["True","False"],a:0}
+],
+ch10:[
+{q:"On a blueprint what does S3 represent?",o:["A single-pole switch","A three-way switch","A four-way switch","A dimmer switch"],a:1},
+{q:"True or False: You need to memorize the entire NEC to work as an electrician.",o:["True","False"],a:1},
+{q:"What does SD represent on a blueprint?",o:["Single dimmer","Switch with disconnect","Smoke detector","Surge device"],a:2},
+{q:"True or False: A circle with two lines through it on a blueprint represents a standard 120V duplex receptacle.",o:["True","False"],a:0},
+{q:"Which NEC article covers grounding and bonding?",o:["Article 100","Article 210","Article 250","Article 310"],a:2},
+{q:"True or False: WP next to a recessed can on a blueprint means the fixture is weatherproof rated.",o:["True","False"],a:0},
+{q:"What does J inside a box symbol mean on a commercial blueprint?",o:["Junction box — run a home run here and leave wires for future connection","Just a box no wiring required","Joint connection between two circuits","Jumper connection between panels"],a:0},
+{q:"True or False: NEC Article 100 contains the definitions used throughout the entire code book.",o:["True","False"],a:0},
+{q:"What does OS stand for on an electrical blueprint?",o:["Outdoor Switch","Occupancy Sensor","Overhead Service","Open Socket"],a:1},
+{q:"True or False: NEC Article 334 covers NM cable Romex installation requirements.",o:["True","False"],a:0}
+],
+ch11:[
+{q:"What is the most important credential to have before applying for a helper position?",o:["A college degree in electrical engineering","OSHA 10 Construction Safety card","NCCER certification","Journeyman license"],a:1},
+{q:"True or False: Small to mid-size non-union residential contractors are the best target for a no-experience helper job.",o:["True","False"],a:0},
+{q:"What should you start on Day 1 of your first electrical job?",o:["Looking for a better paying job","A job diary recording what you worked on each day","Studying for your master license exam","Asking for a raise"],a:1},
+{q:"True or False: Electrical contractors frequently post jobs on Craigslist and often hire directly by phone.",o:["True","False"],a:0},
+{q:"In an interview which answer is BEST when asked about experience?",o:["I know everything about electrical","I have no experience but I completed this course earned my OSHA 10 and I am serious about this career","I do not have experience but I learn fast","I have done some electrical work at home"],a:1},
+{q:"True or False: The job diary you keep as a helper is legal proof of experience for your future license application.",o:["True","False"],a:0},
+{q:"What is the best way to find small contractors who never post jobs online?",o:["Wait for them to find you on LinkedIn","Search Google Maps for electrical contractor in your city and call directly","Post your resume on job boards","Visit the local union hall"],a:1},
+{q:"True or False: Employers at the helper level care more about character than technical knowledge.",o:["True","False"],a:0},
+{q:"Which podcast is specifically designed for people entering the electrical trade?",o:["Master the NEC","The Young Electrician Podcast","Electrician U Podcast","Modern Electrician"],a:1},
+{q:"True or False: Walking into electrical supply houses is a good strategy because contractors come in daily and hiring often happens through personal referrals.",o:["True","False"],a:0}
+]
 };
 
-function initQuiz(chId){
-  var data = QUIZ_DATA[chId];
-  if(!data){ return; }
-  var qs = data.questions.slice().sort(function(){ return Math.random()-0.5; });
-  window['_quiz_'+chId] = {qs:qs, current:0, score:0, answered:false};
-  renderQuestion(chId);
+var QS = {}; // quiz states
+
+function qInit(id){
+  var qs = QDATA[id].slice().sort(function(){return Math.random()-0.5;});
+  QS[id] = {qs:qs,cur:0,score:0,done:false};
+  qRender(id);
 }
 
-function renderQuestion(chId){
-  var state = window['_quiz_'+chId];
-  if(!state){ return; }
-  var q = state.qs[state.current];
-  var body = document.getElementById('qbody-'+chId);
-  var prog = document.getElementById('qprog-'+chId);
-  var fill = document.getElementById('qfill-'+chId);
-  if(!body){ return; }
-  prog.textContent = 'Question '+(state.current+1)+' of '+state.qs.length;
-  fill.style.width = (state.current/state.qs.length*100)+'%';
-  state.answered = false;
-  var letters = q.type==='tf' ? ['T','F'] : LETTERS;
-  var optHtml = '';
-  for(var i=0;i<q.options.length;i++){
-    optHtml += '<button class="quiz-option" id="qopt-'+chId+'-'+i+'" onclick="selectOption(''+chId+'','+i+')">'
-      +'<span class="quiz-option-letter">'+letters[i]+'</span>'
-      +'<span>'+q.options[i]+'</span></button>';
+function qRender(id){
+  var s = QS[id];
+  var q = s.qs[s.cur];
+  var body = document.getElementById('qbody-'+id);
+  var prog = document.getElementById('qprog-'+id);
+  var fill = document.getElementById('qfill-'+id);
+  if(!body) return;
+  s.done = false;
+  prog.textContent = 'Question '+(s.cur+1)+' of '+s.qs.length;
+  fill.style.width = Math.round(s.cur/s.qs.length*100)+'%';
+  var letters = q.o.length === 2 ? ['T','F'] : ['A','B','C','D'];
+  var opts = '';
+  for(var i=0;i<q.o.length;i++){
+    opts += '<button class="quiz-option" id="qo-'+id+'-'+i+'" onclick="qPick(\''+id+'\','+i+')">'
+          + '<span class="quiz-option-letter">'+letters[i]+'</span>'
+          + '<span>'+q.o[i]+'</span></button>';
   }
-  body.innerHTML = '<div class="quiz-q-num">Question '+(state.current+1)+' of '+state.qs.length+' &middot; '+(q.type==='tf'?'True or False':'Multiple Choice')+'</div>'
+  body.innerHTML = '<div class="quiz-q-num">Question '+(s.cur+1)+' of '+s.qs.length
+    +' &middot; '+(q.o.length===2?'True or False':'Multiple Choice')+'</div>'
     +'<div class="quiz-question">'+q.q+'</div>'
-    +'<div class="quiz-options">'+optHtml+'</div>'
-    +'<div class="quiz-feedback" id="qfb-'+chId+'"></div>'
-    +'<div class="quiz-nav"><button class="quiz-next-btn" id="qnext-'+chId+'" onclick="nextQuestion(''+chId+'')">'
-    +(state.current+1 < state.qs.length ? 'Next Question &rarr;' : 'See Results &rarr;')
-    +'</button></div>';
+    +'<div class="quiz-options">'+opts+'</div>'
+    +'<div class="quiz-feedback" id="qfb-'+id+'"></div>'
+    +'<div class="quiz-nav"><button class="quiz-next-btn" id="qnxt-'+id+'" onclick="qNext(\''+id+'\')">'
+    +(s.cur+1<s.qs.length?'Next Question &rarr;':'See Results &rarr;')+'</button></div>';
 }
 
-function selectOption(chId, idx){
-  var state = window['_quiz_'+chId];
-  if(!state || state.answered){ return; }
-  state.answered = true;
-  var q = state.qs[state.current];
-  var correct = q.answer === idx;
-  if(correct){ state.score++; }
-  for(var i=0;i<q.options.length;i++){
-    var btn = document.getElementById('qopt-'+chId+'-'+i);
-    if(!btn){ continue; }
-    btn.disabled = true;
-    if(i===idx){ btn.classList.add(correct?'correct':'wrong'); }
-    if(!correct && i===q.answer){ btn.classList.add('correct'); }
+function qPick(id,idx){
+  var s = QS[id];
+  if(s.done) return;
+  s.done = true;
+  var correct = s.qs[s.cur].a === idx;
+  if(correct) s.score++;
+  for(var i=0;i<s.qs[s.cur].o.length;i++){
+    var b = document.getElementById('qo-'+id+'-'+i);
+    if(b){
+      b.disabled = true;
+      if(i===idx) b.classList.add(correct?'correct':'wrong');
+      if(!correct && i===s.qs[s.cur].a) b.classList.add('correct');
+    }
   }
-  var fb = document.getElementById('qfb-'+chId);
-  if(fb){
-    fb.className = 'quiz-feedback show '+(correct?'correct':'wrong');
-    fb.textContent = correct ? '✅ Correct!' : '❌ Incorrect — the correct answer is highlighted above.';
-  }
-  var nxt = document.getElementById('qnext-'+chId);
-  if(nxt){ nxt.classList.add('show'); }
+  var fb = document.getElementById('qfb-'+id);
+  if(fb){ fb.className='quiz-feedback show '+(correct?'correct':'wrong');
+    fb.textContent = correct?'Correct!':'Incorrect — the correct answer is highlighted above.'; }
+  var nb = document.getElementById('qnxt-'+id);
+  if(nb) nb.classList.add('show');
 }
 
-function nextQuestion(chId){
-  var state = window['_quiz_'+chId];
-  state.current++;
-  if(state.current >= state.qs.length){
-    showQuizResult(chId);
-  } else {
-    renderQuestion(chId);
-  }
+function qNext(id){
+  var s = QS[id];
+  s.cur++;
+  if(s.cur >= s.qs.length){ qResult(id); } else { qRender(id); }
 }
 
-function showQuizResult(chId){
-  var state = window['_quiz_'+chId];
-  var body = document.getElementById('qbody-'+chId);
-  var result = document.getElementById('qresult-'+chId);
-  var prog = document.getElementById('qprog-'+chId);
-  var fill = document.getElementById('qfill-'+chId);
-  if(body){ body.style.display='none'; }
+function qResult(id){
+  var s = QS[id];
+  var body = document.getElementById('qbody-'+id);
+  var result = document.getElementById('qresult-'+id);
+  var fill = document.getElementById('qfill-'+id);
+  var prog = document.getElementById('qprog-'+id);
+  if(body) body.style.display='none';
   fill.style.width='100%';
   prog.textContent='Complete';
-  var pct = Math.round(state.score/state.qs.length*100);
-  var pass = state.score === state.qs.length;
+  var pass = s.score===s.qs.length;
   result.className='quiz-result show';
   if(pass){
     result.innerHTML='<div class="quiz-result-emoji">🎉</div>'
       +'<div class="quiz-pass-msg">Perfect score! You have mastered this chapter.</div>'
-      +'<h3>Chapter Quiz Complete!</h3>'
-      +'<div class="quiz-score pass">'+state.score+' / '+state.qs.length+'</div>'
-      +'<p>You answered all '+state.qs.length+' questions correctly. You are ready to move on.</p>';
-    setTimeout(function(){ markComplete(chId); }, 600);
+      +'<h3>Quiz Complete!</h3><div class="quiz-score pass">'+s.score+' / '+s.qs.length+'</div>'
+      +'<p>All '+s.qs.length+' correct. You are ready to move on.</p>';
+    setTimeout(function(){ markComplete(id); },600);
   } else {
     result.innerHTML='<div class="quiz-result-emoji">📚</div>'
       +'<div class="quiz-fail-msg">You need 100% to pass. Review the chapter and try again.</div>'
-      +'<h3>Not quite yet...</h3>'
-      +'<div class="quiz-score fail">'+state.score+' / '+state.qs.length+'</div>'
-      +'<p>You got <strong>'+state.score+' out of '+state.qs.length+'</strong> correct ('+pct+'%). You need all 10 correct to move on.</p>'
-      +'<button class="quiz-retry-btn" onclick="retryQuiz(''+chId+'')">&#8634; Retake Quiz</button>';
+      +'<h3>Not quite yet...</h3><div class="quiz-score fail">'+s.score+' / '+s.qs.length+'</div>'
+      +'<p>You got '+s.score+' out of '+s.qs.length+' correct. Re-read the chapter then retake.</p>'
+      +'<button class="quiz-retry-btn" onclick="qRetry(\''+id+'\')">Retake Quiz</button>';
   }
 }
 
-function retryQuiz(chId){
-  var data = QUIZ_DATA[chId];
-  var qs = data.questions.slice().sort(function(){ return Math.random()-0.5; });
-  window['_quiz_'+chId] = {qs:qs, current:0, score:0, answered:false};
-  var body = document.getElementById('qbody-'+chId);
-  var result = document.getElementById('qresult-'+chId);
-  if(body){ body.style.display='block'; }
+function qRetry(id){
+  var qs = QDATA[id].slice().sort(function(){return Math.random()-0.5;});
+  QS[id]={qs:qs,cur:0,score:0,done:false};
+  var body=document.getElementById('qbody-'+id);
+  var result=document.getElementById('qresult-'+id);
+  if(body) body.style.display='block';
   result.className='quiz-result';
-  renderQuestion(chId);
+  qRender(id);
 }
 
-// Initialize all quizzes on page load
-window.addEventListener('load', function(){
-  var chapters = Object.keys(QUIZ_DATA);
-  for(var i=0;i<chapters.length;i++){
-    initQuiz(chapters[i]);
-  }
-});
+// Run on load — init all quizzes
+window.onload = function(){
+  var ids = ['ch0','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10','ch11'];
+  for(var i=0;i<ids.length;i++){ qInit(ids[i]); }
+};
 </script>
-
-</body>
-</html>
