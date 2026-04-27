@@ -2499,37 +2499,36 @@ function qResult(id){
   result.className='quiz-result show';
   if(pass){
     var emoji = s.score===total ? '🎉' : '👍';
-    var msg = s.score===total
+    var passMsg = s.score===total
       ? 'Perfect score! You have completely mastered this chapter.'
       : 'You passed with '+s.score+'/'+total+'. Review the missed questions below so they stick.';
-    result.innerHTML='<div class="quiz-result-emoji">'+emoji+'</div>'
-      +'<div class="quiz-pass-msg">'+msg+'</div>'
-      +'<h3>Chapter Quiz — Passed!</h3>'
-      +'<div class="quiz-score pass">'+s.score+' / '+total+'</div>'
-      +'<p style="font-size:13px;color:#4A5268">Pass mark is 17 out of 20. You scored '+s.score+' — you are ready to move on.</p>'
-      +reviewHtml;
-    setTimeout(function(){ markComplete(id); },800);
-    // Add motivational message
-    var msgs = {
+    var motivMsgs = {
       'ch0':'Welcome to the journey. Starting is the hardest part — and you just did it. Most people talk about changing their lives. You are actually doing it. Stay curious, stay consistent, and trust the process. The career you want is on the other side of this course.',
       'ch1':'You now understand the foundation of the trade and what the path ahead looks like. That clarity alone puts you ahead of most people who walk into interviews. Keep this momentum — every chapter you complete is a brick in the wall of your future career.',
       'ch2':'Safety knowledge is not just about passing a quiz — it is what brings you home every single day. The electricians who last decades in this trade are the ones who made safety a habit not a rule. You are building that habit right now. That matters.',
-      'ch3':'Your credentials are your calling card before you ever step on a job site. Every certificate you earn from this chapter is proof that you took initiative before anyone asked you to. Employers notice that. Keep stacking those credentials — they open doors.',
-      'ch4':'Knowing your tools by name purpose and brand before Day 1 will make you stand out immediately. Most helpers show up not knowing the difference between lineman's pliers and needle-nose. You already do. That is not a small thing — that is the edge that gets you kept on.',
-      'ch5':'Electricity is invisible — but now you understand what is actually happening inside every wire breaker and circuit you will ever work on. That understanding is what separates someone who follows instructions from someone who can think on the job. You are becoming that person.',
+      'ch3':'Your credentials are your calling card before you ever step on a job site. Every certificate you earn is proof that you took initiative before anyone asked you to. Employers notice that. Keep stacking those credentials — they open doors.',
+      'ch4':'Knowing your tools by name, purpose and brand before Day 1 will make you stand out immediately. Most helpers show up not knowing the difference between lineman pliers and needle-nose. You already do. That is not a small thing — that is the edge that gets you kept on.',
+      'ch5':'Electricity is invisible — but now you understand what is actually happening inside every wire, breaker and circuit you will ever work on. That understanding is what separates someone who follows instructions from someone who can think on the job. You are becoming that person.',
       'ch6':'Wire and cable knowledge is the language of the trade. When a journeyman says hand me some 12-2 or this needs a 10-gauge circuit you will know exactly what that means and why. That fluency is worth more on Day 1 than you realize. Keep going.',
-      'ch7':'Conduit bending is where theory meets craft. It takes time to master but now you have the foundation. Every journeyman you will ever work with started exactly where you are — confused by takeoffs and proud of their first clean 90. Your clean bends are coming. Stay with it.',
-      'ch8':'Boxes switches and outlets are what homeowners and building owners actually see and touch. Doing this work cleanly correctly and safely is what builds your reputation one device at a time. You now know how to do it right. That reputation starts with chapter 8.',
+      'ch7':'Conduit bending is where theory meets craft. It takes time to master but now you have the foundation. Every journeyman you will ever work with started exactly where you are — learning takeoffs and practicing their first clean 90. Your best bends are coming. Stay with it.',
+      'ch8':'Boxes, switches and outlets are what homeowners and building owners actually see and touch. Doing this work cleanly, correctly and safely is what builds your reputation one device at a time. You now know how to do it right. That reputation starts right here.',
       'ch9':'Panels are the brain of every building — and now you understand how they work from the bus bars to the breakers. That knowledge will make you valuable on every single job site you ever walk onto. You are not just learning a trade — you are building expertise.',
       'ch10':'Reading plans and knowing your codes is what turns a good helper into a great one. When you can look at a blueprint and know what goes where before anyone tells you — that is when journeymen start trusting you with real responsibility. You are almost there.',
-      'ch11':'You made it through the entire course. That took discipline patience and a belief in yourself that most people never find. Now go use what you know. Apply this week. Make the calls. Walk into that interview ready. Your career starts now.'
+      'ch11':'You made it through the entire course. That took discipline, patience and a belief in yourself that most people never find. Now go use what you know. Apply this week. Make the calls. Walk into that interview ready. Your career starts now.'
     };
-    var msg = msgs[id] || 'Great work. Keep pushing forward — every chapter completed is one step closer to the career you are building.';
-    var motivDiv = document.createElement('div');
-    motivDiv.style.cssText = 'margin-top:1.5rem;background:linear-gradient(135deg,#111318,#2C3140);border-radius:10px;padding:1.4rem 1.6rem;text-align:left;border-left:4px solid #F7C948';
-    motivDiv.innerHTML = '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#F7C948;margin-bottom:8px">⚡ Keep Going</div>'
-      +'<p style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.75;margin:0;font-style:italic">' + msg + '</p>';
-    result.appendChild(motivDiv);
+    var motivText = motivMsgs[id] || 'Great work. Keep pushing forward — every chapter completed is one step closer to the career you are building.';
+    var motivHtml = '<div style="margin-top:1.5rem;background:linear-gradient(135deg,#111318,#2C3140);border-radius:10px;padding:1.4rem 1.6rem;text-align:left;border-left:4px solid #F7C948">'
+      +'<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#F7C948;margin-bottom:8px">&#9889; Keep Going</div>'
+      +'<p style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.75;margin:0;font-style:italic">'+motivText+'</p>'
+      +'</div>';
+    result.innerHTML='<div class="quiz-result-emoji">'+emoji+'</div>'
+      +'<div class="quiz-pass-msg">'+passMsg+'</div>'
+      +'<h3>Chapter Quiz — Passed!</h3>'
+      +'<div class="quiz-score pass">'+s.score+' / '+total+'</div>'
+      +'<p style="font-size:13px;color:#4A5268">Pass mark is 17 out of 20. You scored '+s.score+' — you are ready to move on.</p>'
+      +reviewHtml
+      +motivHtml;
+    setTimeout(function(){ markComplete(id); },800);
   } else {
     result.innerHTML='<div class="quiz-result-emoji">📚</div>'
       +'<div class="quiz-fail-msg">You need at least 17 out of 20 to pass. You scored '+s.score+' — review the chapter then try again.</div>'
