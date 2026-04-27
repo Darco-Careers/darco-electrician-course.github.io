@@ -2503,29 +2503,32 @@ function qResult(id){
       ? 'Perfect score! You have completely mastered this chapter.'
       : 'You passed with '+s.score+'/'+total+'. Review the missed questions below so they stick.';
     var motivMsgs = {
-      'ch0':'Welcome to the journey. Starting is the hardest part — and you just did it. Most people talk about changing their lives. You are actually doing it. Stay curious, stay consistent, and trust the process. The career you want is on the other side of this course.',
-      'ch1':'You now understand the foundation of the trade and what the path ahead looks like. That clarity alone puts you ahead of most people who walk into interviews. Keep this momentum — every chapter you complete is a brick in the wall of your future career.',
-      'ch2':'Safety knowledge is not just about passing a quiz — it is what brings you home every single day. The electricians who last decades in this trade are the ones who made safety a habit not a rule. You are building that habit right now. That matters.',
-      'ch3':'Your credentials are your calling card before you ever step on a job site. Every certificate you earn is proof that you took initiative before anyone asked you to. Employers notice that. Keep stacking those credentials — they open doors.',
-      'ch4':'Knowing your tools by name, purpose and brand before Day 1 will make you stand out immediately. Most helpers show up not knowing the difference between lineman pliers and needle-nose. You already do. That is not a small thing — that is the edge that gets you kept on.',
-      'ch5':'Electricity is invisible — but now you understand what is actually happening inside every wire, breaker and circuit you will ever work on. That understanding is what separates someone who follows instructions from someone who can think on the job. You are becoming that person.',
-      'ch6':'Wire and cable knowledge is the language of the trade. When a journeyman says hand me some 12-2 or this needs a 10-gauge circuit you will know exactly what that means and why. That fluency is worth more on Day 1 than you realize. Keep going.',
-      'ch7':'Conduit bending is where theory meets craft. It takes time to master but now you have the foundation. Every journeyman you will ever work with started exactly where you are — learning takeoffs and practicing their first clean 90. Your best bends are coming. Stay with it.',
-      'ch8':'Boxes, switches and outlets are what homeowners and building owners actually see and touch. Doing this work cleanly, correctly and safely is what builds your reputation one device at a time. You now know how to do it right. That reputation starts right here.',
-      'ch9':'Panels are the brain of every building — and now you understand how they work from the bus bars to the breakers. That knowledge will make you valuable on every single job site you ever walk onto. You are not just learning a trade — you are building expertise.',
-      'ch10':'Reading plans and knowing your codes is what turns a good helper into a great one. When you can look at a blueprint and know what goes where before anyone tells you — that is when journeymen start trusting you with real responsibility. You are almost there.',
-      'ch11':'You made it through the entire course. That took discipline, patience and a belief in yourself that most people never find. Now go use what you know. Apply this week. Make the calls. Walk into that interview ready. Your career starts now.'
+      'ch0':'You actually did it. You showed up, you started, and you finished Chapter 0. That already puts you ahead of everyone who said they were going to learn a trade and never opened a single page. This is real. You are on your way. Do not stop now.',
+      'ch1':'That is what I am talking about! You now understand what this trade is, what the path looks like, and what Ohm\'s Law means. Most people your age are still figuring out what they want to do. You already know. Keep that energy going into every chapter.',
+      'ch2':'I am proud of you for taking safety seriously. I have seen too many people get hurt because they got comfortable. The fact that you sat down, studied it, and passed this quiz tells me you are the kind of person who comes home safe every day. That matters more than anything.',
+      'ch3':'Look at you — already thinking about credentials before you even have a job! That is the mindset that gets people hired fast and promoted faster. Stack those certifications, put them on your resume, and watch how differently employers treat you. You are ahead of the game.',
+      'ch4':'You know your tools now. That is not a small thing — walk onto any job site and name every tool a journeyman hands you and watch their face change. They will start trusting you with more. You just earned that. Now go handle those tools like you own the trade.',
+      'ch5':'Electricity makes sense to you now. You understand the WHY — not just the what. That is what separates a great electrician from someone who just follows instructions. When something goes wrong on a job site, you will be the one who can think through it. That is powerful.',
+      'ch6':'Wire colors, gauge sizes, amperage limits — you know them cold now. On your first day when a journeyman says "hand me some 12-2" you are not going to freeze. You are going to reach for exactly the right thing. That moment is coming. You are ready for it.',
+      'ch7':'Conduit bending is one of the most satisfying skills in this trade and you just laid the foundation for it. The first time you pull a clean 90 on a real job site — no kinks, perfect measurement — you are going to feel it. Keep practicing. That feeling is worth it.',
+      'ch8':'Switches, outlets, boxes — this is where the trade gets real and hands-on. You now know how to do this work right, safely, and professionally. The electricians who build the best reputations are the ones who do clean work every single time. You are becoming one of them.',
+      'ch9':'Panels are intimidating to most people and you just mastered them. Bus bars, breakers, bonding, grounding — you get it now. Walk up to any panel on any job site and you will know exactly what you are looking at. That confidence is worth everything on Day 1.',
+      'ch10':'Reading blueprints and knowing your codes puts you in a different category entirely. You can walk onto a job site, look at the plans, and know what needs to happen. That is not helper-level thinking — that is journeyman thinking. You are ahead of where you should be.',
+      'ch11':'You finished the entire course. Every single chapter. Do you realize how rare that is? Most people quit. You did not. Now take everything you learned, walk into that interview with your OSHA 10 card and your knowledge, and go get that job. You have earned it. Now go claim it.'
     };
-    var motivText = motivMsgs[id] || 'Great work. Keep pushing forward — every chapter completed is one step closer to the career you are building.';
-    var motivHtml = '<div style="margin-top:2rem;background:#FFFDF7;border-radius:12px;padding:2rem 2rem 1.5rem;text-align:left;box-shadow:0 4px 24px rgba(0,0,0,.08);border:1px solid #F0EAD8;position:relative;overflow:hidden">'
-      +'<div style="position:absolute;top:-10px;left:16px;font-family:Georgia,serif;font-size:80px;color:#F7C948;opacity:.35;line-height:1;pointer-events:none">&ldquo;</div>'
-      +'<p style="font-family:\'Playfair Display\',Georgia,serif;font-size:17px;color:#2C3140;line-height:1.85;margin:0 0 1.2rem;font-style:italic;position:relative;z-index:1;padding-top:.5rem">'+motivText+'</p>'
-      +'<div style="display:flex;align-items:center;gap:10px;border-top:1px solid #F0EAD8;padding-top:1rem">'
-      +'<div style="width:36px;height:36px;background:#111318;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-size:16px;color:#F7C948;font-weight:700;flex-shrink:0">D</div>'
-      +'<div><div style="font-family:\'Playfair Display\',Georgia,serif;font-size:13px;font-style:italic;color:#4A5268">Your Darco Mentor</div>'
-      +'<div style="font-size:11px;color:#8A93A8;letter-spacing:.04em">Darco Electrical Career Course</div></div>'
+    var motivText = motivMsgs[id] || 'You did it. Keep pushing — every chapter you finish is one step closer to the career you are building. Do not stop now.';
+    var motivHtml = '<div style="margin-top:2rem;display:flex;gap:14px;align-items:flex-start">'
+      +'<div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px">'
+      +'<div style="width:44px;height:44px;background:#111318;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-size:19px;color:#F7C948;font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,.15)">D</div>'
+      +'<div style="font-size:9px;color:#8A93A8;text-align:center;letter-spacing:.03em;line-height:1.4">Your<br>Mentor</div>'
       +'</div>'
-      +'<div style="position:absolute;bottom:-20px;right:16px;font-family:Georgia,serif;font-size:80px;color:#F7C948;opacity:.15;line-height:1;pointer-events:none">&rdquo;</div>'
+      +'<div style="flex:1;position:relative">'
+      +'<div style="background:#111318;border-radius:0 14px 14px 14px;padding:1.2rem 1.4rem;position:relative">'
+      +'<div style="position:absolute;top:0;left:-8px;width:0;height:0;border-top:0px solid transparent;border-bottom:10px solid transparent;border-right:10px solid #111318"></div>'
+      +'<p style="font-family:\'Playfair Display\',Georgia,serif;font-size:15px;color:rgba(255,255,255,.9);line-height:1.85;margin:0;font-style:italic">'+motivText+'</p>'
+      +'</div>'
+      +'<div style="margin-top:6px;padding-left:4px;font-size:11px;color:#8A93A8;font-style:italic">Darco Electrical Career Course</div>'
+      +'</div>'
       +'</div>';
     result.innerHTML='<div class="quiz-result-emoji">'+emoji+'</div>'
       +'<div class="quiz-pass-msg">'+passMsg+'</div>'
