@@ -1634,8 +1634,7 @@ function goTo(id,btn){
   document.querySelectorAll('.ch-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
-  const nav=document.querySelector('.chapter-nav');
-  window.scrollTo({top:nav.offsetTop-100,behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
   btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
 }
 
