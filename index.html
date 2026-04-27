@@ -2517,17 +2517,17 @@ function qResult(id){
       'ch11':'You finished the entire course. Every single chapter. Do you realize how rare that is? Most people quit. You did not. Now take everything you learned, walk into that interview with your OSHA 10 card and your knowledge, and go get that job. You have earned it. Now go claim it.'
     };
     var motivText = motivMsgs[id] || 'You did it. Keep pushing — every chapter you finish is one step closer to the career you are building. Do not stop now.';
-    var motivHtml = '<div style="margin-top:2rem;display:flex;gap:14px;align-items:flex-start">'
+    var motivHtml = '<div style="margin-top:2rem;display:flex;gap:16px;align-items:flex-start">'
       +'<div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px">'
-      +'<div style="width:48px;height:48px;background:#111318;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-size:21px;color:#F7C948;font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,.15)">D</div>'
+      +'<div style="width:52px;height:52px;background:#111318;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-size:23px;color:#F7C948;font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,.15)">D</div>'
       +'<div style="font-size:9px;color:#8A93A8;text-align:center;letter-spacing:.03em;line-height:1.4">Your<br>Mentor</div>'
       +'</div>'
       +'<div style="flex:1;position:relative">'
-      +'<div style="background:#111318;border-radius:4px;padding:1.4rem 1.6rem;position:relative">'
-      +'<div style="position:absolute;top:14px;left:-8px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:8px solid #111318"></div>'
-      +'<p style="font-family:\'Playfair Display\',Georgia,serif;font-size:18px;color:rgba(255,255,255,.92);line-height:1.9;margin:0;font-style:italic">'+motivText+'</p>'
+      +'<div style="background:#111318;border-radius:4px;padding:2rem;position:relative;min-height:160px;display:flex;align-items:center">'
+      +'<div style="position:absolute;top:18px;left:-9px;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-right:9px solid #111318"></div>'
+      +'<p style="font-family:\'Playfair Display\',Georgia,serif;font-size:22px;color:rgba(255,255,255,.92);line-height:1.85;margin:0;font-style:italic">'+motivText+'</p>'
       +'</div>'
-      +'<div style="margin-top:6px;padding-left:4px;font-size:11px;color:#8A93A8;font-style:italic">Darco Electrical Career Course</div>'
+      +'<div style="margin-top:7px;padding-left:4px;font-size:11px;color:#8A93A8;font-style:italic">Darco Electrical Career Course</div>'
       +'</div>'
       +'</div>';
     result.innerHTML='<div class="quiz-result-emoji">'+emoji+'</div>'
